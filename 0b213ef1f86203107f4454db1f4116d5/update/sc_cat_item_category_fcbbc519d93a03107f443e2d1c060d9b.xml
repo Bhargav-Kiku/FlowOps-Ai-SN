@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
+    <sc_cat_item_category action="INSERT_OR_UPDATE">
+        <sc_cat_item display_value="Guest Request Producer">77e6c5d9d9f603107f443e2d1c060d3c</sc_cat_item>
+        <sc_category display_value="Support">1b8611d5c3921200b0449f2974d3ae12</sc_category>
+        <sys_class_name>sc_cat_item_category</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 08:48:07</sys_created_on>
+        <sys_id>fcbbc519d93a03107f443e2d1c060d9b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Support.Guest Request Producer</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sc_cat_item_category_fcbbc519d93a03107f443e2d1c060d9b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 08:48:25</sys_updated_on>
+    </sc_cat_item_category>
+</record_update>
