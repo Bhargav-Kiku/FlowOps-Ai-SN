@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_snc_flowops_room" version="2" view="sys_ref_list">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>room_number</element>
+            <list_id display_value="x_snc_flowops_room" element="NULL" name="x_snc_flowops_room" parent="NULL" relationship="NULL" sys_domain="global" view="3d781f02993003107f4454352b402eb7">db9f199435f603107f445739ba9e658d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-15 07:41:11</sys_created_on>
+            <sys_id>139f199435f603107f445739ba9e658f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-15 07:41:11</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>floor</element>
+            <list_id display_value="x_snc_flowops_room" element="NULL" name="x_snc_flowops_room" parent="NULL" relationship="NULL" sys_domain="global" view="3d781f02993003107f4454352b402eb7">db9f199435f603107f445739ba9e658d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-15 07:41:11</sys_created_on>
+            <sys_id>9f9f199435f603107f445739ba9e658f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-15 07:41:11</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>room_type</element>
+            <list_id display_value="x_snc_flowops_room" element="NULL" name="x_snc_flowops_room" parent="NULL" relationship="NULL" sys_domain="global" view="3d781f02993003107f4454352b402eb7">db9f199435f603107f445739ba9e658d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-15 07:41:11</sys_created_on>
+            <sys_id>179f199435f603107f445739ba9e6590</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-15 07:41:11</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>occupancy_status</element>
+            <list_id display_value="x_snc_flowops_room" element="NULL" name="x_snc_flowops_room" parent="NULL" relationship="NULL" sys_domain="global" view="3d781f02993003107f4454352b402eb7">db9f199435f603107f445739ba9e658d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-15 07:41:11</sys_created_on>
+            <sys_id>9b9f199435f603107f445739ba9e6590</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-15 07:41:11</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>housekeeping_status</element>
+            <list_id display_value="x_snc_flowops_room" element="NULL" name="x_snc_flowops_room" parent="NULL" relationship="NULL" sys_domain="global" view="3d781f02993003107f4454352b402eb7">db9f199435f603107f445739ba9e658d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-15 07:41:11</sys_created_on>
+            <sys_id>139f199435f603107f445739ba9e6591</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-15 07:41:11</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>property</element>
+            <list_id display_value="x_snc_flowops_room" element="NULL" name="x_snc_flowops_room" parent="NULL" relationship="NULL" sys_domain="global" view="3d781f02993003107f4454352b402eb7">db9f199435f603107f445739ba9e658d</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-15 07:41:11</sys_created_on>
+            <sys_id>979f199435f603107f445739ba9e6591</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-15 07:41:11</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_snc_flowops_room</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-15 07:41:11</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>db9f199435f603107f445739ba9e658d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_flowops_room</sys_name>
+            <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+            <sys_update_name>sys_ui_list_x_snc_flowops_room_sys_ref_list</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-15 07:41:11</sys_updated_on>
+            <sys_user/>
+            <view display_value="Reference List" name="sys_ref_list">3d781f02993003107f4454352b402eb7</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_push_notif_app_install">
+    <sys_push_notif_app_install action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <last_registered_on>2026-08-18 13:24:51</last_registered_on>
+        <send_badge_count>true</send_badge_count>
+        <sys_class_name>sys_push_notif_app_install</sys_class_name>
+        <sys_created_by>nisha.kapoor</sys_created_by>
+        <sys_created_on>2026-08-18 13:24:51</sys_created_on>
+        <sys_id>7e0b8e11d9b243107f443e2d1c060d52</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ej7bFGeARKutatsSisLXFg:APA91bE0KwnOjzfb8JR9o6QrawcdwcckYTTIujpPFQzPqQpMJLNb27CYsO80KAF7Sp-oBtyPggL0kNTAv2Y1xmSlLR1V6Cf1WmMHPm68K2uZZ7il3yKU9yQ</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_push_application_id display_value="ServiceNow Request Application">ac7f61d273122300d63a566a4cf6a78b</sys_push_application_id>
+        <sys_push_platform_id display_value="Google">53e75f30ff0002009738ffffffffff12</sys_push_platform_id>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_push_notif_app_install_7e0b8e11d9b243107f443e2d1c060d52</sys_update_name>
+        <sys_updated_by>nisha.kapoor</sys_updated_by>
+        <sys_updated_on>2026-08-18 13:24:51</sys_updated_on>
+        <sys_user_id display_value="Nisha Kapoor">22cded9700e603107f444d153ccd84ae</sys_user_id>
+        <token>ej7bFGeARKutatsSisLXFg:APA91bE0KwnOjzfb8JR9o6QrawcdwcckYTTIujpPFQzPqQpMJLNb27CYsO80KAF7Sp-oBtyPggL0kNTAv2Y1xmSlLR1V6Cf1WmMHPm68K2uZZ7il3yKU9yQ</token>
+    </sys_push_notif_app_install>
+</record_update>

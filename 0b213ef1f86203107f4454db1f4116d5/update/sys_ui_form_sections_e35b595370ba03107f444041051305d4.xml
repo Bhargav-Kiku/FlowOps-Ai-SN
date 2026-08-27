@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="e35b595370ba03107f444041051305d4" sys_domain="global" table="x_snc_flowops_guest_request" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-24 15:04:25</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>775b595370ba03107f444041051305f3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_snc_flowops_guest_request" name="x_snc_flowops_guest_request" sys_domain="global" view="Default view">e35b595370ba03107f444041051305d4</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_flowops_guest_request" sys_domain="global" view="Default view">162bb14a116203107f44b6b828e59731</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-24 15:04:25</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-24 16:38:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fef0b5df703e03107f444041051305c0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_snc_flowops_guest_request" name="x_snc_flowops_guest_request" sys_domain="global" view="Default view">e35b595370ba03107f444041051305d4</sys_ui_form>
+            <sys_ui_section caption="AI Analysis" display_value="AI Analysis" name="x_snc_flowops_guest_request" sys_domain="global" view="Default view">2af0b5df703e03107f44404105130598</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-24 16:38:50</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-24 16:42:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>66d17153707e03107f4440410513053c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_snc_flowops_guest_request" name="x_snc_flowops_guest_request" sys_domain="global" view="Default view">e35b595370ba03107f444041051305d4</sys_ui_form>
+            <sys_ui_section caption="Processing &amp; Resolution" display_value="Processing &amp; Resolution" name="x_snc_flowops_guest_request" sys_domain="global" view="Default view">62d17153707e03107f44404105130539</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-24 16:42:39</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_snc_flowops_guest_request</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-24 15:04:25</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e35b595370ba03107f444041051305d4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_flowops_guest_request</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+            <sys_update_name>sys_ui_form_sections_e35b595370ba03107f444041051305d4</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-24 15:04:25</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

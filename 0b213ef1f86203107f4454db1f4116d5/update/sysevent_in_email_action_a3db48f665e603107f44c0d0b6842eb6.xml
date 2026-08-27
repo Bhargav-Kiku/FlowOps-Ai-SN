@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>true</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description/>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>FlowOps - Create Guest Request </name>
+        <order>100</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[(function runAction(current, event, email, logger, classifier) {
+
+    // =========================================================
+    // 1. STORE EMAIL INFORMATION
+    // =========================================================
+
+    current.sender_email = email.from;
+    current.raw_text = email.body_text;
+
+    // Store request source
+    current.channel = 'inbound_email';
+
+    // Store the original inbound sys_email record ID
+    if (typeof sys_email !== 'undefined' && sys_email) {
+
+        current.channel_reference = sys_email.getUniqueValue();
+
+        logger.log(
+            'Original inbound email sys_id: ' +
+            sys_email.getUniqueValue(),
+            'FlowOpsInboundEmail'
+        );
+
+    } else {
+
+        logger.log(
+            'Could not access original sys_email record.',
+            'FlowOpsInboundEmail'
+        );
+
+    }
+
+
+    // =========================================================
+    // 2. FIND GUEST USING SENDER EMAIL
+    // =========================================================
+
+    var guestGR = new GlideRecord('x_snc_flowops_guest');
+    guestGR.addQuery('email', email.from);
+    guestGR.query();
+
+    if (guestGR.next()) {
+
+        current.guest = guestGR.getUniqueValue();
+
+    } else {
+
+        logger.log(
+            'Guest not found for email: ' + email.from,
+            'FlowOpsInboundEmail'
+        );
+
+    }
+
+
+    // =========================================================
+    // 3. EXTRACT ROOM NUMBER
+    // =========================================================
+
+    var roomNumber = '';
+
+    var roomMatch = email.body_text.match(
+        /(?:room|rm)\s*[-:#]?\s*(\d+)/i
+    );
+
+
+    // Check subject if room was not found in body
+    if (!roomMatch && email.subject) {
+
+        roomMatch = email.subject.match(
+            /(?:room|rm)\s*[-:#]?\s*(\d+)/i
+        );
+
+    }
+
+
+    if (roomMatch) {
+
+        roomNumber = roomMatch[1];
+
+    }
+
+
+    // =========================================================
+    // 4. FIND ROOM USING ROOM NUMBER
+    // =========================================================
+
+    if (roomNumber) {
+
+        var roomGR = new GlideRecord('x_snc_flowops_room');
+        roomGR.addQuery('room_number', roomNumber);
+        roomGR.query();
+
+        if (roomGR.next()) {
+
+            current.room = roomGR.getUniqueValue();
+
+        } else {
+
+            logger.log(
+                'Room not found: ' + roomNumber,
+                'FlowOpsInboundEmail'
+            );
+
+        }
+
+    } else {
+
+        logger.log(
+            'No room number found in email.',
+            'FlowOpsInboundEmail'
+        );
+
+    }
+
+
+    // =========================================================
+    // 5. CREATE GUEST REQUEST
+    // =========================================================
+
+    current.insert();
+
+
+    // =========================================================
+    // 6. FIRE EVENT
+    // =========================================================
+
+    gs.eventQueue(
+        'x_snc_flowops.guest_request_created',
+        current,
+        email.from,
+        current.number
+    );
+
+
+    // =========================================================
+    // 7. LOG RESULT
+    // =========================================================
+
+    logger.log(
+        'Guest Request created: ' + current.number +
+        ' from ' + email.from +
+        ' for Room ' + roomNumber +
+        ' | Channel: ' + current.channel +
+        ' | Channel Reference: ' + current.channel_reference,
+        'FlowOpsInboundEmail'
+    );
+
+})(current, event, email, logger, classifier);]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 09:49:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a3db48f665e603107f44c0d0b6842eb6</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>FlowOps - Create Guest Request </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sysevent_in_email_action_a3db48f665e603107f44c0d0b6842eb6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 10:59:39</sys_updated_on>
+        <table>x_snc_flowops_guest_request</table>
+        <template>channel=inbound_email^status=new^EQ</template>
+        <type>new</type>
+    </sysevent_in_email_action>
+</record_update>

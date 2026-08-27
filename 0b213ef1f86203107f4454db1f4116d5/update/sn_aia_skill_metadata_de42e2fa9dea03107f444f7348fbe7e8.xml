@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_skill_metadata">
+    <sn_aia_skill_metadata action="INSERT_OR_UPDATE">
+        <description>This agent is designed to ask users for their names and greet them in a personalized manner. It is intended for any audience seeking a simple, interactive, and welcoming introduction from an AI system.</description>
+        <document_id>2c21227a9dea03107f444f7348fbe773</document_id>
+        <document_table>sn_aia_agent</document_table>
+        <internal_name>global.x_snc_flowops.User Greeting Agent</internal_name>
+        <name>User Greeting Agent</name>
+        <sys_class_name>sn_aia_skill_metadata</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:41:35</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>de42e2fa9dea03107f444f7348fbe7e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>User Greeting Agent</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_skill_metadata_de42e2fa9dea03107f444f7348fbe7e8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:41:35</sys_updated_on>
+    </sn_aia_skill_metadata>
+</record_update>

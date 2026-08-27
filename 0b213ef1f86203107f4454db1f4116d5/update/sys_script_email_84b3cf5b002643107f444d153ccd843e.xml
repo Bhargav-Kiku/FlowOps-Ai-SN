@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>flowops_guest_request_registered</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+
+    // ============================================
+    // 1. GET GUEST NAME
+    // ============================================
+
+    var guestName = 'Guest';
+
+    if (current.guest) {
+        var guestGR = current.guest.getRefRecord();
+
+        if (guestGR && guestGR.isValidRecord()) {
+            guestName = guestGR.getDisplayValue();
+        }
+    }
+
+
+    // ============================================
+    // 2. GET ROOM NUMBER
+    // ============================================
+
+    var roomNumber = 'Not specified';
+
+    if (current.room) {
+        var roomGR = current.room.getRefRecord();
+
+        if (roomGR && roomGR.isValidRecord()) {
+
+            if (roomGR.room_number) {
+                roomNumber = roomGR.room_number.toString();
+            }
+        }
+    }
+
+
+    // ============================================
+    // 3. EMAIL CONTENT
+    // ============================================
+
+    template.print(
+        'Dear ' + guestName + ',<br><br>'
+    );
+
+    template.print(
+        'Your request has been successfully registered.<br><br>'
+    );
+
+    template.print(
+        '<strong>Request Number:</strong> ' +
+        current.number +
+        '<br>'
+    );
+
+    template.print(
+        '<strong>Room:</strong> ' +
+        roomNumber +
+        '<br>'
+    );
+
+    template.print(
+        '<strong>Status:</strong> Registered<br><br>'
+    );
+
+    template.print(
+        'Our team has received your request and will assign a staff member shortly.<br>'
+    );
+
+    template.print(
+        'You will receive another update once a staff member has been assigned to handle your request.<br><br>'
+    );
+
+    template.print(
+        'Thank you,<br>'
+    );
+
+    template.print(
+        'FlowOps Guest Services'
+    );
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 12:26:43</sys_created_on>
+        <sys_id>84b3cf5b002643107f444d153ccd843e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>flowops_guest_request_registered</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_email_84b3cf5b002643107f444d153ccd843e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 12:26:43</sys_updated_on>
+    </sys_script_email>
+</record_update>

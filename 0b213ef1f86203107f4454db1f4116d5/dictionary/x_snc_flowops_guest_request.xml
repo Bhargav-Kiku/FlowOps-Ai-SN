@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" audit="true" db_object_id="bbb97106116203107f44b6b828e59718" label="Guest Request" max_length="40" name="x_snc_flowops_guest_request" type="collection">
+        <element label="Sender Email" max_length="40" name="sender_email" type="email"/>
+        <element label="AI Summary" max_length="300" name="ai_summary" read_only="true" read_only_option="display_read_only" type="string"/>
+        <element label="Resolved On" max_length="40" name="resolved_on" read_only="true" read_only_option="display_read_only" type="glide_date_time"/>
+        <element label="Raw Text" mandatory="true" max_length="350" name="raw_text" type="string"/>
+        <element label="Work Notes" max_length="40" name="work_notes" type="journal"/>
+        <element choice="1" label="Channel" mandatory="true" max_length="40" name="channel" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Workspace" sequence="2" value="workspace"/>
+                <element inactive_on_update="false" label="Virtual Agent" sequence="0" value="virtual_agent"/>
+                <element inactive_on_update="false" label="Inbound Email" sequence="4" value="inbound_email"/>
+                <element inactive_on_update="false" label="Walkup Kiosk" sequence="3" value="walkup_kiosk"/>
+                <element inactive_on_update="false" label="Service Portal" sequence="1" value="service_portal"/>
+            </choice>
+        </element>
+        <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
+        <element label="Guest" mandatory="true" max_length="32" name="guest" reference="x_snc_flowops_guest" type="reference"/>
+        <element label="Detected Intents" max_length="350" name="detected_intents" read_only="true" read_only_option="display_read_only" type="string"/>
+        <element label="Property" mandatory="true" max_length="32" name="property" read_only="true" read_only_option="display_read_only" reference="x_snc_flowops_property_table" type="reference"/>
+        <element label="Channel Reference" max_length="50" name="channel_reference" read_only="true" read_only_option="display_read_only" type="string"/>
+        <element choice="1" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="1-Critical" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="2-High" sequence="1" value="2"/>
+                <element inactive_on_update="false" label="3-Medium" sequence="2" value="3"/>
+                <element inactive_on_update="false" label="4-Low" sequence="3" value="4"/>
+            </choice>
+        </element>
+        <element choice="1" label="Urgency" max_length="40" name="urgency" read_only="true" read_only_option="display_read_only" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+            </choice>
+        </element>
+        <element choice="1" label="Sentiment" max_length="40" name="sentiment" read_only="true" read_only_option="display_read_only" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="4-Frustrated" sequence="3" value="4"/>
+                <element inactive_on_update="false" label="5-Neutral" sequence="4" value="5"/>
+                <element inactive_on_update="false" label="2-Sarcastic" sequence="1" value="2"/>
+                <element inactive_on_update="false" label="1-Urgent &amp; Distressed" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="3-Aggresive" sequence="2" value="3"/>
+            </choice>
+        </element>
+        <element choice="3" default="new" label="Status" max_length="40" name="status" read_only="true" read_only_option="display_read_only" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="Routed" sequence="1" value="routed"/>
+                <element inactive_on_update="false" label="In Progress" sequence="2" value="in_progress"/>
+                <element inactive_on_update="false" label="Resolved" sequence="3" value="resolved"/>
+                <element inactive_on_update="false" label="Closed" sequence="4" value="closed"/>
+            </choice>
+        </element>
+        <element label="Room" mandatory="true" max_length="32" name="room" read_only="true" read_only_option="display_read_only" reference="x_snc_flowops_room" type="reference"/>
+        <index name="index">
+            <element name="property"/>
+        </index>
+        <index name="index2">
+            <element name="guest"/>
+        </index>
+        <index name="index3">
+            <element name="room"/>
+        </index>
+    </element>
+</database>

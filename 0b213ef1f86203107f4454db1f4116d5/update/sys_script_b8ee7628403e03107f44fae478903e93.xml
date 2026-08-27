@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_snc_flowops_housekeeping_task</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Update HK Staff Assigned Room Count</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+    // --------------------------------------------------
+    // Helper function:
+    // Find the Staff Shift record for a staff member
+    // --------------------------------------------------
+    function getStaffShift(staffSysId) {
+
+        if (!staffSysId) {
+            return null;
+        }
+
+        var shift = new GlideRecord('x_snc_flowops_staff_shift');
+
+        shift.addQuery('staff', staffSysId);
+        shift.addQuery('shift_status', 'Active');
+        shift.setLimit(1);
+        shift.query();
+
+        if (shift.next()) {
+            return shift;
+        }
+
+        return null;
+    }
+
+
+    // --------------------------------------------------
+    // 1. NEW HOUSEKEEPING TASK
+    // --------------------------------------------------
+
+    if (current.operation() == 'insert') {
+
+        // Only count tasks that are not already finished/escalated
+        var status = current.getDisplayValue('status');
+
+        if (
+            current.assigned_staff &&
+            status != 'Escalated' &&
+            status != 'Resolved'
+        ) {
+
+            var newShift = getStaffShift(
+                current.assigned_staff.toString()
+            );
+
+            if (newShift) {
+
+                var count = parseInt(
+                    newShift.assigned_room_count,
+                    10
+                ) || 0;
+
+                newShift.assigned_room_count = count + 1;
+                newShift.update();
+            }
+        }
+
+        return;
+    }
+
+
+    // --------------------------------------------------
+    // 2. EXISTING TASK UPDATE
+    // --------------------------------------------------
+
+    // If staff assignment changed
+    if (current.assigned_staff.changes()) {
+
+        // Remove count from OLD staff
+        if (previous.assigned_staff) {
+
+            var oldShift = getStaffShift(
+                previous.assigned_staff.toString()
+            );
+
+            if (oldShift) {
+
+                var oldCount = parseInt(
+                    oldShift.assigned_room_count,
+                    10
+                ) || 0;
+
+                oldShift.assigned_room_count =
+                    Math.max(0, oldCount - 1);
+
+                oldShift.update();
+            }
+        }
+
+
+        // Add count to NEW staff
+        if (
+            current.assigned_staff &&
+            current.getDisplayValue('status') != 'Escalated' &&
+            current.getDisplayValue('status') != 'Resolved'
+        ) {
+
+            var newAssignedShift = getStaffShift(
+                current.assigned_staff.toString()
+            );
+
+            if (newAssignedShift) {
+
+                var newCount = parseInt(
+                    newAssignedShift.assigned_room_count,
+                    10
+                ) || 0;
+
+                newAssignedShift.assigned_room_count =
+                    newCount + 1;
+
+                newAssignedShift.update();
+            }
+        }
+
+        return;
+    }
+
+
+    // --------------------------------------------------
+    // 3. STATUS CHANGED TO ESCALATED OR RESOLVED
+    // --------------------------------------------------
+
+    if (current.status.changes()) {
+
+        var newStatus = current.getDisplayValue('status');
+        var oldStatus = previous.getDisplayValue('status');
+
+        // Only decrease when moving FROM an active state
+        // TO Escalated or Resolved.
+
+        var wasActive =
+            oldStatus != 'Escalated' &&
+            oldStatus != 'Resolved';
+
+        var isFinished =
+            newStatus == 'Escalated' ||
+            newStatus == 'Resolved';
+
+        if (
+            wasActive &&
+            isFinished &&
+            current.assigned_staff
+        ) {
+
+            var completedShift = getStaffShift(
+                current.assigned_staff.toString()
+            );
+
+            if (completedShift) {
+
+                var currentCount = parseInt(
+                    completedShift.assigned_room_count,
+                    10
+                ) || 0;
+
+                completedShift.assigned_room_count =
+                    Math.max(0, currentCount - 1);
+
+                completedShift.update();
+            }
+        }
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 09:21:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b8ee7628403e03107f44fae478903e93</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update HK Staff Assigned Room Count</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_b8ee7628403e03107f44fae478903e93</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 09:21:49</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=b8ee7628403e03107f44fae478903e93"/>
+</record_update>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_navigation_tab_map">
+    <sys_sg_navigation_tab_map action="INSERT_OR_UPDATE">
+        <navigation display_value="Engineer Navinagtion">e6c25e51d9f243107f443e2d1c060d25</navigation>
+        <navigation_tab display_value="Profile">eac25e51d9f243107f443e2d1c060d8e</navigation_tab>
+        <order/>
+        <sys_class_name>sys_sg_navigation_tab_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 13:58:42</sys_created_on>
+        <sys_id>2ec25e51d9f243107f443e2d1c060d91</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_navigation_tab_map_2ec25e51d9f243107f443e2d1c060d91</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 13:58:42</sys_updated_on>
+    </sys_sg_navigation_tab_map>
+</record_update>

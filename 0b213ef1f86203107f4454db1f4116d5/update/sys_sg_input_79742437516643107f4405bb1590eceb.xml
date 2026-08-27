@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_input">
+    <sys_sg_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <autofill_variable/>
+        <category/>
+        <description/>
+        <label>Reason for Escalation</label>
+        <mandatory>true</mandatory>
+        <name>Escalation Note Input</name>
+        <order/>
+        <page/>
+        <parameter_screen display_value="Escalation Note">bd742473516643107f4405bb1590ecf2</parameter_screen>
+        <parameter_section/>
+        <placeholder>Describe the issue...</placeholder>
+        <readonly>false</readonly>
+        <sys_class_name>sys_sg_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-13 14:05:49</sys_created_on>
+        <sys_id>79742437516643107f4405bb1590eceb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Reason for Escalation</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_input_79742437516643107f4405bb1590eceb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-13 14:05:49</sys_updated_on>
+        <type display_value="String">7debec1517021010f2b43b9fadb959e3</type>
+    </sys_sg_input>
+</record_update>

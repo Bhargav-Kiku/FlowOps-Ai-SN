@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, spUtil, $window, spContextManager) {
+  var c = this;
+  c.isRecording = false;
+  c.transcript = "";
+  c.status = "";
+
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recognition;
+
+  if (SpeechRecognition) {
+    recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.onresult = function(event) {
+      c.transcript = event.results[0][0].transcript;
+      c.isRecording = false;
+      $scope.$apply();
+    };
+  }
+
+  c.toggleListening = function() {
+    if (!SpeechRecognition) {
+      spUtil.addErrorMessage("Speech recognition not supported in browser. Please type your request below.");
+      return;
+    }
+    if (c.isRecording) {
+      recognition.stop();
+      c.isRecording = false;
+    } else {
+      c.transcript = "";
+      recognition.start();
+      c.isRecording = true;
+    }
+  };
+
+  c.submitRequest = function() {
+    c.status = "Submitting request...";
+    c.server.get({
+      action: 'create_interaction',
+      text: c.transcript
+    }).then(function(r) {
+      if (r.data.success) {
+        c.status = "Request submitted! Interaction Created: " + r.data.sys_id;
+        c.transcript = "";
+      }
+    });
+  };
+
+  // --- REDIRECT TO CHAT PAGE ---
+  c.openAiChat = function() {
+
+	spContextManager.addContext('agent-chat', {
+		hotel_name: c.data.hotelName || "",
+		city: c.data.city || "",
+		country: c.data.country || "",
+		room_id: c.data.roomNumber || "",
+		guest_name: c.data.guestName || ""
+	});
+
+	};
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.btn-circle {&#13;
+  width: 80px;&#13;
+  height: 80px;&#13;
+  border-radius: 50%;&#13;
+  font-size: 32px;&#13;
+  line-height: 80px;&#13;
+  padding: 0;&#13;
+}&#13;
+&#13;
+.pulse {&#13;
+  animation: pulse-animation 1.5s infinite;&#13;
+}&#13;
+&#13;
+@keyframes pulse-animation {&#13;
+  0% { box-shadow: 0 0 0 0px rgba(217, 83, 79, 0.7); }&#13;
+  100% { box-shadow: 0 0 0 20px rgba(217, 83, 79, 0); }&#13;
+}&#13;
+&#13;
+.margin-top-10 { &#13;
+  margin-top: 10px; &#13;
+}&#13;
+&#13;
+.margin-bottom-20 { &#13;
+  margin-bottom: 20px; &#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guest_voice_walkup</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Guest Voice Walkup</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  options.public = true;
+
+  data.hotelName = $sp.getParameter('hotel_name') || "Grand Hyatt";
+  data.country = $sp.getParameter('country') || "USA";
+  data.city = $sp.getParameter('city') || "San Diego";
+  data.roomNumber = $sp.getParameter('room_id') || "Room 402";
+  data.guestName = $sp.getParameter('guest_name') || "Valued Guest";
+
+  if (input && input.action === 'create_interaction') {
+    var gr = new GlideRecord('interaction');
+    gr.initialize();
+    gr.short_description = input.text;
+    
+    // Custom field mapping on interaction table
+    gr.x_snc_flowops_hotel_name = data.hotelName;
+    gr.x_snc_flowops_country = data.country;
+    gr.x_snc_flowops_city = data.city;
+    gr.x_snc_flowops_room_number = data.roomNumber;
+    gr.x_snc_flowops_guest_name = data.guestName; 
+    
+    gr.channel = 'walkup_portal';
+    var sysId = gr.insert();
+
+    data.success = true;
+    data.sys_id = sysId;
+  }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 03:03:10</sys_created_on>
+        <sys_id>a0728d5b006203107f444d153ccd8455</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Guest Voice Walkup</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sp_widget_a0728d5b006203107f444d153ccd8455</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:24:34</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default text-center" style="max-width: 500px; margin: 30px auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+  <div class="panel-heading">
+    <h3>{{c.data.hotelName}}</h3>
+    <p class="text-muted" style="margin-bottom: 5px;">{{c.data.city}}, {{c.data.country}}</p>
+    <p>Room: <strong>{{c.data.roomNumber}}</strong> <span ng-if="c.data.guestName != 'Valued Guest'">| Guest: <strong>{{c.data.guestName}}</strong></span></p>
+  </div>
+
+  <div class="panel-body">
+    <!-- Voice Input Section -->
+    <div class="voice-section margin-bottom-20">
+      <button class="btn btn-primary btn-lg btn-circle" ng-class="{'pulse': c.isRecording}" ng-click="c.toggleListening()">
+        <i class="fa" ng-class="c.isRecording ? 'fa-stop' : 'fa-microphone'" style="font-size: 32px;"></i>
+      </button>
+      <p class="margin-top-10">
+        <span ng-if="!c.isRecording">Tap microphone to speak</span>
+        <span ng-if="c.isRecording" class="text-danger">Listening...</span>
+      </p>
+    </div>
+
+    <div class="text-muted" style="margin: 15px 0;">— OR TYPE YOUR REQUEST —</div>
+
+    <!-- Text Input Section -->
+    <div class="form-group text-left">
+      <label>Your Request:</label>
+      <textarea class="form-control" rows="3" ng-model="c.transcript" placeholder="Type your request here..."></textarea>
+    </div>
+
+    <!-- Submit Request Button -->
+    <button class="btn btn-success btn-block" ng-click="c.submitRequest()" ng-disabled="!c.transcript">
+      Submit Request
+    </button>
+
+    <!-- NEW: Chat with AI Agent Button -->
+    <button type="button" class="btn btn-info btn-block margin-top-10" ng-click="c.openAiChat()">
+      <i class="fa fa-comments"></i> Chat with AI Agent
+    </button>
+  </div>
+
+  <div class="panel-footer" ng-if="c.status">
+    <strong>Status:</strong> {{c.status}}
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

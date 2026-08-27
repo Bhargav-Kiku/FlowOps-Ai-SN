@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_agent_access_role_configuration">
+    <sys_agent_access_role_configuration action="INSERT_OR_UPDATE">
+        <action>limit_to_roles</action>
+        <agent>2c21227a9dea03107f444f7348fbe773</agent>
+        <agent_table>sn_aia_agent</agent_table>
+        <allow_all_session_roles>false</allow_all_session_roles>
+        <description/>
+        <name>2c21227a9dea03107f444f7348fbe773</name>
+        <role_list>public</role_list>
+        <sys_class_name>sys_agent_access_role_configuration</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:40:45</sys_created_on>
+        <sys_id>f11222fa9dea03107f444f7348fbe793</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>2c21227a9dea03107f444f7348fbe773</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_agent_access_role_configuration_f11222fa9dea03107f444f7348fbe793</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:40:45</sys_updated_on>
+    </sys_agent_access_role_configuration>
+</record_update>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_snc_flowops_property_kpi_snapshot" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>avg_response_time_mins</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>b66babaa65a203107f44c0d0b6842e6c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>guest_satisfaction_score</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>3e6babaa65a203107f44c0d0b6842e6c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>open_work_orders</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>b26babaa65a203107f44c0d0b6842e6d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>property</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>3a6babaa65a203107f44c0d0b6842e6d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sla_breach_pct</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>be6babaa65a203107f44c0d0b6842e6d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>snapshot_date</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>366babaa65a203107f44c0d0b6842e6e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>total_requests</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>ba6babaa65a203107f44c0d0b6842e6e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>vendor_average_rating</element>
+            <list_id display_value="x_snc_flowops_property_kpi_snapshot" element="NULL" name="x_snc_flowops_property_kpi_snapshot" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">7a6babaa65a203107f44c0d0b6842e6b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_id>326babaa65a203107f44c0d0b6842e6f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_snc_flowops_property_kpi_snapshot</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-10 07:22:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7a6babaa65a203107f44c0d0b6842e6b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_flowops_property_kpi_snapshot</sys_name>
+            <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+            <sys_update_name>sys_ui_list_x_snc_flowops_property_kpi_snapshot_null</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 07:22:38</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

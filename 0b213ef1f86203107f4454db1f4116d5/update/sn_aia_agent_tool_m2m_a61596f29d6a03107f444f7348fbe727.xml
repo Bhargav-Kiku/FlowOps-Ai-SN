@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_agent_tool_m2m">
+    <sn_aia_agent_tool_m2m action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <agent display_value="Engineering Agent">3f1a7d329d6603107f444f7348fbe77d</agent>
+        <description>"Finds equipment/asset records linked to a room. May return multiple assets for one room (e.g. AC unit, TV, minibar) — the agent must pick the one matching the complaint's description. Returns no results if the room has no logged assets, which is expected and not an error."</description>
+        <display_mode>inline</display_mode>
+        <display_output>true</display_output>
+        <document_status/>
+        <entity>sn_aia_agent</entity>
+        <entity_id>3f1a7d329d6603107f444f7348fbe77d</entity_id>
+        <execution_mode>autopilot</execution_mode>
+        <inputs>[{"name":"room_sysid","value":"","description":"sys_id of the room, from Get Room and Property Details — do not extract this from text","mandatory":false},{"name":"crudInputs","value":{"operation":"lookup","table":{"value":"x_snc_flowops_asset","displayValue":"Asset"},"query":"room={{room_sysid}}","returnFields":[{"name":"asset_tag","label":"Asset tag","type":"string","referenceTable":null,"referenceTableDefaultField":null,"referenceKey":null,"id":"asset_tag","sublabel":"asset_tag"},{"name":"asset","label":"Asset","type":"reference","referenceTable":"alm_asset","referenceTableDefaultField":"display_name","referenceKey":null,"id":"asset","sublabel":"asset"},{"name":"category","label":"Category","type":"string","referenceTable":null,"referenceTableDefaultField":null,"referenceKey":null,"id":"category","sublabel":"category"},{"name":"model_id","label":"Model ID","type":"reference","referenceTable":"cmdb_model","referenceTableDefaultField":"display_name","referenceKey":null,"id":"model_id","sublabel":"model_id"}],"limit":"5","orderBy":"","sortType":""},"description":"CRUD Input Variables. These are already pre-defined. Under no circumstances should you prompt the user for this information or attempt to change these values."}]</inputs>
+        <max_auto_executions>10</max_auto_executions>
+        <name>Get Asset Details</name>
+        <output_transformation_strategy>none</output_transformation_strategy>
+        <post_message/>
+        <post_processing_script/>
+        <pre_message/>
+        <pre_run>false</pre_run>
+        <requires_text_refined_message>false</requires_text_refined_message>
+        <requires_widget_transformation>true</requires_widget_transformation>
+        <should_display_refined_message>false</should_display_refined_message>
+        <sys_class_name>sn_aia_agent_tool_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 19:44:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>a61596f29d6a03107f444f7348fbe727</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get Asset Details</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_agent_tool_m2m_a61596f29d6a03107f444f7348fbe727</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 19:44:00</sys_updated_on>
+        <timeout/>
+        <tool display_value="Get Asset Details">6e1596f29d6a03107f444f7348fbe723</tool>
+        <tool_attributes>{}</tool_attributes>
+        <transformation_instructions/>
+        <widgets>db0e858eff62b210f465ffffffffff2c</widgets>
+    </sn_aia_agent_tool_m2m>
+</record_update>

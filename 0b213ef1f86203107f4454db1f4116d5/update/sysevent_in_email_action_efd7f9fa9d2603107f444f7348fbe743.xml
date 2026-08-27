@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>reply_email</action>
+        <active>false</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description/>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>FlowOps - Reply to Guest</name>
+        <order>100</order>
+        <reply_email><![CDATA[<p>Dear ${guest.full_name}, Your request has been successfully registered. Request Number: ${number} Room: ${room.room_number} Status: Registered Our team has received your request and will assign a staff member shortly. You will receive another update once a staff member has been assigned to handle your request. Thank you, FlowOps Guest Services</p>]]></reply_email>
+        <required_roles/>
+        <script><![CDATA[(function runAction(/*GlideRecord*/ current, /*GlideRecord*/ event, /*EmailWrapper*/ email, /*ScopedEmailLogger*/ logger, /*EmailClassifier*/ classifier) {
+
+	// Implement email action here
+
+})(current, event, email, logger, classifier);]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 17:39:36</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>efd7f9fa9d2603107f444f7348fbe743</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>FlowOps - Reply to Guest</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sysevent_in_email_action_efd7f9fa9d2603107f444f7348fbe743</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 11:56:36</sys_updated_on>
+        <table/>
+        <template/>
+        <type>new</type>
+    </sysevent_in_email_action>
+</record_update>

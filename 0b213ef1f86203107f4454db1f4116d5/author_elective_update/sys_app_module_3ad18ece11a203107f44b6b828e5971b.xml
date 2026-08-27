@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="Housekeeping Shift">3ed18ece11a203107f44b6b828e59717</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Housekeeping Shifts</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_snc_flowops_housekeeping_shift</name>
+        <order/>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <require_confirmation>true</require_confirmation>
+        <roles>x_snc_flowops.housekeeping_shift_user</roles>
+        <route/>
+        <screen/>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 10:24:28</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3ad18ece11a203107f44b6b828e5971b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Staff Skills</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_app_module_3ad18ece11a203107f44b6b828e5971b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 09:31:55</sys_updated_on>
+        <timeline_page/>
+        <title>Staff Skills</title>
+        <uncancelable>false</uncancelable>
+        <ux_list/>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sys_app_module_3ad18ece11a203107f44b6b828e5971b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Housekeeping Shift">3ed18ece11a203107f44b6b828e59717</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Housekeeping Shifts</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_snc_flowops_housekeeping_shift</name><order/><override_menu_roles>false</override_menu_roles><query/><report/><require_confirmation>true</require_confirmation><roles>x_snc_flowops.housekeeping_shift_user</roles><route/><screen/><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-08 10:24:28</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>3ad18ece11a203107f44b6b828e5971b</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Staff Skills</sys_name><sys_overrides/><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>sys_app_module_3ad18ece11a203107f44b6b828e5971b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-14 09:31:55</sys_updated_on><timeline_page/><title>Staff Skills</title><uncancelable>false</uncancelable><ux_list/><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-1980354503</payload_hash>
+        <record_name>Staff Skills</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 09:31:55</sys_created_on>
+        <sys_id>af5f2c4051fac3107f4405bb1590ec64</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fff9d21600000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 09:31:55</sys_updated_on>
+        <type>Module</type>
+        <update_guid>635f2c40c1fac3101c8d553974521564</update_guid>
+        <update_guid_history>635f2c40c1fac3101c8d553974521564:-1980354503,f6d18ece3aa20310c865e97d78d1151d:1860253327</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Staff Skills">c9e2308c51fac3107f4405bb1590ec49</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 09:47:19</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>4d35b421d65c4b7ea25efe400ed31864</sys_id>
+        <sys_metadata>3ad18ece11a203107f44b6b828e5971b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Staff Skills</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sys_app_module_3ad18ece11a203107f44b6b828e5971b</sys_update_name>
+        <sys_update_version display_value="sys_app_module_3ad18ece11a203107f44b6b828e5971b">af5f2c4051fac3107f4405bb1590ec64</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 09:47:19</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

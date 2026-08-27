@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_search_facet">
+    <sys_search_facet action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <ais_facet_name>kb_knowledge.kb_knowledge_base</ais_facet_name>
+        <label>Knowledge Base</label>
+        <name>Knowledge Base</name>
+        <option_limit>10</option_limit>
+        <order>20</order>
+        <search_context_config display_value="FlowOps Hotel Concierge ">d8d89df0407283107f44fae478903e85</search_context_config>
+        <sort_by>count</sort_by>
+        <sys_class_name>sys_search_facet</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:33</sys_created_on>
+        <sys_id>b5d81134407283107f44fae478903e7d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>kb_knowledge.kb_knowledge_base</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_search_facet_b5d81134407283107f44fae478903e7d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:33</sys_updated_on>
+        <type>single_select</type>
+    </sys_search_facet>
+</record_update>

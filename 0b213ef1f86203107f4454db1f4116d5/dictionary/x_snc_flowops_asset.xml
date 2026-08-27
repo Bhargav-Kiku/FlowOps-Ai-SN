@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="3a32ca0211e203107f44b6b828e59725" extends="cmdb_ci" label="Asset" max_length="40" name="x_snc_flowops_asset" type="collection">
+        <element label="Installed Date" max_length="40" name="installed_date" type="glide_date"/>
+        <element display="true" label="Asset Name" max_length="40" name="asset_name" type="string"/>
+        <element choice="1" label="Criticality" max_length="40" name="criticality" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Low" sequence="3" value="4"/>
+                <element inactive_on_update="false" label="Medium" sequence="2" value="3"/>
+                <element inactive_on_update="false" label="High" sequence="1" value="2"/>
+                <element inactive_on_update="false" label="Critical" sequence="0" value="1"/>
+            </choice>
+        </element>
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element label="Warranty Expire" max_length="40" name="warranty_expire" type="glide_date"/>
+        <element choice="1" label="Asset Type" max_length="40" name="asset_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Elevator" sequence="1" value="elevator"/>
+                <element inactive_on_update="false" label="Kitchen Equipment" sequence="4" value="kitchen_equipment"/>
+                <element inactive_on_update="false" label="Electricity" sequence="0" value="electricity"/>
+                <element inactive_on_update="false" label="Plumbing" sequence="3" value="plumbing"/>
+                <element inactive_on_update="false" label="HVAC" sequence="2" value="hvac"/>
+            </choice>
+        </element>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Under Maintenance" value="0"/>
+                <element inactive_on_update="false" label="Decommissioned" value="-1"/>
+                <element inactive_on_update="false" label="Needs Repair" value="1"/>
+                <element inactive_on_update="false" label="Operational" value="2"/>
+            </choice>
+        </element>
+        <element label="Room" max_length="32" name="room" reference="x_snc_flowops_room" type="reference"/>
+        <element label="Last Service Date" max_length="40" name="last_service_date" type="glide_date_time"/>
+    </element>
+</database>

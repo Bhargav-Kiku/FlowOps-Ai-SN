@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="7cda6fc6112243107f44b6b828e59752" label="Ai Orchestrator Log" max_length="40" name="x_snc_flowops_ai_orchestrator_log" type="collection">
+        <element label="Decision Summary" max_length="300" name="decision_summary" type="string"/>
+        <element label="Processing Time ms" max_length="40" name="processing_time_ms" type="integer"/>
+        <element label="Guest Request" max_length="32" name="guest_request" reference="x_snc_flowops_guest_request" type="reference"/>
+        <element label="Detected Intents" max_length="40" name="detected_intents" type="glide_list"/>
+        <element label="Agents Invoked" max_length="40" name="agents_invoked" type="glide_list"/>
+        <index name="index">
+            <element name="guest_request"/>
+        </index>
+    </element>
+</database>

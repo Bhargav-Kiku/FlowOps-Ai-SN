@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Guest Details" section_id="3c9dd61700ae03107f444d153ccd84fb" sys_domain="global" table="x_snc_flowops_guest_request" version="3" view="Complaint_Form">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>guest</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:42:30</sys_created_on>
+            <sys_id>179eda1b00ae03107f444d153ccd84e6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Guest Details" display_value="Guest Details" name="x_snc_flowops_guest_request" sys_domain="global" view="fc9dd61700ae03107f444d153ccd84f4">3c9dd61700ae03107f444d153ccd84fb</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>property</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:42:30</sys_created_on>
+            <sys_id>139eda1b00ae03107f444d153ccd84e7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Guest Details" display_value="Guest Details" name="x_snc_flowops_guest_request" sys_domain="global" view="fc9dd61700ae03107f444d153ccd84f4">3c9dd61700ae03107f444d153ccd84fb</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>channel</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:42:30</sys_created_on>
+            <sys_id>1b9eda1b00ae03107f444d153ccd84e7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Guest Details" display_value="Guest Details" name="x_snc_flowops_guest_request" sys_domain="global" view="fc9dd61700ae03107f444d153ccd84f4">3c9dd61700ae03107f444d153ccd84fb</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:42:30</sys_created_on>
+            <sys_id>139eda1b00ae03107f444d153ccd84e8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Guest Details" display_value="Guest Details" name="x_snc_flowops_guest_request" sys_domain="global" view="fc9dd61700ae03107f444d153ccd84f4">3c9dd61700ae03107f444d153ccd84fb</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:30</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sender_email</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:42:30</sys_created_on>
+            <sys_id>1b9eda1b00ae03107f444d153ccd84e8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Guest Details" display_value="Guest Details" name="x_snc_flowops_guest_request" sys_domain="global" view="fc9dd61700ae03107f444d153ccd84f4">3c9dd61700ae03107f444d153ccd84fb</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>room</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:42:30</sys_created_on>
+            <sys_id>139eda1b00ae03107f444d153ccd84e9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Guest Details" display_value="Guest Details" name="x_snc_flowops_guest_request" sys_domain="global" view="fc9dd61700ae03107f444d153ccd84f4">3c9dd61700ae03107f444d153ccd84fb</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>channel_reference</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:42:30</sys_created_on>
+            <sys_id>1b9eda1b00ae03107f444d153ccd84e9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Guest Details" display_value="Guest Details" name="x_snc_flowops_guest_request" sys_domain="global" view="fc9dd61700ae03107f444d153ccd84f4">3c9dd61700ae03107f444d153ccd84fb</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Guest Details</caption>
+            <header>false</header>
+            <name>x_snc_flowops_guest_request</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-12 09:37:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3c9dd61700ae03107f444d153ccd84fb</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>x_snc_flowops_guest_request</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+            <sys_update_name>sys_ui_section_3c9dd61700ae03107f444d153ccd84fb</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-12 09:42:28</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Complaint Form" name="Complaint_Form">fc9dd61700ae03107f444d153ccd84f4</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

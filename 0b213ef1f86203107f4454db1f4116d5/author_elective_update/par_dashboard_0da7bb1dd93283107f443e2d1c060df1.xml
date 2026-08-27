@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard">
+    <par_dashboard action="DELETE">
+        <active>true</active>
+        <base_dashboard/>
+        <certified>false</certified>
+        <description/>
+        <experience/>
+        <grid>48</grid>
+        <name>Operations Intelligence Dashboard</name>
+        <ready_to_migrate>Not Applicable</ready_to_migrate>
+        <sys_class_name>par_dashboard</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 21:19:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0da7bb1dd93283107f443e2d1c060df1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Operations Intelligence Dashboard</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>par_dashboard_0da7bb1dd93283107f443e2d1c060df1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 21:19:20</sys_updated_on>
+        <sys_ux_app_config/>
+        <sys_ux_app_route/>
+        <sys_ux_macroponent/>
+        <sys_ux_screen/>
+        <sys_ux_screen_type/>
+    </par_dashboard>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>par_dashboard_0da7bb1dd93283107f443e2d1c060df1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard"><par_dashboard action="INSERT_OR_UPDATE"><active>true</active><base_dashboard/><certified>false</certified><description/><experience/><grid>48</grid><name>Operations Intelligence Dashboard</name><ready_to_migrate>Not Applicable</ready_to_migrate><sys_class_name>par_dashboard</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-18 21:19:20</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>0da7bb1dd93283107f443e2d1c060df1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Operations Intelligence Dashboard</sys_name><sys_overrides/><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>par_dashboard_0da7bb1dd93283107f443e2d1c060df1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-18 21:19:20</sys_updated_on><sys_ux_app_config/><sys_ux_app_route/><sys_ux_macroponent/><sys_ux_screen/><sys_ux_screen_type/></par_dashboard></record_update>]]></payload>
+        <payload_hash>1063325815</payload_hash>
+        <record_name>Operations Intelligence Dashboard</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 21:19:20</sys_created_on>
+        <sys_id>c5a7bb1dd93283107f443e2d1c060df4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a016be390e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 21:19:20</sys_updated_on>
+        <type>PAR Dashboard</type>
+        <update_guid>89a7bb1d643283108112dbc79dbcaef3</update_guid>
+        <update_guid_history>89a7bb1d643283108112dbc79dbcaef3:1063325815</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Operations Intelligence Dashboard">5d18f75dd93283107f443e2d1c060d8b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 21:21:17</sys_created_on>
+        <sys_db_object display_value="" name="par_dashboard">par_dashboard</sys_db_object>
+        <sys_id>87deef5857e3454c9f9f5921619ef739</sys_id>
+        <sys_metadata>0da7bb1dd93283107f443e2d1c060df1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Operations Intelligence Dashboard</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>par_dashboard_0da7bb1dd93283107f443e2d1c060df1</sys_update_name>
+        <sys_update_version display_value="par_dashboard_0da7bb1dd93283107f443e2d1c060df1">c5a7bb1dd93283107f443e2d1c060df4</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 21:21:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

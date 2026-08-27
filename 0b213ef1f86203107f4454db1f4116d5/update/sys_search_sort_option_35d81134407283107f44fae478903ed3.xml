@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_search_sort_option">
+    <sys_search_sort_option action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <ais_field_name>sort_by_date</ais_field_name>
+        <ascending>false</ascending>
+        <gui_label>Most recent</gui_label>
+        <search_context_config display_value="FlowOps Hotel Concierge ">d8d89df0407283107f44fae478903e85</search_context_config>
+        <sys_class_name>sys_search_sort_option</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:34</sys_created_on>
+        <sys_id>35d81134407283107f44fae478903ed3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Most recent</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_search_sort_option_35d81134407283107f44fae478903ed3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:34</sys_updated_on>
+    </sys_search_sort_option>
+</record_update>

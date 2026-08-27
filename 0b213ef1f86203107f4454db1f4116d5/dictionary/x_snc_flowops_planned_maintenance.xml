@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="a62827ce11ee03107f44b6b828e59773" label="Planned Maintenance" max_length="40" name="x_snc_flowops_planned_maintenance" type="collection">
+        <element label="Next Due Date" max_length="40" name="next_due_date" type="glide_date"/>
+        <element label="Assigned Team" max_length="40" name="assigned_team" type="string"/>
+        <element label="Last Completed Date" max_length="40" name="last_completed_date" type="glide_date"/>
+        <element choice="1" label="Frequency" max_length="40" name="frequency" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Annually" sequence="2" value="annually"/>
+                <element inactive_on_update="false" label="Quaterly" sequence="1" value="quaterly"/>
+                <element inactive_on_update="false" label="Monthly" sequence="0" value="monthly"/>
+            </choice>
+        </element>
+        <element choice="1" label="Maintenance Type" max_length="40" name="maintenance_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Compliance Check" sequence="1" value="compliance_check"/>
+                <element inactive_on_update="false" label="Preventive" sequence="0" value="preventive"/>
+                <element inactive_on_update="false" label="Inspection" sequence="2" value="inspection"/>
+            </choice>
+        </element>
+        <element label="Asset" max_length="32" name="asset" reference="x_snc_flowops_asset" type="reference"/>
+        <index name="index">
+            <element name="asset"/>
+        </index>
+    </element>
+</database>

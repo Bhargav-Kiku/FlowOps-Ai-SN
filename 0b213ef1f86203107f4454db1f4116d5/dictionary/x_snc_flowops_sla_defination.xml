@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="22192f6665a203107f44c0d0b6842ebf" label="SLA Defination" max_length="40" name="x_snc_flowops_sla_defination" type="collection">
+        <element choice="1" dependent="category" dependent_on_field="category" label="Service Sub Category" max_length="255" name="service_sub_category" type="choice" use_dependent_field="true">
+            <choice>
+                <element dependent_value="1" inactive_on_update="false" label="4 - Elevator" sequence="3" value="4"/>
+                <element dependent_value="1" inactive_on_update="false" label="1 - HVAC" sequence="0" value="1"/>
+                <element dependent_value="1" inactive_on_update="false" label="3 - Plumbing" sequence="2" value="3"/>
+                <element dependent_value="1" inactive_on_update="false" label="5 - Furniture &amp; Carpentry" sequence="4" value="5"/>
+                <element dependent_value="1" inactive_on_update="false" label="6 - Pest Control" sequence="5" value="6"/>
+                <element dependent_value="1" inactive_on_update="false" label="2 - Electrical" sequence="1" value="2"/>
+                <element dependent_value="1" inactive_on_update="false" label="7 - General Maintenance" sequence="6" value="7"/>
+            </choice>
+        </element>
+        <element label="Response Time mins" max_length="40" name="response_time_mins" type="integer"/>
+        <element label="Resolution Time Mins" max_length="40" name="resolution_time_mins" type="integer"/>
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element choice="1" label="Category" max_length="40" name="category" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="2 - Operational" sequence="3" value="2"/>
+                <element inactive_on_update="false" label="0 - Housekeeping" sequence="2" value="0"/>
+                <element inactive_on_update="false" label="3 - Engineering" sequence="0" value="3"/>
+                <element inactive_on_update="false" label="4 - Guest Services" sequence="1" value="4"/>
+                <element inactive_on_update="false" label="1 - Vendor" sequence="4" value="1"/>
+            </choice>
+        </element>
+        <element choice="1" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="3 - Medium" sequence="2" value="medium"/>
+                <element inactive_on_update="false" label="1 - Critical" sequence="0" value="critical"/>
+                <element inactive_on_update="false" label="4 - Low" sequence="3" value="low"/>
+                <element inactive_on_update="false" label="2 - High" sequence="1" value="high"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="property"/>
+        </index>
+    </element>
+</database>

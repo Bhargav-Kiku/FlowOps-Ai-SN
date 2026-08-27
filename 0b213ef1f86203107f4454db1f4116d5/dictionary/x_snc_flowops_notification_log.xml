@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="9f9ce36e65a203107f44c0d0b6842e9d" label="Notification Log" max_length="40" name="x_snc_flowops_notification_log" type="collection">
+        <element choice="1" label="Channel" max_length="40" name="channel" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Virtual Agent" value="4"/>
+                <element inactive_on_update="false" label="Portal" value="3"/>
+                <element inactive_on_update="false" label="Push(Walk Up)" value="2"/>
+                <element inactive_on_update="false" label="Email" value="1"/>
+            </choice>
+        </element>
+        <element label="Message Summary" max_length="40" name="message_summary" type="string"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Failed" value="-1"/>
+                <element inactive_on_update="false" label="Pending" value="0"/>
+                <element inactive_on_update="false" label="Sent" value="1"/>
+            </choice>
+        </element>
+        <element label="Sent Time" max_length="40" name="sent_time" type="glide_date_time"/>
+        <element label="Related Request" max_length="32" name="related_request" reference="x_snc_flowops_guest_case" type="reference"/>
+        <element label="Recipiet" max_length="32" name="recipiet" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="related_request"/>
+        </index>
+        <index name="index2">
+            <element name="recipiet"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="75daf679f8a203107f4454db1f41169b" label="Room" max_length="40" name="x_snc_flowops_room" type="collection">
+        <element label="Current Guest" max_length="32" name="current_guest" reference="x_snc_flowops_guest" type="reference"/>
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element choice="1" label="Occupancy Status" max_length="40" name="occupancy_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Vacant" value="1"/>
+                <element inactive_on_update="false" label="Out Of Service" value="-1"/>
+                <element inactive_on_update="false" label="Reserved" value="2"/>
+                <element inactive_on_update="false" label="Occupied" value="0"/>
+            </choice>
+        </element>
+        <element label="Inspected" max_length="40" name="inspected" type="boolean"/>
+        <element choice="1" label="Housekeeping Status" max_length="40" name="housekeeping_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Dirty" sequence="1" value="-1"/>
+                <element inactive_on_update="false" label="In Progress" sequence="2" value="1"/>
+                <element inactive_on_update="false" label="Clean" sequence="0" value="2"/>
+            </choice>
+        </element>
+        <element label="Floor" max_length="40" name="floor" type="string"/>
+        <element choice="1" label="Room Type" max_length="40" name="room_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Pent House" sequence="0" value="4"/>
+                <element inactive_on_update="false" label="Regular" sequence="1" value="0"/>
+                <element inactive_on_update="false" label="Suite" sequence="3" value="1"/>
+                <element inactive_on_update="false" label="Standard" sequence="2" value="2"/>
+                <element inactive_on_update="false" label="Villa" sequence="4" value="3"/>
+            </choice>
+        </element>
+        <element display="true" label="Room Number" max_length="50" name="room_number" type="string"/>
+        <index name="index">
+            <element name="current_guest"/>
+        </index>
+        <index name="index2">
+            <element name="property"/>
+        </index>
+    </element>
+</database>

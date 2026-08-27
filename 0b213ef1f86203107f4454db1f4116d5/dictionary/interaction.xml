@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="67a4a34699b403107f4454352b402e7b" label="Interaction" max_length="40" name="interaction" type="collection">
+        <element label="Guest Name" max_length="100" name="x_snc_flowops_guest_name" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="DELETE">
+        <active>true</active>
+        <application display_value="Housekeeping Shift">fed18ece11a203107f44b6b828e5971e</application>
+        <filter/>
+        <name>Housekeeping Shifts</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_snc_flowops.housekeeping_shift_user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 10:24:29</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bad18ece11a203107f44b6b828e59721</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Housekeeping Shifts</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_ui_module_bad18ece11a203107f44b6b828e59721</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 10:24:29</sys_updated_on>
+        <table>x_snc_flowops_housekeeping_shift</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sys_ui_module_bad18ece11a203107f44b6b828e59721</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module"><sys_ui_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Housekeeping Shift">fed18ece11a203107f44b6b828e5971e</application><filter/><name>Housekeeping Shifts</name><order/><path/><path_relative_to_root>false</path_relative_to_root><roles>x_snc_flowops.housekeeping_shift_user</roles><sys_class_name>sys_ui_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-08 10:24:29</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>bad18ece11a203107f44b6b828e59721</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Housekeeping Shifts</sys_name><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>sys_ui_module_bad18ece11a203107f44b6b828e59721</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-08 10:24:29</sys_updated_on><table>x_snc_flowops_housekeeping_shift</table><uncancelable>false</uncancelable><view_name/></sys_ui_module></record_update>]]></payload>
+        <payload_hash>-149488030</payload_hash>
+        <record_name>Housekeeping Shifts</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-08 10:24:29</sys_created_on>
+        <sys_id>bed18ece11a203107f44b6b828e59723</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fe0e717600000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-08 10:24:29</sys_updated_on>
+        <type>Module</type>
+        <update_guid>b2d18ece15a20310841e7b23192e6323</update_guid>
+        <update_guid_history>b2d18ece15a20310841e7b23192e6323:-149488030</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 09:47:24</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_module">sys_ui_module</sys_db_object>
+        <sys_id>3a5379e39c9d49b2a8ca217d12517a04</sys_id>
+        <sys_metadata>bad18ece11a203107f44b6b828e59721</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Housekeeping Shifts</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sys_ui_module_bad18ece11a203107f44b6b828e59721</sys_update_name>
+        <sys_update_version display_value="sys_ui_module_bad18ece11a203107f44b6b828e59721">bed18ece11a203107f44b6b828e59723</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 09:47:24</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

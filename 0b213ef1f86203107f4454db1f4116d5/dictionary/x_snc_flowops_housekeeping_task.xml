@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="cc6efdc611a203107f44b6b828e597bc" label="Housekeeping Task" max_length="40" name="x_snc_flowops_housekeeping_task" type="collection">
+        <element label="Escalation Note" max_length="40" name="escalation_note" type="string_full_utf8"/>
+        <element choice="1" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Planning" value="5"/>
+                <element inactive_on_update="false" label="Critical" value="1"/>
+                <element inactive_on_update="false" label="Low" value="4"/>
+                <element inactive_on_update="false" label="Moderate" value="3"/>
+                <element inactive_on_update="false" label="High" value="2"/>
+            </choice>
+        </element>
+        <element label="Assigned Staff" max_length="32" name="assigned_staff" reference="sys_user" type="reference"/>
+        <element choice="1" label="Escalated By" max_length="40" name="escalated_by" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="AI Agent" sequence="0" value="ai_agent"/>
+                <element inactive_on_update="false" label="Staff" sequence="1" value="staff"/>
+            </choice>
+        </element>
+        <element label="Start Time" max_length="255" name="start_time" type="glide_date_time"/>
+        <element label="Completion Time" max_length="40" name="completion_time" type="glide_date_time"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Resolved" sequence="4" value="resolved"/>
+                <element inactive_on_update="false" label="Escalated" sequence="1" value="Escalated"/>
+                <element inactive_on_update="false" label="In Progress" sequence="2" value="in_progress"/>
+                <element inactive_on_update="false" label="Verified" sequence="3" value="verified"/>
+                <element inactive_on_update="false" label="Assigned" sequence="0" value="assigned"/>
+            </choice>
+        </element>
+        <element label="Description" max_length="100" name="description" type="string"/>
+        <element label="Guest Case" max_length="32" name="guest_case" reference="x_snc_flowops_guest_case" type="reference"/>
+        <element label="Due Time" max_length="40" name="due_time" type="glide_date_time"/>
+        <element label="Room" max_length="32" name="room" reference="x_snc_flowops_room" type="reference"/>
+        <element label="Service Subtype" max_length="32" name="service_subtype" reference="x_snc_flowops_list_of_skills" type="reference"/>
+        <index name="index">
+            <element name="room"/>
+        </index>
+        <index name="index2">
+            <element name="assigned_staff"/>
+        </index>
+        <index name="index3">
+            <element name="guest_case"/>
+        </index>
+    </element>
+</database>

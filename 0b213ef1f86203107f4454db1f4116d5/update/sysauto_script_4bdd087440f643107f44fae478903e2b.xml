@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_run_end/>
+        <entered_run_start/>
+        <entered_time>1970-01-01 00:00:00</entered_time>
+        <max_drift/>
+        <name>Planned Maintenance Scheduled Job</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <repeat_every/>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month>1</run_month>
+        <run_period/>
+        <run_start/>
+        <run_time>1970-01-01 00:00:00</run_time>
+        <run_type>daily</run_type>
+        <run_weekinmonth>1</run_weekinmonth>
+        <script><![CDATA[var assetGr = new GlideRecord('x_snc_flowops_asset');
+assetGr.addQuery('criticality', 'IN', '1,2');
+assetGr.query();
+
+var orchestrator = new FO_AIOrchestrator();
+
+while (assetGr.next()) {
+    var assetId = assetGr.getUniqueValue();
+    var assetName = assetGr.getValue('asset_name') || 'Unknown Asset';
+    var assetType = assetGr.getValue('asset_type') || 'Unknown Type';
+    var lastService = assetGr.getValue('last_service_date') || 'Unknown';
+    var warranty = assetGr.getValue('warranty_expire') || 'Unknown';
+    var criticality = assetGr.getValue('criticality') || 'Unknown';
+    
+    var payload = {
+        context: {
+            task: "Do not summarize the data. Generate a detailed, step-by-step preventative maintenance checklist for this specific asset.",
+            asset_name: assetName,
+            asset_type: assetType,
+            last_service_date: lastService,
+            warranty_expire: warranty,
+            criticality: criticality
+        }
+    };
+
+    var request = new sn_ws.RESTMessageV2('FO_AI_Backend', 'Summary');
+    request.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestBody(JSON.stringify(payload));
+    
+    var response = request.execute();
+    var httpStatus = response.getStatusCode();
+    var responseBody = response.getBody();
+
+    if (httpStatus === 200) {
+        var result = JSON.parse(responseBody);
+        
+        var woGr = new GlideRecord('x_snc_flowops_work_order');
+        woGr.initialize();
+        woGr.setValue('issue_category', 'preventative');
+        woGr.setValue('priority', assetGr.getValue('criticality'));
+        woGr.setValue('asset', assetId);
+        woGr.setValue('property', assetGr.getValue('property'));
+        woGr.setValue('room', assetGr.getValue('room'));
+        woGr.setValue('short_description', 'Preventative Maintenance: ' + assetName);
+        woGr.setValue('description', result.summary);
+        woGr.setValue('status', 'open');
+        woGr.setWorkflow(false);
+        var woId = woGr.insert();
+
+        orchestrator.assignMaintenance(woId);
+    }
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 15:33:02</sys_created_on>
+        <sys_id>4bdd087440f643107f44fae478903e2b</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Planned Maintenance Scheduled Job</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sysauto_script_4bdd087440f643107f44fae478903e2b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 20:17:32</sys_updated_on>
+        <time_zone>floating</time_zone>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

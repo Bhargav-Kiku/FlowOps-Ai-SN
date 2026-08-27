@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_gen_ai_skill">
+    <sys_gen_ai_skill action="INSERT_OR_UPDATE">
+        <skill_description>This workflow automates the handling of hotel housekeeping guest requests within the FlowOps AI application. It analyzes guest requests, determines required housekeeping tasks, retrieves relevant room, guest, property, and staff information, assigns tasks to suitable housekeeping staff, and ensures tasks are created or updated without duplication. Designed for hotel operations teams seeking efficient, explainable, and domain-specific housekeeping task management.</skill_description>
+        <skill_document>eb60e6f69dea03107f444f7348fbe749</skill_document>
+        <skill_name>Housekeeping Request Workflow</skill_name>
+        <skill_table>sn_aia_skill_metadata</skill_table>
+        <sys_class_name>sys_gen_ai_skill</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:33:36</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>af606af69dea03107f444f7348fbe7d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_gen_ai_skill_af606af69dea03107f444f7348fbe7d4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:33:36</sys_updated_on>
+    </sys_gen_ai_skill>
+    <sys_translated_text action="delete_multiple" query="documentkey=af606af69dea03107f444f7348fbe7d4"/>
+</record_update>

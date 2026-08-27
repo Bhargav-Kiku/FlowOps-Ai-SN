@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_snc_flowops_work_order</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Update Staff Count - Work Order</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+
+    // =====================================================
+    // Find the active Staff Shift for a user
+    // =====================================================
+    function getActiveStaffShift(userSysId) {
+
+        if (!userSysId) {
+            return null;
+        }
+
+        var shift = new GlideRecord('x_snc_flowops_staff_shift');
+
+        shift.addQuery('staff', userSysId);
+        shift.addQuery('shift_status', 'active');
+        shift.setLimit(1);
+        shift.query();
+
+        if (shift.next()) {
+            return shift;
+        }
+
+        return null;
+    }
+
+
+    // =====================================================
+    // 1. NEW WORK ORDER
+    // =====================================================
+
+    if (current.operation() == 'insert') {
+
+        if (current.assigned_engineer) {
+
+            var newShift = getActiveStaffShift(
+                current.assigned_engineer.toString()
+            );
+
+            if (newShift) {
+
+                var count = parseInt(
+                    newShift.assigned_room_count,
+                    10
+                ) || 0;
+
+                newShift.assigned_room_count = count + 1;
+                newShift.update();
+            }
+        }
+
+        return;
+    }
+
+
+    // =====================================================
+    // 2. WORK ORDER STATUS CHANGE
+    // =====================================================
+	if (current.status.changes()) {
+
+		var oldStatus = previous.getValue('status');
+		var newStatus = current.getValue('status');
+
+		// Resolved or Escalated means the workload is finished
+		var isFinished =
+			newStatus == 'resolved' ||
+			newStatus == 'escalate';
+
+		// Previously active workload
+		var wasActive =
+			oldStatus != 'resolved' &&
+			oldStatus != 'escalate';
+
+		if (
+			isFinished &&
+			wasActive &&
+			current.assigned_engineer
+		) {
+
+			var completedShift = getActiveStaffShift(
+				current.assigned_engineer.toString()
+			);
+
+			if (completedShift) {
+
+				var currentCount = parseInt(
+					completedShift.getValue('assigned_room_count'),
+					10
+				) || 0;
+
+				completedShift.setValue(
+					'assigned_room_count',
+					Math.max(0, currentCount - 1)
+				);
+
+				completedShift.update();
+			}
+		}
+	}
+    // =====================================================
+    // 3. HANDLE REASSIGNMENT
+    // =====================================================
+
+    if (current.assigned_engineer.changes()) {
+
+        /*
+         * Remove workload from previous engineer
+         */
+
+        if (
+            previous.assigned_engineer &&
+            previous.getDisplayValue('status') != 'Completed'
+        ) {
+
+            var oldShift = getActiveStaffShift(
+                previous.assigned_engineer.toString()
+            );
+
+            if (oldShift) {
+
+                var oldCount = parseInt(
+                    oldShift.assigned_room_count,
+                    10
+                ) || 0;
+
+                oldShift.assigned_room_count =
+                    Math.max(0, oldCount - 1);
+
+                oldShift.update();
+            }
+        }
+
+
+        /*
+         * Add workload to new engineer
+         */
+
+        if (
+            current.assigned_engineer &&
+            current.getDisplayValue('status') != 'Completed'
+        ) {
+
+            var newAssignedShift = getActiveStaffShift(
+                current.assigned_engineer.toString()
+            );
+
+            if (newAssignedShift) {
+
+                var newAssignedCount = parseInt(
+                    newAssignedShift.assigned_room_count,
+                    10
+                ) || 0;
+
+                newAssignedShift.assigned_room_count =
+                    newAssignedCount + 1;
+
+                newAssignedShift.update();
+            }
+        }
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 09:35:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d52287ac403e03107f44fae478903ee3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update Staff Count - Work Order</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_d52287ac403e03107f44fae478903ee3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 09:35:54</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=d52287ac403e03107f44fae478903ee3"/>
+</record_update>

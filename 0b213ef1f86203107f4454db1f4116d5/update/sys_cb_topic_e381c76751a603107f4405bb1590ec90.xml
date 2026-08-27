@@ -1,0 +1,3342 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>This is the main hotel guest concierge conversation. Use this topic when a hotel guest wants help with anything related to their hotel stay, including hotel information, hotel services, requests, complaints, room issues, amenities, facilities, restaurants, Wi-Fi, housekeeping, maintenance, transportation, or contacting hotel staff. When started, this topic asks the guest what they need help with and guides them through the appropriate hotel assistance option.</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "5179d6beb8554b6296234ddea707d3f7": {
+          "id": "5179d6beb8554b6296234ddea707d3f7",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "3006aab7d29e42ceb483ce273f26ec59": {
+          "id": "3006aab7d29e42ceb483ce273f26ec59",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "826871f0c9a24d9182bb352b5c6eeb20": {
+          "id": "826871f0c9a24d9182bb352b5c6eeb20",
+          "stepType": "AITextOutput",
+          "name": "Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Answer the guest's question using only the information retrieved by AI Search."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Use the guest's property-specific information only."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Return ONLY the information needed to answer the guest's question."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the guest asks for opening or closing hours, return only the relevant hours."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the guest asks for a location, return only the relevant location."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the guest asks about a service or facility, return only the information required to answer that question."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT display or list knowledge base articles."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask the guest to select an article."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask for confirmation."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask whether the answer looks correct."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask what the guest wants to do next."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT provide unrelated hotel information."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT mention AI Search, knowledge base, search results, LLM, Flow Designer, or internal system details."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Never use information belonging to another hotel or property."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the retrieved information does not contain an answer, say that the information is not available for the guest's hotel."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Return only the final answer to the guest."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "bfbdb16a82034272afc53043d5620e99": {
+          "id": "bfbdb16a82034272afc53043d5620e99",
+          "stepType": "StandaloneAITextPrompt",
+          "name": "Guest Email",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "19369eeed3044325900ec815c2c07636",
+              "displayName": "Guest Email",
+              "name": "guest_email",
+              "description": "Please enter your email address so I can identify your hotel profile.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "0aa6d8b03b7d4816a93931874d675feb",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "33513d135b1200101f254d3ba881c7d5",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "41d100082c7c415c9a9ca16e35b1bbb4"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_bfbdb16a82034272afc53043d5620e99_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "0aa6d8b03b7d4816a93931874d675feb"
+          ]
+        },
+        "b5406b86c5004fb28451b9c2e6a77e91": {
+          "id": "b5406b86c5004fb28451b9c2e6a77e91",
+          "stepType": "AiDataCollector",
+          "name": "Guest Question Collector",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "fb90093271604077a66ee263bfe8d317",
+              "displayName": "Guest Question",
+              "name": "guest_question",
+              "description": "",
+              "discoverable": false,
+              "dynamicDescription": {
+                "value": "The hotel guest's question about hotel facilities, services, policies, timings, amenities, or other hotel-related information.",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "fc5a4a23c45a4fc7a67ab2b316690d82",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": true,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "text": "What would you like to know about the hotel?"
+                      }
+                    ]
+                  }
+                ],
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "9cfab3f6f2364b09845b7d81e009eeed"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_b5406b86c5004fb28451b9c2e6a77e91_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "variableIds": [
+            "fc5a4a23c45a4fc7a67ab2b316690d82"
+          ],
+          "standalone": false
+        },
+        "1792b181915f4537b7a1463456dce2fe": {
+          "id": "1792b181915f4537b7a1463456dce2fe",
+          "name": "Get Guest Property",
+          "script": "(function execute() {\n    if (vaInputs.lookup_guest) {\n        vaVars.guest_property = vaInputs.lookup_guest.property.getDisplayValue();\n    }\n})()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "d2542a9db7eb4e888c2d8deb1cce43db": {
+          "id": "d2542a9db7eb4e888c2d8deb1cce43db",
+          "name": "Build Hotel Search Query",
+          "script": "(function execute() {\n    vaVars.hotel_search_query = vaVars.guest_property + \" \" + vaInputs.guest_question;\n})()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "521b8cca640547e4a2742cdfda6d55e7": {
+          "id": "521b8cca640547e4a2742cdfda6d55e7",
+          "stepType": "ReusableTopic",
+          "name": "AI Search",
+          "fields": [],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "useTemplateTopic": false,
+          "reusableTopicChoice": "AI Search",
+          "reusableTopicId": "b19775fa536310103296ddeeff7b12ff",
+          "inputs": {
+            "search_term": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.hotel_search_query}}",
+                        "displayValue": "Script Variables➛hotel_search_query"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "search_application_configuration": {
+              "value": "",
+              "mode": "string",
+              "type": "Reference",
+              "table": "sys_search_context_config"
+            },
+            "ask_another_search": {
+              "value": "false",
+              "mode": "simple",
+              "type": "True/False"
+            }
+          },
+          "outputs": [
+            {
+              "id": "be0d5b8fd51f4052ac6928b0081e927b",
+              "value": "geniussearchresults",
+              "mapping": "geniussearchresults",
+              "preventDisable": false
+            },
+            {
+              "id": "c0b9e26b32a243c0a415d8fb8aaf0470",
+              "value": "searchresults",
+              "mapping": "searchresults",
+              "preventDisable": false
+            },
+            {
+              "id": "2f49dfe42e6f4b94b65e7172dcfc29e9",
+              "value": "shouldaskinfohelpful",
+              "mapping": "shouldaskinfohelpful",
+              "preventDisable": false
+            },
+            {
+              "id": "12c445f9ed4d40d69ca75e4992e3ed12",
+              "value": "newsearchterm",
+              "mapping": "newsearchterm",
+              "preventDisable": false
+            },
+            {
+              "id": "76535ff650c84b628bfff5b83f82591a",
+              "value": "shouldrunfallbacktopic",
+              "mapping": "shouldrunfallbacktopic",
+              "preventDisable": true
+            },
+            {
+              "id": "8846afbf1a0f4cefb04ba0a6670a97e1",
+              "value": "searchmetadata",
+              "mapping": "searchmetadata",
+              "preventDisable": false
+            }
+          ],
+          "variableIds": [
+            "be0d5b8fd51f4052ac6928b0081e927b",
+            "c0b9e26b32a243c0a415d8fb8aaf0470",
+            "2f49dfe42e6f4b94b65e7172dcfc29e9",
+            "12c445f9ed4d40d69ca75e4992e3ed12",
+            "76535ff650c84b628bfff5b83f82591a",
+            "8846afbf1a0f4cefb04ba0a6670a97e1"
+          ],
+          "dynamicTopicBlockName": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputDynamicModal": {},
+          "outputDynamicModal": {},
+          "outdatedNote": false,
+          "loading": false,
+          "inputParametersMode": "dynamic",
+          "inputParameterScript": "",
+          "outputParametersMode": "dynamic",
+          "outputParameterVariable": "",
+          "outputParameterId": "96c6dddb7c984892aec555fd9057c5de"
+        },
+        "8ca192653ea64065830db7176aef5a40": {
+          "id": "8ca192653ea64065830db7176aef5a40",
+          "stepType": "LookupRecord",
+          "name": "Lookup Guest",
+          "condition": {
+            "mode": "glide_query",
+            "value": "email={{vaInputs.guest_email}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "aa28c1feeef549458bad914d9acfeb0e"
+        },
+        "a6a9e04d98c7420c83cfd31f5f268e65": {
+          "id": "a6a9e04d98c7420c83cfd31f5f268e65",
+          "stepType": "Decision",
+          "name": "Check Guest Record Found Or Not"
+        },
+        "38d304abae2f4e6db163ca8bc5fdc1fb": {
+          "id": "38d304abae2f4e6db163ca8bc5fdc1fb",
+          "stepType": "StandaloneAITextPrompt",
+          "name": "Get Property",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "672142ba457f46708115c2f5babd2772",
+              "displayName": "Get Property",
+              "name": "get_property",
+              "description": "Please enter a hotel name. We are not able to found your record.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "d086740a5701475f9a11f3620945bfee",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "a98135fbd83d433cbe12ee9ec73691a9"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_38d304abae2f4e6db163ca8bc5fdc1fb_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "d086740a5701475f9a11f3620945bfee"
+          ]
+        },
+        "13aade64c59d45cf8c4da22f556c9d4e": {
+          "id": "13aade64c59d45cf8c4da22f556c9d4e",
+          "stepType": "AiDataCollector",
+          "name": "Guest Question Collector",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "4ad23a6b7c054b4a95bde8af21de97fd",
+              "displayName": "Guest Question",
+              "name": "guest_question_2",
+              "description": "The hotel guest's question about hotel facilities, services, policies, timings, amenities, or other hotel-related information.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "d8e2532453114bbf91f58d6e71033356",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "fab7078f3eeb47908df5eb42c336262b"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_13aade64c59d45cf8c4da22f556c9d4e_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "variableIds": [
+            "d8e2532453114bbf91f58d6e71033356"
+          ],
+          "standalone": false
+        },
+        "14f7f914acda44919e7e226d1a782cf0": {
+          "id": "14f7f914acda44919e7e226d1a782cf0",
+          "name": "Build Hotel Query",
+          "script": "(function execute() {\n    vaVars.hotel_search_query_2 = vaVars.get_property + \" \" + vaInputs.guest_question_2;\n})()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "56e46e2dc7ea48f2b4c4753696ed800b": {
+          "id": "56e46e2dc7ea48f2b4c4753696ed800b",
+          "stepType": "ReusableTopic",
+          "name": "AI Search",
+          "fields": [],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "useTemplateTopic": false,
+          "reusableTopicChoice": "AI Search",
+          "reusableTopicId": "b19775fa536310103296ddeeff7b12ff",
+          "inputs": {
+            "search_term": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaVars.hotel_search_query_2}}",
+                        "displayValue": "Script Variables➛hotel_search_query_2"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "search_application_configuration": {
+              "value": "",
+              "mode": "string",
+              "type": "Reference",
+              "table": "sys_search_context_config"
+            },
+            "ask_another_search": {
+              "value": "false",
+              "mode": "simple",
+              "type": "True/False"
+            }
+          },
+          "outputs": [
+            {
+              "id": "b711eafed830487080d9225a757219a6",
+              "value": "geniussearchresults",
+              "mapping": "geniussearchresults1",
+              "preventDisable": false
+            },
+            {
+              "id": "45f11ae00b8749aaabb6e835600bdb4f",
+              "value": "searchresults",
+              "mapping": "searchresults1",
+              "preventDisable": false
+            },
+            {
+              "id": "422a630e1b01410bb670b678c5dc2f83",
+              "value": "shouldaskinfohelpful",
+              "mapping": "shouldaskinfohelpful1",
+              "preventDisable": false
+            },
+            {
+              "id": "aa44a953f99e4952907d026f2a637308",
+              "value": "newsearchterm",
+              "mapping": "newsearchterm1",
+              "preventDisable": false
+            },
+            {
+              "id": "9aa26095a7604615a14fd361d766b5c8",
+              "value": "shouldrunfallbacktopic",
+              "mapping": "shouldrunfallbacktopic1",
+              "preventDisable": true
+            },
+            {
+              "id": "f1e88f0e3b5e49a9b4601f51896f2411",
+              "value": "searchmetadata",
+              "mapping": "searchmetadata1",
+              "preventDisable": false
+            }
+          ],
+          "variableIds": [
+            "b711eafed830487080d9225a757219a6",
+            "45f11ae00b8749aaabb6e835600bdb4f",
+            "422a630e1b01410bb670b678c5dc2f83",
+            "aa44a953f99e4952907d026f2a637308",
+            "9aa26095a7604615a14fd361d766b5c8",
+            "f1e88f0e3b5e49a9b4601f51896f2411"
+          ],
+          "dynamicTopicBlockName": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputDynamicModal": {},
+          "outputDynamicModal": {},
+          "outdatedNote": false,
+          "loading": false,
+          "inputParametersMode": "dynamic",
+          "inputParameterScript": "",
+          "outputParametersMode": "dynamic",
+          "outputParameterVariable": "",
+          "outputParameterId": "f413895835a54341bf8276fc2cd2e7c2"
+        },
+        "62afadafe26a474380400da245c8fab9": {
+          "id": "62afadafe26a474380400da245c8fab9",
+          "stepType": "AITextOutput",
+          "name": "Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Answer the guest's question using only the information retrieved by AI Search."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Use the guest's property-specific information only."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Return ONLY the information needed to answer the guest's question."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the guest asks for opening or closing hours, return only the relevant hours."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the guest asks for a location, return only the relevant location."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the guest asks about a service or facility, return only the information required to answer that question."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT display or list knowledge base articles."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask the guest to select an article."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask for confirmation."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask whether the answer looks correct."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT ask what the guest wants to do next."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT provide unrelated hotel information."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do NOT mention AI Search, knowledge base, search results, LLM, Flow Designer, or internal system details."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Never use information belonging to another hotel or property."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "If the retrieved information does not contain an answer, say that the information is not available for the guest's hotel."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Return only the final answer to the guest."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "c45d6b28b8034a8288d4ead06ed754ce": {
+          "id": "c45d6b28b8034a8288d4ead06ed754ce",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "da16030384dc47d395eb6cc92a2019dc": {
+          "id": "da16030384dc47d395eb6cc92a2019dc",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "24247a4a11a14570b6f3be1e2b568db0": {
+          "id": "24247a4a11a14570b6f3be1e2b568db0",
+          "stepType": "AITextOutput",
+          "name": "Hotel Contact Details",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Give these details to the user becuase we couldn't able to find answer for you question."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "kindly contact our hotel support team:"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hotel Name :"
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.lookup_guest.property.hotel_name}}",
+                      "displayValue": "Input Variables➛Lookup Guest➛Property➛Hotel name"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Contact No.:"
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.lookup_guest.property.contact_number}}",
+                      "displayValue": "Input Variables➛Lookup Guest➛Property➛Contact Number"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Email : "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.lookup_guest.property.contact_email}}",
+                      "displayValue": "Input Variables➛Lookup Guest➛Property➛Contact Email"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "30729c96c3624d8e9dcef5924c959531": {
+          "id": "30729c96c3624d8e9dcef5924c959531",
+          "stepType": "AITextOutput",
+          "name": "Hotel Contact Details",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Currently we are not able to find the result for your question. Kindly contact our support team."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Support Contact Details:"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hotel Name : "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.get_property}}",
+                      "displayValue": "Input Variables➛Get Property"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": " "
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Contact Number : "
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Contanct Email : "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "7c2982f86c204f4dacbbe1507407845a": {
+          "id": "7c2982f86c204f4dacbbe1507407845a",
+          "stepType": "StandaloneAIChoicePrompt",
+          "name": "Guest Intent",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "10363e7daf9840e6aac9ad78b6873e69",
+              "displayName": "Guest Intent",
+              "name": "guest_intent",
+              "description": "Ask the guest whether they want to ask a question about the hotel or raise a request or complaint regarding an issue they are facing.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "choice",
+              "variableId": "81c4f2230e854bdd961853b62234f6c5",
+              "choices": [
+                {
+                  "label": "Ask a Query",
+                  "value": "1"
+                },
+                {
+                  "label": "Raise a Request",
+                  "value": "2"
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "ChoicePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "a6b6c0aeed414850a68980f7ce14ef84"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_7c2982f86c204f4dacbbe1507407845a_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "81c4f2230e854bdd961853b62234f6c5"
+          ]
+        },
+        "b8442fb34a2546c2990bf1dc9ac72040": {
+          "id": "b8442fb34a2546c2990bf1dc9ac72040",
+          "stepType": "Decision",
+          "name": "Based On The User Intent"
+        },
+        "db8f4e242c304374b8f70590c5209ec8": {
+          "id": "db8f4e242c304374b8f70590c5209ec8",
+          "stepType": "StandaloneAITextPrompt",
+          "name": "Get Guest Id",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "f7656e0ba6584eea9a6b4e49251b99c3",
+              "displayName": "Get Guest Id",
+              "name": "get_guest_id",
+              "description": "Please provide your Guest ID so I can securely retrieve your booking and hotel stay details.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "8dec688ca3854eda961a08095b3523a0",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "1feaab6ccbf9428d8fb36562c4980ec0"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_db8f4e242c304374b8f70590c5209ec8_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "8dec688ca3854eda961a08095b3523a0"
+          ]
+        },
+        "4d7a02ee3386436ea3263751a728f63b": {
+          "id": "4d7a02ee3386436ea3263751a728f63b",
+          "stepType": "LookupRecord",
+          "name": "Find Guest Id",
+          "condition": {
+            "mode": "glide_query",
+            "value": "number={{vaInputs.get_guest_id}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "486aa7bdb1fa43fcb0723f176a56e3ef"
+        },
+        "60f33802e25e453aae5c60bfe2418d0c": {
+          "id": "60f33802e25e453aae5c60bfe2418d0c",
+          "stepType": "Decision",
+          "name": "Record Found In Guest Table"
+        },
+        "91bd4d4b5e54447f9dfa24559a4495f7": {
+          "id": "91bd4d4b5e54447f9dfa24559a4495f7",
+          "stepType": "StandaloneAIChoicePrompt",
+          "name": "Is Wanted",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "f59fd7f4de8b4a1cbc7fd306716ef793",
+              "displayName": "Is Wanted",
+              "name": "is_wanted",
+              "description": "I’m sorry, but I couldn’t find your guest details with the information provided. Would you like me to provide the hotel’s contact information so you can get further assistance?",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "choice",
+              "variableId": "b92872dfe37043b7a2aa6e342bae885f",
+              "choices": [
+                {
+                  "label": "Yes, show hotel contact informationYes, show hotel contact information",
+                  "value": "1"
+                },
+                {
+                  "label": "No, end chat",
+                  "value": "0"
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "ChoicePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "736599bd2e044507b4428b9460aead08"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_91bd4d4b5e54447f9dfa24559a4495f7_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "b92872dfe37043b7a2aa6e342bae885f"
+          ]
+        },
+        "0f308d4997be4b138b38261d6b6dd3c4": {
+          "id": "0f308d4997be4b138b38261d6b6dd3c4",
+          "stepType": "Decision",
+          "name": "Does Guest Wanted the Hotel Details?"
+        },
+        "70c014efda3a48689b0f32f98baf6549": {
+          "id": "70c014efda3a48689b0f32f98baf6549",
+          "stepType": "StandaloneAITextPrompt",
+          "name": "Hotel Details",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "cd6baa73e17f48efb362695e0560870c",
+              "displayName": "Hotel Details",
+              "name": "hotel_details",
+              "description": "Please enter your hotel details, including the hotel name, city, state, and country.\nExample: Olivia Grand Hotel, Vadodara, Gujarat, India.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "9ac68adf5bf24c22bcc1f416e7e23675",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "ddae14815297419893f51285cb1b22b7"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_70c014efda3a48689b0f32f98baf6549_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "9ac68adf5bf24c22bcc1f416e7e23675"
+          ]
+        },
+        "c7f379d140224ca18d7211d4eb384ce6": {
+          "id": "c7f379d140224ca18d7211d4eb384ce6",
+          "name": "Assign Value To Hotel Variable ",
+          "script": "(function execute() {\n    var details = inputs.hotel_details || '';\n\n// Split using comma\nvar parts = details.split(',');\n\n// Remove extra spaces from each value\nfor (var i = 0; i &lt; parts.length; i++) {\n    parts[i] = parts[i].trim();\n}\n\n// Assign values\noutputs.hotel_name = parts.length &gt; 0 ? parts[0] : '';\noutputs.hotel_city = parts.length &gt; 1 ? parts[1] : '';\noutputs.hotel_state = parts.length &gt; 2 ? parts[2] : '';\noutputs.hotel_country = parts.length &gt; 3 ? parts[3] : '';\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "ca430a669ab04feeb222f04e82bbfeed": {
+          "id": "ca430a669ab04feeb222f04e82bbfeed",
+          "stepType": "LookupRecord",
+          "name": "Look Up For The Hotel Details",
+          "condition": {
+            "mode": "glide_query",
+            "value": "city={{vaVars.hotel_city}}^country={{vaVars.hotel_country}}^hotel_name={{vaVars.hotel_name}}^state={{vaVars.hotel_state}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "6e76b7e5560149c6bceff9ea724e847d"
+        },
+        "4d4784bfacd2453395e1dc9f0fa56b4f": {
+          "id": "4d4784bfacd2453395e1dc9f0fa56b4f",
+          "stepType": "AITextOutput",
+          "name": "Hotel Details Response",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Give these details to the user becuase we couldn't able to find answer for you question."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "kindly contact our hotel support team:"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Hotel Name :"
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.look_up_for_the_hotel_details.hotel_name}}",
+                      "displayValue": "Input Variables➛Look Up For The Hotel Details➛Hotel name"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Contact No.:"
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.look_up_for_the_hotel_details.contact_number}}",
+                      "displayValue": "Input Variables➛Look Up For The Hotel Details➛Contact Number"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Email : "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.look_up_for_the_hotel_details.contact_email}}",
+                      "displayValue": "Input Variables➛Look Up For The Hotel Details➛Contact Email"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "fc549de92c794083bbb762ade61ead04": {
+          "id": "fc549de92c794083bbb762ade61ead04",
+          "stepType": "CrudAction",
+          "name": "Create Guest Request",
+          "template": {
+            "query": {
+              "terms": [
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "guest",
+                  "expression": "{{vaInputs.find_guest_id}}",
+                  "id": "cf8b2c374cd8422bada2e702cccc2bd6"
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "property",
+                  "expression": "{{vaInputs.find_guest_id.property}}",
+                  "id": "6cda919abe064a77aa9ec6dbd2608451"
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "room",
+                  "expression": "{{vaInputs.find_guest_id.current_room}}",
+                  "id": "36f9b286485f4146948f6c7032b27bf7"
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "raw_text",
+                  "expression": "{{vaInputs.issue_facing}}",
+                  "deserializedExpression": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": ""
+                        },
+                        {
+                          "type": "datapill",
+                          "dataPill": {
+                            "value": "{{vaInputs.issue_facing}}",
+                            "displayValue": "Input Variables➛Issue Facing"
+                          },
+                          "children": [
+                            {
+                              "text": ""
+                            }
+                          ]
+                        },
+                        {
+                          "text": ""
+                        }
+                      ]
+                    }
+                  ],
+                  "id": "ee9369ef843c41a781bbd79c1928b443"
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "status",
+                  "expression": "new",
+                  "id": "4c78bb6fc7e646eb9c22277e5fef5411"
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "channel",
+                  "expression": "virtual_agent",
+                  "id": "c578c7e58ab94a39b9d8c5644a679ebd"
+                }
+              ]
+            },
+            "queryString": "guest={{vaInputs.find_guest_id}}^property={{vaInputs.find_guest_id.property}}^room={{vaInputs.find_guest_id.current_room}}^raw_text={{vaInputs.issue_facing}}^status=new^channel=virtual_agent"
+          },
+          "mode": "create",
+          "record": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "attachments": [
+            {
+              "value": "",
+              "mode": "simple"
+            }
+          ],
+          "variableId": "feffcb47a3604f3aab08d2f02651f3db"
+        },
+        "58b52f2e59a34ddca3b7f3b544c2c3b6": {
+          "id": "58b52f2e59a34ddca3b7f3b544c2c3b6",
+          "stepType": "StandaloneAITextPrompt",
+          "name": "Issue Facing",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "c4f83ecedb78411aabdc76b622e2272f",
+              "displayName": "Issue Facing",
+              "name": "issue_facing",
+              "description": "Please describe the issue or request you need assistance with. Include any relevant details, such as what happened, where the issue occurred, and any specific assistance you require.",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "a28014c8ec944103a5c9ff9496648908",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "9ae449c386334eee840645caa77ec2ba"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_58b52f2e59a34ddca3b7f3b544c2c3b6_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "a28014c8ec944103a5c9ff9496648908"
+          ]
+        },
+        "143ceb5782eb46b7a25c749a3edb0d44": {
+          "id": "143ceb5782eb46b7a25c749a3edb0d44",
+          "stepType": "AITextOutput",
+          "name": "Request Created Successfully",
+          "description": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Your request has been successfully registered. Below are the details of your request. Please review them and keep your request number for future reference."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Request ID : "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.create_guest_request.number}}",
+                      "displayValue": "Input Variables➛Create Guest Request➛Number"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Name : "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.create_guest_request.guest.full_name}}",
+                      "displayValue": "Input Variables➛Create Guest Request➛Guest➛Full Name"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Issue : "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.create_guest_request.ai_summary}}",
+                      "displayValue": "Input Variables➛Create Guest Request➛AI Summary"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Room No. : "
+                  },
+                  {
+                    "type": "datapill",
+                    "dataPill": {
+                      "value": "{{vaInputs.create_guest_request.room}}",
+                      "displayValue": "Input Variables➛Create Guest Request➛Room"
+                    },
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "ccda5312c5c0460387d3b4fb05692d5b",
+          "edgeType": "Edge",
+          "source": "24247a4a11a14570b6f3be1e2b568db0",
+          "target": "3006aab7d29e42ceb483ce273f26ec59",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "facf0ac84bf146529528de3768af498f",
+          "edgeType": "Edge",
+          "source": "38d304abae2f4e6db163ca8bc5fdc1fb",
+          "target": "13aade64c59d45cf8c4da22f556c9d4e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8a6d512cd01c413594feace2d1d7edd0",
+          "edgeType": "Branch",
+          "source": "a6a9e04d98c7420c83cfd31f5f268e65",
+          "target": "1792b181915f4537b7a1463456dce2fe",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.lookup_guestISNOTEMPTY",
+            "mode": "query"
+          },
+          "label": "Guest Found"
+        },
+        {
+          "id": "7b7d30016a14448590542aa845ef5fa6",
+          "edgeType": "Edge",
+          "source": "1792b181915f4537b7a1463456dce2fe",
+          "target": "b5406b86c5004fb28451b9c2e6a77e91",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d02aa7178c7644628d1837c4b91481f6",
+          "edgeType": "Edge",
+          "source": "d2542a9db7eb4e888c2d8deb1cce43db",
+          "target": "521b8cca640547e4a2742cdfda6d55e7",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fca3d52e30154be8bd8aad28366db731",
+          "edgeType": "Edge",
+          "source": "b5406b86c5004fb28451b9c2e6a77e91",
+          "target": "d2542a9db7eb4e888c2d8deb1cce43db",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8116b3eaca934a6eac6be8d7a8811f9a",
+          "edgeType": "Edge",
+          "source": "826871f0c9a24d9182bb352b5c6eeb20",
+          "target": "3006aab7d29e42ceb483ce273f26ec59",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "78da3649f7e247faabe364c050aa276e",
+          "edgeType": "Edge",
+          "source": "bfbdb16a82034272afc53043d5620e99",
+          "target": "8ca192653ea64065830db7176aef5a40",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ee56e31c56e54c768064809e173dc0ef",
+          "edgeType": "Edge",
+          "source": "8ca192653ea64065830db7176aef5a40",
+          "target": "a6a9e04d98c7420c83cfd31f5f268e65",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "90e087ccf89b43ffb2bd48bd2991fc98",
+          "edgeType": "Branch",
+          "source": "a6a9e04d98c7420c83cfd31f5f268e65",
+          "target": "38d304abae2f4e6db163ca8bc5fdc1fb",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.lookup_guestISEMPTY",
+            "mode": "query"
+          },
+          "label": "Guest Not Found"
+        },
+        {
+          "id": "0c0d39eb5ddc46d69c9b3bc265982d1c",
+          "edgeType": "Edge",
+          "source": "13aade64c59d45cf8c4da22f556c9d4e",
+          "target": "14f7f914acda44919e7e226d1a782cf0",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "43cff5c4e6e3421a9b6f8a8a388a0526",
+          "edgeType": "Edge",
+          "source": "14f7f914acda44919e7e226d1a782cf0",
+          "target": "56e46e2dc7ea48f2b4c4753696ed800b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a9fc9468e8bc47418ece4f3089be9530",
+          "edgeType": "Edge",
+          "source": "62afadafe26a474380400da245c8fab9",
+          "target": "3006aab7d29e42ceb483ce273f26ec59",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0b1dc15459e748bd8d61d0bc1056b81a",
+          "edgeType": "Edge",
+          "source": "521b8cca640547e4a2742cdfda6d55e7",
+          "target": "c45d6b28b8034a8288d4ead06ed754ce",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2b10b21697bf41d5b3b6ddbb7fc67f66",
+          "edgeType": "Branch",
+          "source": "c45d6b28b8034a8288d4ead06ed754ce",
+          "target": "826871f0c9a24d9182bb352b5c6eeb20",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.shouldrunfallbacktopic=",
+            "mode": "query"
+          },
+          "label": "Result Found"
+        },
+        {
+          "id": "66479012edad419fb07ff1721a15a1b4",
+          "edgeType": "Edge",
+          "source": "56e46e2dc7ea48f2b4c4753696ed800b",
+          "target": "da16030384dc47d395eb6cc92a2019dc",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3f57fa23875a49a9875890a987c7dcae",
+          "edgeType": "Branch",
+          "source": "da16030384dc47d395eb6cc92a2019dc",
+          "target": "62afadafe26a474380400da245c8fab9",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.shouldrunfallbacktopic1=false",
+            "mode": "query"
+          },
+          "label": "Result Found"
+        },
+        {
+          "id": "7b0b3cc6c60749889b632f47b2763d78",
+          "edgeType": "Branch",
+          "source": "c45d6b28b8034a8288d4ead06ed754ce",
+          "target": "24247a4a11a14570b6f3be1e2b568db0",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.shouldrunfallbacktopic=true",
+            "mode": "query"
+          },
+          "label": "Result Not Found"
+        },
+        {
+          "id": "dbf21b46fe9f4f91a875e8bfbe7cdb8f",
+          "edgeType": "Branch",
+          "source": "da16030384dc47d395eb6cc92a2019dc",
+          "target": "30729c96c3624d8e9dcef5924c959531",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.shouldrunfallbacktopic1=true",
+            "mode": "query"
+          },
+          "label": "Result Not Found"
+        },
+        {
+          "id": "89d26e9545e549ba8ff1357928d7b32f",
+          "edgeType": "Edge",
+          "source": "30729c96c3624d8e9dcef5924c959531",
+          "target": "3006aab7d29e42ceb483ce273f26ec59",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e1764def68f743688a3d9576961604de",
+          "edgeType": "Edge",
+          "source": "5179d6beb8554b6296234ddea707d3f7",
+          "target": "7c2982f86c204f4dacbbe1507407845a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "5763a62249e94625a8632052ebbbadea",
+          "edgeType": "Edge",
+          "source": "7c2982f86c204f4dacbbe1507407845a",
+          "target": "b8442fb34a2546c2990bf1dc9ac72040",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c24c43ac2b1749248f316ff3bea88860",
+          "edgeType": "Branch",
+          "source": "b8442fb34a2546c2990bf1dc9ac72040",
+          "target": "bfbdb16a82034272afc53043d5620e99",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.guest_intent=1",
+            "mode": "query"
+          },
+          "label": "Intent = \"ask a query\""
+        },
+        {
+          "id": "0dfdcf2c3d7a4a90badbd6fa1f4f0a20",
+          "edgeType": "Branch",
+          "source": "b8442fb34a2546c2990bf1dc9ac72040",
+          "target": "db8f4e242c304374b8f70590c5209ec8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.guest_intent=2",
+            "mode": "query"
+          },
+          "label": "intent = \"raise a request\""
+        },
+        {
+          "id": "d6f0bd360f894a73878aa1a6f09fa3f7",
+          "edgeType": "Edge",
+          "source": "db8f4e242c304374b8f70590c5209ec8",
+          "target": "4d7a02ee3386436ea3263751a728f63b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "314cb36388ca4e03b9dd44a216001de6",
+          "edgeType": "Edge",
+          "source": "4d7a02ee3386436ea3263751a728f63b",
+          "target": "60f33802e25e453aae5c60bfe2418d0c",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "33554d2593474e2fb9a5f13677699d8a",
+          "edgeType": "Branch",
+          "source": "60f33802e25e453aae5c60bfe2418d0c",
+          "target": "91bd4d4b5e54447f9dfa24559a4495f7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.find_guest_idISEMPTY",
+            "mode": "query"
+          },
+          "label": "Guest ID Not Found"
+        },
+        {
+          "id": "5fe488cf50fb4678b248f03d9f73631f",
+          "edgeType": "Edge",
+          "source": "91bd4d4b5e54447f9dfa24559a4495f7",
+          "target": "0f308d4997be4b138b38261d6b6dd3c4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fbd5a9bd44224043889bbde157b36c1a",
+          "edgeType": "Branch",
+          "source": "0f308d4997be4b138b38261d6b6dd3c4",
+          "target": "3006aab7d29e42ceb483ce273f26ec59",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.is_wanted=0",
+            "mode": "query"
+          },
+          "label": "Is Wanted = \"No\""
+        },
+        {
+          "id": "56b677b1c2274f2984a4577d43c485b9",
+          "edgeType": "Branch",
+          "source": "0f308d4997be4b138b38261d6b6dd3c4",
+          "target": "70c014efda3a48689b0f32f98baf6549",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.is_wanted=1",
+            "mode": "query"
+          },
+          "label": "Is Wanted = \"Yes\""
+        },
+        {
+          "id": "9ebfee0ec505472a9fdd37a5e9276e55",
+          "edgeType": "Edge",
+          "source": "70c014efda3a48689b0f32f98baf6549",
+          "target": "c7f379d140224ca18d7211d4eb384ce6",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "4bf8daed863d4b1994d894f3d63a952e",
+          "edgeType": "Edge",
+          "source": "c7f379d140224ca18d7211d4eb384ce6",
+          "target": "ca430a669ab04feeb222f04e82bbfeed",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3b2f95c2973e44abb87609ee714e661c",
+          "edgeType": "Edge",
+          "source": "ca430a669ab04feeb222f04e82bbfeed",
+          "target": "4d4784bfacd2453395e1dc9f0fa56b4f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "50330135771c47188e7a02ec2da541f7",
+          "edgeType": "Edge",
+          "source": "4d4784bfacd2453395e1dc9f0fa56b4f",
+          "target": "3006aab7d29e42ceb483ce273f26ec59",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0004ecd8558e450ab0dbf9a34f7715db",
+          "edgeType": "Branch",
+          "source": "60f33802e25e453aae5c60bfe2418d0c",
+          "target": "58b52f2e59a34ddca3b7f3b544c2c3b6",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.find_guest_idISNOTEMPTY",
+            "mode": "query"
+          },
+          "label": "Guest ID Found"
+        },
+        {
+          "id": "25760d77a44b4bb0a875f896e8b769fc",
+          "edgeType": "Edge",
+          "source": "58b52f2e59a34ddca3b7f3b544c2c3b6",
+          "target": "fc549de92c794083bbb762ade61ead04",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3dc02108477745fabd5193e8fce18122",
+          "edgeType": "Edge",
+          "source": "fc549de92c794083bbb762ade61ead04",
+          "target": "143ceb5782eb46b7a25c749a3edb0d44",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "80469d07a8ff4e2293e1f50ee3b7a1f6",
+          "edgeType": "Edge",
+          "source": "143ceb5782eb46b7a25c749a3edb0d44",
+          "target": "3006aab7d29e42ceb483ce273f26ec59",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "9cfab3f6f2364b09845b7d81e009eeed": {
+      "id": "9cfab3f6f2364b09845b7d81e009eeed",
+      "name": "ai_data_collector_b5406b86c5004fb28451b9c2e6a77e91_output",
+      "label": "Ai_data_collector_b5406b86c5004fb28451b9c2e6a77e91_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "fc5a4a23c45a4fc7a67ab2b316690d82": {
+      "id": "fc5a4a23c45a4fc7a67ab2b316690d82",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Guest Question",
+      "name": "guest_question",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "b5406b86c5004fb28451b9c2e6a77e91",
+      "isHidden": false,
+      "inputId": 0,
+      "description": ""
+    },
+    "41d100082c7c415c9a9ca16e35b1bbb4": {
+      "id": "41d100082c7c415c9a9ca16e35b1bbb4",
+      "name": "ai_data_collector_bfbdb16a82034272afc53043d5620e99_output",
+      "label": "Ai_data_collector_bfbdb16a82034272afc53043d5620e99_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "0aa6d8b03b7d4816a93931874d675feb": {
+      "id": "0aa6d8b03b7d4816a93931874d675feb",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Guest Email",
+      "name": "guest_email",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "bfbdb16a82034272afc53043d5620e99",
+      "isHidden": false,
+      "description": "Please enter your email address so I can identify your hotel profile."
+    },
+    "b8f364def2554438a2b66f4a676cdcb8": {
+      "id": "b8f364def2554438a2b66f4a676cdcb8",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "guest_property",
+      "label": "guest_property",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "e336abd6f6704144b3d3df9ffe5c0fb2": {
+      "id": "e336abd6f6704144b3d3df9ffe5c0fb2",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "hotel_search_query",
+      "label": "hotel_search_query",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "aa28c1feeef549458bad914d9acfeb0e": {
+      "id": "aa28c1feeef549458bad914d9acfeb0e",
+      "name": "lookup_guest",
+      "label": "Lookup Guest",
+      "varType": "reference",
+      "table": "x_snc_flowops_guest",
+      "category": "vaInputs",
+      "nodeId": "8ca192653ea64065830db7176aef5a40",
+      "isHidden": false
+    },
+    "a98135fbd83d433cbe12ee9ec73691a9": {
+      "id": "a98135fbd83d433cbe12ee9ec73691a9",
+      "name": "ai_data_collector_38d304abae2f4e6db163ca8bc5fdc1fb_output",
+      "label": "Ai_data_collector_38d304abae2f4e6db163ca8bc5fdc1fb_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "d086740a5701475f9a11f3620945bfee": {
+      "id": "d086740a5701475f9a11f3620945bfee",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Get Property",
+      "name": "get_property",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "38d304abae2f4e6db163ca8bc5fdc1fb",
+      "isHidden": false,
+      "description": "Please enter a hotel name. We are not able to found your record."
+    },
+    "fab7078f3eeb47908df5eb42c336262b": {
+      "id": "fab7078f3eeb47908df5eb42c336262b",
+      "name": "ai_data_collector_13aade64c59d45cf8c4da22f556c9d4e_output",
+      "label": "Ai_data_collector_13aade64c59d45cf8c4da22f556c9d4e_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "d8e2532453114bbf91f58d6e71033356": {
+      "id": "d8e2532453114bbf91f58d6e71033356",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Guest (2)",
+      "name": "guest_question_2",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "nodeId": "13aade64c59d45cf8c4da22f556c9d4e",
+      "isHidden": false,
+      "inputId": 0,
+      "description": "The hotel guest's question about hotel facilities, services, policies, timings, amenities, or other hotel-related information."
+    },
+    "086843eb56f94277a832f5363a088322": {
+      "id": "086843eb56f94277a832f5363a088322",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "hotel_search_query_2",
+      "label": "hotel_search_query_2",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "b711eafed830487080d9225a757219a6": {
+      "id": "b711eafed830487080d9225a757219a6",
+      "name": "geniussearchresults1",
+      "label": "Geniussearchresults1",
+      "defaultValue": "geniussearchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "56e46e2dc7ea48f2b4c4753696ed800b",
+      "isHidden": false
+    },
+    "45f11ae00b8749aaabb6e835600bdb4f": {
+      "id": "45f11ae00b8749aaabb6e835600bdb4f",
+      "name": "searchresults1",
+      "label": "Searchresults1",
+      "defaultValue": "searchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "56e46e2dc7ea48f2b4c4753696ed800b",
+      "isHidden": false
+    },
+    "422a630e1b01410bb670b678c5dc2f83": {
+      "id": "422a630e1b01410bb670b678c5dc2f83",
+      "name": "shouldaskinfohelpful1",
+      "label": "Shouldaskinfohelpful1",
+      "defaultValue": "shouldaskinfohelpful",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "56e46e2dc7ea48f2b4c4753696ed800b",
+      "isHidden": false
+    },
+    "aa44a953f99e4952907d026f2a637308": {
+      "id": "aa44a953f99e4952907d026f2a637308",
+      "name": "newsearchterm1",
+      "label": "Newsearchterm1",
+      "defaultValue": "newsearchterm",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "56e46e2dc7ea48f2b4c4753696ed800b",
+      "isHidden": false
+    },
+    "9aa26095a7604615a14fd361d766b5c8": {
+      "id": "9aa26095a7604615a14fd361d766b5c8",
+      "name": "shouldrunfallbacktopic1",
+      "label": "Shouldrunfallbacktopic1",
+      "defaultValue": "shouldrunfallbacktopic",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
+      "nodeId": "56e46e2dc7ea48f2b4c4753696ed800b",
+      "isHidden": false
+    },
+    "f1e88f0e3b5e49a9b4601f51896f2411": {
+      "id": "f1e88f0e3b5e49a9b4601f51896f2411",
+      "name": "searchmetadata1",
+      "label": "Searchmetadata1",
+      "defaultValue": "searchmetadata",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "56e46e2dc7ea48f2b4c4753696ed800b",
+      "isHidden": false
+    },
+    "be0d5b8fd51f4052ac6928b0081e927b": {
+      "id": "be0d5b8fd51f4052ac6928b0081e927b",
+      "name": "geniussearchresults",
+      "label": "Geniussearchresults",
+      "defaultValue": "geniussearchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "521b8cca640547e4a2742cdfda6d55e7",
+      "isHidden": false
+    },
+    "c0b9e26b32a243c0a415d8fb8aaf0470": {
+      "id": "c0b9e26b32a243c0a415d8fb8aaf0470",
+      "name": "searchresults",
+      "label": "Searchresults",
+      "defaultValue": "searchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "521b8cca640547e4a2742cdfda6d55e7",
+      "isHidden": false
+    },
+    "2f49dfe42e6f4b94b65e7172dcfc29e9": {
+      "id": "2f49dfe42e6f4b94b65e7172dcfc29e9",
+      "name": "shouldaskinfohelpful",
+      "label": "Shouldaskinfohelpful",
+      "defaultValue": "shouldaskinfohelpful",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "521b8cca640547e4a2742cdfda6d55e7",
+      "isHidden": false
+    },
+    "12c445f9ed4d40d69ca75e4992e3ed12": {
+      "id": "12c445f9ed4d40d69ca75e4992e3ed12",
+      "name": "newsearchterm",
+      "label": "Newsearchterm",
+      "defaultValue": "newsearchterm",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "521b8cca640547e4a2742cdfda6d55e7",
+      "isHidden": false
+    },
+    "76535ff650c84b628bfff5b83f82591a": {
+      "id": "76535ff650c84b628bfff5b83f82591a",
+      "name": "shouldrunfallbacktopic",
+      "label": "Shouldrunfallbacktopic",
+      "defaultValue": "shouldrunfallbacktopic",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": true,
+      "nodeId": "521b8cca640547e4a2742cdfda6d55e7",
+      "isHidden": false
+    },
+    "8846afbf1a0f4cefb04ba0a6670a97e1": {
+      "id": "8846afbf1a0f4cefb04ba0a6670a97e1",
+      "name": "searchmetadata",
+      "label": "Searchmetadata",
+      "defaultValue": "searchmetadata",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "521b8cca640547e4a2742cdfda6d55e7",
+      "isHidden": false
+    },
+    "080863b9bbfa4ca49c182b1af2fa62d5": {
+      "id": "080863b9bbfa4ca49c182b1af2fa62d5",
+      "name": "ai_data_collector_39fed2fd291a484790de093f26d5ea15_output",
+      "label": "Ai_data_collector_39fed2fd291a484790de093f26d5ea15_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "a6b6c0aeed414850a68980f7ce14ef84": {
+      "id": "a6b6c0aeed414850a68980f7ce14ef84",
+      "name": "ai_data_collector_7c2982f86c204f4dacbbe1507407845a_output",
+      "label": "Ai_data_collector_7c2982f86c204f4dacbbe1507407845a_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "81c4f2230e854bdd961853b62234f6c5": {
+      "id": "81c4f2230e854bdd961853b62234f6c5",
+      "varType": "choice",
+      "category": "vaInputs",
+      "label": "Guest Intent",
+      "name": "guest_intent",
+      "choices": [
+        {
+          "label": "Ask a Query",
+          "value": "1"
+        },
+        {
+          "label": "Raise a Request",
+          "value": "2"
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "7c2982f86c204f4dacbbe1507407845a",
+      "isHidden": false,
+      "description": "Ask the guest whether they want to ask a question about the hotel or raise a request or complaint regarding an issue they are facing.",
+      "translation": true
+    },
+    "1feaab6ccbf9428d8fb36562c4980ec0": {
+      "id": "1feaab6ccbf9428d8fb36562c4980ec0",
+      "name": "ai_data_collector_db8f4e242c304374b8f70590c5209ec8_output",
+      "label": "Ai_data_collector_db8f4e242c304374b8f70590c5209ec8_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "8dec688ca3854eda961a08095b3523a0": {
+      "id": "8dec688ca3854eda961a08095b3523a0",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Get Guest Id",
+      "name": "get_guest_id",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "db8f4e242c304374b8f70590c5209ec8",
+      "isHidden": false,
+      "description": "Please provide your Guest ID so I can securely retrieve your booking and hotel stay details."
+    },
+    "486aa7bdb1fa43fcb0723f176a56e3ef": {
+      "id": "486aa7bdb1fa43fcb0723f176a56e3ef",
+      "name": "find_guest_id",
+      "label": "Find Guest Id",
+      "varType": "reference",
+      "table": "x_snc_flowops_guest",
+      "category": "vaInputs",
+      "nodeId": "4d7a02ee3386436ea3263751a728f63b",
+      "isHidden": false
+    },
+    "736599bd2e044507b4428b9460aead08": {
+      "id": "736599bd2e044507b4428b9460aead08",
+      "name": "ai_data_collector_91bd4d4b5e54447f9dfa24559a4495f7_output",
+      "label": "Ai_data_collector_91bd4d4b5e54447f9dfa24559a4495f7_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "b92872dfe37043b7a2aa6e342bae885f": {
+      "id": "b92872dfe37043b7a2aa6e342bae885f",
+      "varType": "choice",
+      "category": "vaInputs",
+      "label": "Is Wanted",
+      "name": "is_wanted",
+      "choices": [
+        {
+          "label": "Yes, show hotel contact informationYes, show hotel contact information",
+          "value": "1"
+        },
+        {
+          "label": "No, end chat",
+          "value": "0"
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "91bd4d4b5e54447f9dfa24559a4495f7",
+      "isHidden": false,
+      "description": "I’m sorry, but I couldn’t find your guest details with the information provided. Would you like me to provide the hotel’s contact information so you can get further assistance?",
+      "translation": true
+    },
+    "ddae14815297419893f51285cb1b22b7": {
+      "id": "ddae14815297419893f51285cb1b22b7",
+      "name": "ai_data_collector_70c014efda3a48689b0f32f98baf6549_output",
+      "label": "Ai_data_collector_70c014efda3a48689b0f32f98baf6549_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "9ac68adf5bf24c22bcc1f416e7e23675": {
+      "id": "9ac68adf5bf24c22bcc1f416e7e23675",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Hotel Details",
+      "name": "hotel_details",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "70c014efda3a48689b0f32f98baf6549",
+      "isHidden": false,
+      "description": "Please enter your hotel details, including the hotel name, city, state, and country.\nExample: Olivia Grand Hotel, Vadodara, Gujarat, India."
+    },
+    "789174d4f1b0449abcbb550a619cb7fb": {
+      "id": "789174d4f1b0449abcbb550a619cb7fb",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "hotel_name",
+      "label": "hotel_name",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "70740a4d462d41338bca4b405578091f": {
+      "id": "70740a4d462d41338bca4b405578091f",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "hotel_city",
+      "label": "hotel_city",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "2dacb83df0f04953829a6c102906377c": {
+      "id": "2dacb83df0f04953829a6c102906377c",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "hotel_state",
+      "label": "hotel_state",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "f13414720b5c4642825c72d7184a4d8e": {
+      "id": "f13414720b5c4642825c72d7184a4d8e",
+      "value": {
+        "mode": "simple",
+        "value": "String"
+      },
+      "name": "hotel_country",
+      "label": "hotel_country",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "6e76b7e5560149c6bceff9ea724e847d": {
+      "id": "6e76b7e5560149c6bceff9ea724e847d",
+      "name": "look_up_for_the_hotel_details",
+      "label": "Look Up For The Hotel Details",
+      "varType": "reference",
+      "table": "x_snc_flowops_property_table",
+      "category": "vaInputs",
+      "nodeId": "ca430a669ab04feeb222f04e82bbfeed",
+      "isHidden": false
+    },
+    "feffcb47a3604f3aab08d2f02651f3db": {
+      "id": "feffcb47a3604f3aab08d2f02651f3db",
+      "name": "create_guest_request",
+      "label": "Create Guest Request",
+      "varType": "reference",
+      "table": "x_snc_flowops_guest_request",
+      "inactive": false,
+      "category": "vaInputs",
+      "nodeId": "fc549de92c794083bbb762ade61ead04",
+      "isHidden": false
+    },
+    "9ae449c386334eee840645caa77ec2ba": {
+      "id": "9ae449c386334eee840645caa77ec2ba",
+      "name": "ai_data_collector_58b52f2e59a34ddca3b7f3b544c2c3b6_output",
+      "label": "Ai_data_collector_58b52f2e59a34ddca3b7f3b544c2c3b6_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "a28014c8ec944103a5c9ff9496648908": {
+      "id": "a28014c8ec944103a5c9ff9496648908",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Issue Facing",
+      "name": "issue_facing",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "58b52f2e59a34ddca3b7f3b544c2c3b6",
+      "isHidden": false,
+      "description": "Please describe the issue or request you need assistance with. Include any relevant details, such as what happened, where the issue occurred, and any specific assistance you require."
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>llm</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>hotel_guest_concierge</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-13 06:53:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>e381c76751a603107f4405bb1590ec90</sys_id>
+        <sys_mod_count>47</sys_mod_count>
+        <sys_name>hotel_guest_concierge</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cb_topic_e381c76751a603107f4405bb1590ec90</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 19:29:24</sys_updated_on>
+        <title>Hotel Guest Concierge</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=e381c76751a603107f4405bb1590ec90"/>
+</record_update>

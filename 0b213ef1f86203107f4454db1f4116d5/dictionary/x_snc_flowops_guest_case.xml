@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="101c31ca116203107f44b6b828e5977e" extends="sn_customerservice_case" label="Guest Case" max_length="40" name="x_snc_flowops_guest_case" type="collection">
+        <element label="Assignment Type" max_length="40" name="assignment_type" read_only="true" read_only_option="display_read_only" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Vendor" sequence="1" value="vendor"/>
+                <element inactive_on_update="false" label="Internal" sequence="0" value="internal"/>
+            </choice>
+        </element>
+        <element choice="1" label="Status" max_length="40" name="status" read_only="true" read_only_option="display_read_only" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Resolved" sequence="3" value="resolved"/>
+                <element inactive_on_update="false" label="Closed" sequence="0" value="closed"/>
+                <element inactive_on_update="false" label="Open" sequence="2" value="open"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in_progress"/>
+            </choice>
+        </element>
+        <element label="Assigned Vendor" max_length="32" name="assigned_vendor" read_only="true" read_only_option="display_read_only" reference="x_snc_flowops_vendor" type="reference"/>
+        <element label="SLA Due Time" max_length="40" name="sla_due_time" read_only="true" read_only_option="display_read_only" type="glide_date_time"/>
+        <element label="Resolution Notes" max_length="300" name="resolution_notes" read_only="true" read_only_option="display_read_only" type="string_full_utf8"/>
+        <element label="Service Subtype" mandatory="true" max_length="32" name="service_subtype" read_only="true" read_only_option="display_read_only" reference="x_snc_flowops_list_of_skills" type="reference"/>
+        <element label="Parent Request" mandatory="true" max_length="32" name="parent_request" read_only="true" read_only_option="display_read_only" reference="x_snc_flowops_guest_request" type="reference"/>
+        <element label="Case Detail" mandatory="true" max_length="100" name="case_detail" read_only="true" read_only_option="display_read_only" type="string"/>
+        <element label="Department" mandatory="true" max_length="32" name="department" read_only="true" read_only_option="display_read_only" reference="x_snc_flowops_department" type="reference"/>
+        <element label="Property" mandatory="true" max_length="32" name="property" read_only="true" read_only_option="display_read_only" reference="x_snc_flowops_property_table" type="reference"/>
+    </element>
+</database>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="ec516be2656203107f44c0d0b6842e09" label="AI Agent Interaction" max_length="40" name="x_snc_flowops_ai_agent_interaction" type="collection">
+        <element label="Input Pay Load" max_length="300" name="input_pay_load" type="string_full_utf8"/>
+        <element label="Orchestrator Log" max_length="32" name="orchestrator_log" reference="x_snc_flowops_ai_orchestrator_log" type="reference"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Success" value="1"/>
+                <element inactive_on_update="false" label="Escalated" value="2"/>
+                <element inactive_on_update="false" label="Failed" value="0"/>
+            </choice>
+        </element>
+        <element label="Output Pay Load" max_length="300" name="output_pay_load" type="string_full_utf8"/>
+        <element label="Confidence Score" max_length="20" name="confidence_score" type="decimal"/>
+        <element choice="1" label="Agent" max_length="40" name="agent" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Vendor Coordination" value="4"/>
+                <element inactive_on_update="false" label="Engineering" value="3"/>
+                <element inactive_on_update="false" label="Operations Intelligence" value="5"/>
+                <element inactive_on_update="false" label="Guest Concierge" value="1"/>
+                <element inactive_on_update="false" label="Housekeeping" value="2"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="orchestrator_log"/>
+        </index>
+    </element>
+</database>

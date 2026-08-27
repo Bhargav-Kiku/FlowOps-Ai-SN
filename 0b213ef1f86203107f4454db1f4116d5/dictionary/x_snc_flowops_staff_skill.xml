@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="fac0543a652a03107f44c0d0b6842e44" label="Staff Skill" max_length="40" name="x_snc_flowops_staff_skill" type="collection">
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element label="Staff Shift" mandatory="true" max_length="32" name="staff_shift" reference="x_snc_flowops_staff_shift" type="reference"/>
+        <element label="Skill Category" max_length="32" name="skill_category" reference="x_snc_flowops_list_of_skills" type="reference"/>
+        <element label="Staff" max_length="32" name="staff" reference="sys_user" type="reference"/>
+        <element choice="1" label="Proficiency Level" max_length="40" name="proficiency_level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Skilled" sequence="1" value="skilled"/>
+                <element inactive_on_update="false" label="Junior" sequence="0" value="junior"/>
+                <element inactive_on_update="false" label="Expert" sequence="2" value="expert"/>
+            </choice>
+        </element>
+        <element choice="1" label="Availability Status" max_length="40" name="availability_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Available" sequence="0" value="available"/>
+                <element inactive_on_update="false" label="Busy" sequence="1" value="busy"/>
+                <element inactive_on_update="false" label="Off Shift" sequence="2" value="off_shift"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="staff_shift"/>
+        </index>
+        <index name="index2">
+            <element name="staff"/>
+        </index>
+        <index name="index3">
+            <element name="property"/>
+        </index>
+    </element>
+</database>

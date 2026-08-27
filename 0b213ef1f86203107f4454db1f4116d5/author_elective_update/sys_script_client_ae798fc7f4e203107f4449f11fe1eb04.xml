@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Staff Skill Fields Auto Populate from HouseKeeping Shifts</description>
+        <field>staff</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>d</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || !newValue) {
+        return;
+    }
+
+    g_form.getReference(control.name, function(record) {
+        if (!record) {
+            alert('Reference record not found');
+            return;
+        }
+
+        alert(
+            'Record found!\n' +
+            'Display: ' + record.getDisplayValue() + '\n' +
+            'Sys ID: ' + record.getUniqueValue()
+        );
+    });
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 18:15:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ae798fc7f4e203107f4449f11fe1eb04</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>d</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_client_ae798fc7f4e203107f4449f11fe1eb04</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 18:53:55</sys_updated_on>
+        <table>x_snc_flowops_staff_skill</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sys_script_client_ae798fc7f4e203107f4449f11fe1eb04</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Staff Skill Fields Auto Populate from HouseKeeping Shifts&lt;/description&gt;&lt;field&gt;staff&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;d&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || !newValue) {
+        return;
+    }
+
+    g_form.getReference(control.name, function(record) {
+        if (!record) {
+            alert('Reference record not found');
+            return;
+        }
+
+        alert(
+            'Record found!\n' +
+            'Display: ' + record.getDisplayValue() + '\n' +
+            'Sys ID: ' + record.getUniqueValue()
+        );
+    });
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-11 18:15:43&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;ae798fc7f4e203107f4449f11fe1eb04&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_name&gt;d&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="FlowOps" source="x_snc_flowops"&gt;0b213ef1f86203107f4454db1f4116d5&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="FlowOps"&gt;0b213ef1f86203107f4454db1f4116d5&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_ae798fc7f4e203107f4449f11fe1eb04&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-11 18:53:55&lt;/sys_updated_on&gt;&lt;table&gt;x_snc_flowops_staff_skill&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1717336815</payload_hash>
+        <record_name>d</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 18:53:55</sys_created_on>
+        <sys_id>b233d703f46603107f4449f11fe1eb9f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19ff22c92e30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 18:53:55</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>b63397036e660310d74e9aa9a16fa010</update_guid>
+        <update_guid_history>b63397036e660310d74e9aa9a16fa010:1717336815,94c0d3cbd3260310e758f30ff343e2c9:1757732191,38709b8b482603101e9017b8a7371501:1892236961,d240538bdd2603104ad6663c968e3ad3:-464336907,c09f47c72f2603102d95c828f7772329:170462568,c48f83c763260310cde1914393e11e47:445958470,3e2f4747f1260310f857f40cfef5f6e0:-469382654,0b8e87c32b2603104b1e0cb49e2f717a:1603249335,54edcb434e2603100e32e1e4780ce76e:-1049098723,050c8b0f77e20310196b69318fff7a8d:2131995978,f74bc3cb1ae20310896fe06ba6435c69:1708484011,d77a4b4b62e203102d44faf8876e4bea:1404786286</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 18:54:08</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>812637e60d1a44c0a8e35f6eb4bd3100</sys_id>
+        <sys_metadata>ae798fc7f4e203107f4449f11fe1eb04</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>d</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent display_value="Staff Skill">fac0543a652a03107f44c0d0b6842e44</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sys_script_client_ae798fc7f4e203107f4449f11fe1eb04</sys_update_name>
+        <sys_update_version display_value="sys_script_client_ae798fc7f4e203107f4449f11fe1eb04">b233d703f46603107f4449f11fe1eb9f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 18:54:08</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

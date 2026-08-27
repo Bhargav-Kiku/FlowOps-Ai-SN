@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="3caaab2a65a203107f44c0d0b6842ef5" label="Property KPI Snapshot" max_length="40" name="x_snc_flowops_property_kpi_snapshot" type="collection">
+        <element label="Vendor Average Rating" max_length="20" name="vendor_average_rating" type="decimal"/>
+        <element label="Total Requests" max_length="40" name="total_requests" type="integer"/>
+        <element label="Open Work Orders" max_length="40" name="open_work_orders" type="integer"/>
+        <element label="Avg. Response Time Mins" max_length="20" name="avg_response_time_mins" type="decimal"/>
+        <element label="Guest Satisfaction Score" max_length="20" name="guest_satisfaction_score" type="decimal"/>
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element label="Snapshot Date" max_length="40" name="snapshot_date" type="glide_date"/>
+        <element label="SLA Breach PCT" max_length="20" name="sla_breach_pct" type="decimal"/>
+        <index name="index">
+            <element name="property"/>
+        </index>
+    </element>
+</database>

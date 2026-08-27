@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_run_end/>
+        <entered_run_start/>
+        <entered_time>1970-01-01 00:00:00</entered_time>
+        <max_drift/>
+        <name>Operational Intelligence Scheduled Job</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <repeat_every/>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month>1</run_month>
+        <run_period/>
+        <run_start/>
+        <run_time>1970-01-01 00:00:00</run_time>
+        <run_type>daily</run_type>
+        <run_weekinmonth>1</run_weekinmonth>
+        <script><![CDATA[var propertyGr = new GlideRecord('x_snc_flowops_property_table');
+propertyGr.query();
+var today = new GlideDate();
+
+while (propertyGr.next()) {
+    var propertySysId = propertyGr.getUniqueValue();
+    var propName = propertyGr.getValue('name') || propertyGr.getDisplayValue() || 'Unknown Property';
+
+    var openCases = 0;
+    var caseGr = new GlideAggregate('x_snc_flowops_guest_case');
+    caseGr.addQuery('property', propertySysId);
+    caseGr.addQuery('status', 'open');
+    caseGr.addAggregate('COUNT');
+    caseGr.query();
+    if (caseGr.next()) {
+        openCases = parseInt(caseGr.getAggregate('COUNT'), 10) || 0;
+    }
+
+    var payload = {
+        property: propName,
+        property_id: propertySysId,
+        period: "daily",
+        metrics: {
+            open_work_orders: openCases,
+            total_requests: 0,
+            sla_breach_pct: 0,
+            guest_satisfaction_score: 0,
+            vendor_average_rating: 0,
+            avg_response_time_hours: 0
+        }
+    };
+
+    var request = new sn_ws.RESTMessageV2('FO_AI_Backend', 'OperationsIntelligence');
+    request.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestBody(JSON.stringify(payload));
+    
+    var response = request.execute();
+    var httpStatus = response.getStatusCode();
+    var responseBody = response.getBody();
+
+    gs.info('Status: ' + httpStatus);
+    gs.info('Body: ' + responseBody);
+
+    if (httpStatus === 200) {
+        var aiResult = JSON.parse(responseBody);
+        
+        var OIGr = new GlideRecord('x_snc_flowops_operations_intelligence');
+        OIGr.initialize();
+        OIGr.setValue('property', propertySysId);
+        OIGr.setValue('health_score', aiResult.health_score);
+        OIGr.setValue('issues', JSON.stringify(aiResult.issues));
+        OIGr.setValue('recommendations', JSON.stringify(aiResult.recommendations));
+        OIGr.insert();
+    }
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 16:08:05</sys_created_on>
+        <sys_id>413b1c30407a43107f44fae478903e24</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Operational Intelligence Scheduled Job</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sysauto_script_413b1c30407a43107f44fae478903e24</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 10:19:52</sys_updated_on>
+        <time_zone/>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

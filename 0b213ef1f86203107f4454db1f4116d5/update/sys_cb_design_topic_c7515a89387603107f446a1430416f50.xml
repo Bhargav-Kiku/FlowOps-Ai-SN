@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="hotel_concierge_greeting">36511a89387603107f446a1430416f52</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"d7142d671db14907a0c8c97bd2b43e82","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"d7142d671db14907a0c8c97bd2b43e82"}],"goals":[{"name":"primary","trigger_id":"d7142d671db14907a0c8c97bd2b43e82","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"6f9fbca76ee84a2daaef882d1dd418d7","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"d88e055cec70488eb0121eb770fc863f","name":"End","expert_mode":false},{"type":"LibraryCall","library_topic_name":"Data Collector","library_topic_id":"4c19933e4322211006650464dbb8f22d","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"purpose\":\"{{0}}\",\"inputs\":[{\"name\":\"welcome_guest\",\"type\":\"string\",\"discoverable\":true,\"description\":\"👋 Welcome to FlowOps Hotel Concierge!\\nI'm your AI hotel assistant. I can help you with hotel information, hotel services, and complaints.\\nHow can I help you today?\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"applicability\":\"\",\"validation\":\"\"},{\"name\":\"guest_assistance_choice\",\"type\":\"choice\",\"discoverable\":true,\"description\":\"What would you like help with?\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"choices\":[{\"value\":\"1\",\"label\":\"🏨 Hotel Information\"},{\"value\":\"2\",\"label\":\"🛎️ Request a Hotel Service\"},{\"value\":\"3\",\"label\":\"👨‍💼 Contact Hotel Staff\"}],\"applicability\":\"\",\"validation\":\"\"}],\"instructions\":\"{{1}}\",\"advanced_parameters\":\"{{2}}\",\"callingTask\":\"{{3}}\",\"confirm_summary\":false,\"slots\":[],\"applicability\":\"\",\"classificationOverrides\":[]}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"script","value":"(function() { return vaSystem.getConversationTaskId()})()"}],"use_items":true}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"outputs","main_topic_mapped_variable_name":"ai_data_collector_a2ade896bbf346f8903c1f9376788265_output"}],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"a2ade896bbf346f8903c1f9376788265","name":"Welcome Guest","goal_id":"primary","expert_mode":false,"variableIds":["427aed92711e4c87befd152c362fe3a4","59e5f084e8ab4af1a5fa5c40105b1471"]},{"type":"ScriptedAction","script":"(function execute() {\n                    var mappings = {\"welcome_guest\":\"welcome_guest\",\"guest_assistance_choice\":\"guest_assistance_choice\",\"ai_data_collector_a2ade896bbf346f8903c1f9376788265_output\":\"ai_data_collector_a2ade896bbf346f8903c1f9376788265_output\"};\n                    var output = JSON.parse(vaInputs['ai_data_collector_a2ade896bbf346f8903c1f9376788265_output']);\n                    var variables = {\"user\":{\"category\":\"vaInputs\",\"id\":\"current-user\",\"label\":\"User\",\"name\":\"user\",\"table\":\"sys_user\",\"varType\":\"reference\"},\"ai_data_collector_a2ade896bbf346f8903c1f9376788265_output\":{\"id\":\"de6a8169fda94d5f87b3247a1f58e604\",\"name\":\"ai_data_collector_a2ade896bbf346f8903c1f9376788265_output\",\"label\":\"Ai_data_collector_a2ade896bbf346f8903c1f9376788265_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"welcome_guest\":{\"id\":\"427aed92711e4c87befd152c362fe3a4\",\"varType\":\"string\",\"category\":\"vaInputs\",\"label\":\"Welcome Guest\",\"name\":\"welcome_guest\",\"choices\":[{\"label\":\"\",\"value\":\"\"},{\"label\":\"\",\"value\":\"\"}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"inputId\":0,\"nodeId\":\"a2ade896bbf346f8903c1f9376788265\",\"isHidden\":false},\"ai_data_collector_9d7f82b7d6714b3d8201489c7bdbe780_output\":{\"id\":\"9673e603020b4890ae8f0f92eb918f0e\",\"name\":\"ai_data_collector_9d7f82b7d6714b3d8201489c7bdbe780_output\",\"label\":\"Ai_data_collector_9d7f82b7d6714b3d8201489c7bdbe780_output\",\"isReferenceable\":false,\"varType\":\"string\",\"category\":\"vaInputs\",\"metadata\":{\"libraryMappingType\":\"output\"}},\"guest_assistance_choice\":{\"id\":\"59e5f084e8ab4af1a5fa5c40105b1471\",\"varType\":\"choice\",\"category\":\"vaInputs\",\"label\":\"Guest Assistance Choice\",\"name\":\"guest_assistance_choice\",\"choices\":[{\"label\":\"🏨 Hotel Information\",\"value\":\"1\"},{\"label\":\"🛎️ Request a Hotel Service\",\"value\":\"2\"},{\"label\":\"👨‍💼 Contact Hotel Staff\",\"value\":\"3\",\"checked\":true,\"meta\":{}}],\"mode\":\"\",\"table\":\"\",\"aiInput\":true,\"inputId\":0,\"nodeId\":\"9d7f82b7d6714b3d8201489c7bdbe780\",\"isHidden\":false}}\n                    Object.keys(output).forEach(function(key) {\n                        var mappedKey = mappings[key];\n                        if (!vaInputs[mappedKey]) {vaInputs.initialize(mappedKey);}\n                        var isMultiSelect = variables[mappedKey] &amp;&amp; variables[mappedKey].varType === 'array.reference';\n                        if (isMultiSelect) {vaInputs[mappedKey] = output[key] ? JSON.parse(output[key]) : '';}\n                        else {vaInputs[mappedKey] = output[key];}\n                    });\n                })()","id":"6d2ef19fd05c469996e2f57e68746a86","name":"a2ade896bbf346f8903c1f9376788265_ai_data_collector_output_handler","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"a2ade896bbf346f8903c1f9376788265","target_node_id":"6d2ef19fd05c469996e2f57e68746a86","id":"97ec2ae510904c48930dd04c0156c0c1"},{"type":"Edge","source_node_id":"6d2ef19fd05c469996e2f57e68746a86","target_node_id":"d88e055cec70488eb0121eb770fc863f","id":"d1ce66b147f84a95bc4655e91526eeac"},{"type":"Edge","source_node_id":"6f9fbca76ee84a2daaef882d1dd418d7","target_node_id":"a2ade896bbf346f8903c1f9376788265","id":"b6b658dcfd7a4dc0aa105249eaed78c3"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","auto_select":false,"id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"ai_data_collector_a2ade896bbf346f8903c1f9376788265_output","list":false,"id":"de6a8169fda94d5f87b3247a1f58e604","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false},{"type":"String","name":"welcome_guest","description":"👋 Welcome to FlowOps Hotel Concierge!\nI'm your AI hotel assistant. I can help you with hotel information, hotel services, and complaints.\nHow can I help you today?","list":false,"id":"427aed92711e4c87befd152c362fe3a4","formatType":"text","secure":false,"sensitive":false,"aiInput":true},{"type":"String","name":"ai_data_collector_9d7f82b7d6714b3d8201489c7bdbe780_output","list":false,"id":"9673e603020b4890ae8f0f92eb918f0e","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false},{"type":"Choice","choices":[{"name":"🏨 Hotel Information","element":"1"},{"name":"🛎️ Request a Hotel Service","element":"2"},{"name":"👨‍💼 Contact Hotel Staff","element":"3"}],"id":"59e5f084e8ab4af1a5fa5c40105b1471","name":"guest_assistance_choice","description":"What would you like help with?","formatType":"text","secure":false,"sensitive":false,"aiInput":true,"list":false,"translation":true,"label":"Guest Assistance Choice"}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"0b213ef1f86203107f4454db1f4116d5","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"57b0d209387603107f446a1430416f8f","name":"hotel_concierge_greeting","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"Welcome hotel guests and ask what assistance they need. Present choices for hotel information, requesting a hotel service, or reporting a complaint, and guide the guest to the appropriate hotel assistance.","model_type":"llm","foundational":false,"modify_confirmation_enabled":false,"context_profiles":["e13840cf77d53110569156391e5a99ba"],"title":"Hotel Concierge Greeting","library":false,"readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>57b0d209387603107f446a1430416f8f</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.82",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "6f9fbca76ee84a2daaef882d1dd418d7": {
+          "id": "6f9fbca76ee84a2daaef882d1dd418d7",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "d88e055cec70488eb0121eb770fc863f": {
+          "id": "d88e055cec70488eb0121eb770fc863f",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "a2ade896bbf346f8903c1f9376788265": {
+          "id": "a2ade896bbf346f8903c1f9376788265",
+          "stepType": "StandaloneAITextPrompt",
+          "name": "Welcome Guest",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "a769aa5d34fa4e7f8fc188a4809ca83d",
+              "displayName": "Welcome Guest",
+              "name": "welcome_guest",
+              "description": "👋 Welcome to FlowOps Hotel Concierge!\nI'm your AI hotel assistant. I can help you with hotel information, hotel services, and complaints.\nHow can I help you today?",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "string",
+              "variableId": "427aed92711e4c87befd152c362fe3a4",
+              "choices": [
+                {
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "TextPrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "de6a8169fda94d5f87b3247a1f58e604"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_a2ade896bbf346f8903c1f9376788265_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "427aed92711e4c87befd152c362fe3a4"
+          ]
+        },
+        "9d7f82b7d6714b3d8201489c7bdbe780": {
+          "id": "9d7f82b7d6714b3d8201489c7bdbe780",
+          "stepType": "StandaloneAIChoicePrompt",
+          "name": "Guest Assistance Choice",
+          "purpose": {
+            "value": "",
+            "mode": "simple"
+          },
+          "instructions": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputs": [
+            {
+              "itemId": "80f57b85c1884282989ea24f59a1c0a6",
+              "displayName": "Guest Assistance Choice",
+              "name": "guest_assistance_choice",
+              "description": "What would you like help with?",
+              "discoverable": true,
+              "dynamicDescription": {
+                "value": "",
+                "mode": "simple"
+              },
+              "type": "choice",
+              "variableId": "59e5f084e8ab4af1a5fa5c40105b1471",
+              "choices": [
+                {
+                  "label": "🏨 Hotel Information",
+                  "value": "1"
+                },
+                {
+                  "label": "🛎️ Request a Hotel Service",
+                  "value": "2"
+                },
+                {
+                  "label": "👨‍💼 Contact Hotel Staff",
+                  "value": "3",
+                  "checked": true,
+                  "meta": {}
+                }
+              ],
+              "mode": "",
+              "script": "",
+              "condition": {
+                "value": "",
+                "mode": "glide_query"
+              },
+              "stepType": "ChoicePrompt",
+              "enforcePrompt": false,
+              "helpText": false,
+              "skippable": {
+                "value": "",
+                "mode": "query"
+              },
+              "applicability": {
+                "value": "",
+                "mode": "query"
+              },
+              "promptMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "helpTextMessage": {
+                "value": "",
+                "mode": "simple"
+              },
+              "inputType": {
+                "format": "Text",
+                "script": ""
+              },
+              "isMultipleSelect": false,
+              "validation": "",
+              "autoSelect": true,
+              "hasCardHeader": false,
+              "cardMetadata": {
+                "mode": "card",
+                "metadataScript": "",
+                "cardTemplate": "",
+                "cardFields": {},
+                "cardDefinition": {}
+              }
+            }
+          ],
+          "outputs": [],
+          "advanced_parameters": "",
+          "confirmSummary": false,
+          "useSlots": false,
+          "slots": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "hiddenVariableIds": [
+            "9673e603020b4890ae8f0f92eb918f0e"
+          ],
+          "hiddenVariableNames": [
+            "ai_data_collector_9d7f82b7d6714b3d8201489c7bdbe780_output"
+          ],
+          "classificationEnabled": false,
+          "classificationOverrides": [],
+          "standalone": true,
+          "variableIds": [
+            "59e5f084e8ab4af1a5fa5c40105b1471"
+          ]
+        }
+      },
+      "edges": [
+        {
+          "id": "b6b658dcfd7a4dc0aa105249eaed78c3",
+          "edgeType": "Edge",
+          "source": "6f9fbca76ee84a2daaef882d1dd418d7",
+          "target": "a2ade896bbf346f8903c1f9376788265",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "8331b18f6058431b80cee3601a41c355",
+          "edgeType": "Edge",
+          "source": "a2ade896bbf346f8903c1f9376788265",
+          "target": "9d7f82b7d6714b3d8201489c7bdbe780",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ffb9af564bbe46189e5d5c77034b248e",
+          "edgeType": "Edge",
+          "source": "9d7f82b7d6714b3d8201489c7bdbe780",
+          "target": "d88e055cec70488eb0121eb770fc863f",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "de6a8169fda94d5f87b3247a1f58e604": {
+      "id": "de6a8169fda94d5f87b3247a1f58e604",
+      "name": "ai_data_collector_a2ade896bbf346f8903c1f9376788265_output",
+      "label": "Ai_data_collector_a2ade896bbf346f8903c1f9376788265_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "427aed92711e4c87befd152c362fe3a4": {
+      "id": "427aed92711e4c87befd152c362fe3a4",
+      "varType": "string",
+      "category": "vaInputs",
+      "label": "Welcome Guest",
+      "name": "welcome_guest",
+      "choices": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "",
+          "value": ""
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "a2ade896bbf346f8903c1f9376788265",
+      "isHidden": false
+    },
+    "9673e603020b4890ae8f0f92eb918f0e": {
+      "id": "9673e603020b4890ae8f0f92eb918f0e",
+      "name": "ai_data_collector_9d7f82b7d6714b3d8201489c7bdbe780_output",
+      "label": "Ai_data_collector_9d7f82b7d6714b3d8201489c7bdbe780_output",
+      "isReferenceable": false,
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      }
+    },
+    "59e5f084e8ab4af1a5fa5c40105b1471": {
+      "id": "59e5f084e8ab4af1a5fa5c40105b1471",
+      "varType": "choice",
+      "category": "vaInputs",
+      "label": "Guest Assistance Choice",
+      "name": "guest_assistance_choice",
+      "choices": [
+        {
+          "label": "🏨 Hotel Information",
+          "value": "1"
+        },
+        {
+          "label": "🛎️ Request a Hotel Service",
+          "value": "2"
+        },
+        {
+          "label": "👨‍💼 Contact Hotel Staff",
+          "value": "3",
+          "checked": true,
+          "meta": {}
+        }
+      ],
+      "mode": "",
+      "table": "",
+      "aiInput": true,
+      "inputId": 0,
+      "nodeId": "9d7f82b7d6714b3d8201489c7bdbe780",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>hotel_concierge_greeting</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-17 19:13:58</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>c7515a89387603107f446a1430416f50</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cb_design_topic_c7515a89387603107f446a1430416f50</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 19:13:58</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="ais_search_profile_ais_dictionary_m2m">
+    <ais_search_profile_ais_dictionary_m2m action="INSERT_OR_UPDATE">
+        <dictionary display_value="x_snc_flowops_now_assist_in_virtual_agent_1a3c8d9f0407283107f44fae478903ecf_default_spell_check_dictionary">a0d89df0407283107f44fae478903ef8</dictionary>
+        <dictionary_reference_qualifier/>
+        <marked_for_deletion>false</marked_for_deletion>
+        <profile display_value="Now Assist in Virtual Agent - 1">1cd89df0407283107f44fae478903e67</profile>
+        <sys_class_name>ais_search_profile_ais_dictionary_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:29</sys_created_on>
+        <sys_id>a8d89df0407283107f44fae478903efb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_flowops_now_assist_in_virtual_agent_1a3c8d9f0407283107f44fae478903ecf_default_spell_check_dictionary.Now Assist in Virtual Agent - 1a3c8d9f0407283107f44fae478903ecf</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>ais_search_profile_ais_dictionary_m2m_a8d89df0407283107f44fae478903efb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:29</sys_updated_on>
+    </ais_search_profile_ais_dictionary_m2m>
+</record_update>

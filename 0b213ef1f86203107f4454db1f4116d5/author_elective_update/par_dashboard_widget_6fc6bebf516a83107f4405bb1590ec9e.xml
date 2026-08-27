@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="DELETE">
+        <canvas display_value="">4f52ee3351e683107f4405bb1590ec2e</canvas>
+        <component display_value="Filter">226449101138d0dff1abe0e1566c8b2a</component>
+        <component_props>{"filterId":"1jvuquf677tji84780ko","filterName":"Property","filterCustomId":"","filterComponentType":"multiselect","datasource":{"type":"table","payload":{"table":"x_snc_flowops_guest_case","primaryKey":"sys_id"},"encodedQuery":"propertyANYTHING"},"targets":[{"type":"table","payload":{"table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}}],"defaultSelectedItems":[],"defaultSelectedDateRange":{"range":""},"dateFilterView":"calendar-reldates","sort":"ASC","filterElementType":"pill","isShowSelectedValueInPill":true,"filterElementLayout":"vertical","enableClearFilter":true,"primaryActionLabel":"Apply","maxElements":500,"filterConfigurations":"@state.parFilters","cascadeScope":"0f52ee3351e683107f4405bb1590ec2a","isDashboard":true,"isGroup":false,"value":[]}</component_props>
+        <h>4</h>
+        <name/>
+        <required_translations>[{"comment":"","message":"Property","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.6fc6bebf516a83107f4405bb1590ec9e"},{"comment":"","message":"Apply","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.6fc6bebf516a83107f4405bb1590ec9e"}]</required_translations>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 00:45:11</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>6fc6bebf516a83107f4405bb1590ec9e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>par_dashboard_widget_6fc6bebf516a83107f4405bb1590ec9e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 00:49:09</sys_updated_on>
+        <visualization/>
+        <w>7</w>
+        <widget_props/>
+        <x>0</x>
+        <y>0</y>
+    </par_dashboard_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>par_dashboard_widget_6fc6bebf516a83107f4405bb1590ec9e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget"><par_dashboard_widget action="INSERT_OR_UPDATE"><canvas display_value="">4f52ee3351e683107f4405bb1590ec2e</canvas><component display_value="Filter">226449101138d0dff1abe0e1566c8b2a</component><component_props>{"filterId":"1jvuquf677tji84780ko","filterName":"Property","filterCustomId":"","filterComponentType":"multiselect","datasource":{"type":"table","payload":{"table":"x_snc_flowops_guest_case","primaryKey":"sys_id"},"encodedQuery":"propertyANYTHING"},"targets":[{"type":"table","payload":{"table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}}],"defaultSelectedItems":[],"defaultSelectedDateRange":{"range":""},"dateFilterView":"calendar-reldates","sort":"ASC","filterElementType":"pill","isShowSelectedValueInPill":true,"filterElementLayout":"vertical","enableClearFilter":true,"primaryActionLabel":"Apply","maxElements":500,"filterConfigurations":"@state.parFilters","cascadeScope":"0f52ee3351e683107f4405bb1590ec2a","isDashboard":true,"isGroup":false,"value":[]}</component_props><h>4</h><name/><required_translations>[{"comment":"","message":"Property","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.6fc6bebf516a83107f4405bb1590ec9e"},{"comment":"","message":"Apply","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.6fc6bebf516a83107f4405bb1590ec9e"}]</required_translations><stored_component/><sys_class_name>par_dashboard_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-14 00:45:11</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>6fc6bebf516a83107f4405bb1590ec9e</sys_id><sys_mod_count>1</sys_mod_count><sys_name/><sys_overrides/><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>par_dashboard_widget_6fc6bebf516a83107f4405bb1590ec9e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-14 00:49:09</sys_updated_on><visualization/><w>7</w><widget_props/><x>0</x><y>0</y></par_dashboard_widget></record_update>]]></payload>
+        <payload_hash>750922991</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 00:49:09</sys_created_on>
+        <sys_id>b9b77a3351aa83107f4405bb1590eccc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19ffdbe84340000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 00:49:09</sys_updated_on>
+        <type>PAR Dashboard Widget</type>
+        <update_guid>fdb77a33f3aa831093951503cdf6c3cb</update_guid>
+        <update_guid_history>fdb77a33f3aa831093951503cdf6c3cb:750922991,6fc6bebfd26a83103388e6efcfbe4ca0:1891902196</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">9aa9f63751aa83107f4405bb1590ecf9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 00:57:38</sys_created_on>
+        <sys_db_object display_value="" name="par_dashboard_widget">par_dashboard_widget</sys_db_object>
+        <sys_id>917ea4c8382e4b109e93fd9a88bc8a40</sys_id>
+        <sys_metadata>6fc6bebf516a83107f4405bb1590ec9e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>par_dashboard_widget_6fc6bebf516a83107f4405bb1590ec9e</sys_update_name>
+        <sys_update_version display_value="par_dashboard_widget_6fc6bebf516a83107f4405bb1590ec9e">b9b77a3351aa83107f4405bb1590eccc</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 00:57:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

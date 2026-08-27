@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_snc_flowops_guest_case</collection>
+        <condition>current.sla_due.nil() &amp;&amp; !current.parent_request.nil() &amp;&amp; !current.department.nil()</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_snc_flowops_guest_case">sla_dueISEMPTY^EQ<item endquery="false" field="sla_due" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Calculate SLA Due Date</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	gs.info('BUSINESS RULE FIRED for ' + current.number);
+
+    var deptCategory = current.department.getDisplayValue(); // "Engineering" / "Housekeeping" — matches SLA Def's Category
+    var urgencyPriority = current.priority;    // "high"/"medium"/"low" — matches SLA Def's Priority
+    var propertySysId = current.department.property;
+
+	gs.info('DEBUG values -> category=' + deptCategory + ' priority=' + urgencyPriority + ' property=' + propertySysId);
+
+    if (!deptCategory || !urgencyPriority || !propertySysId) {
+        gs.warn('Guest Case ' + current.number + ': missing Category, Priority, or Property — cannot calculate SLA due date.');
+        return;
+    }
+
+    var slaGr = new GlideRecord('x_snc_flowops_sla_defination');
+    slaGr.addQuery('category', deptCategory);
+    slaGr.addQuery('priority', urgencyPriority);
+    slaGr.addQuery('property', propertySysId);
+    slaGr.query();
+
+    if (slaGr.next()) {
+        var resolutionMins = slaGr.getValue('resolution_time_mins');
+
+        var dueDate = new GlideDateTime();
+        dueDate.addSeconds(resolutionMins * 60);
+
+        current.sla_due_time = dueDate;
+
+    } else {
+        gs.warn('Guest Case ' + current.number + ': no matching SLA Definition found for Category=' + deptCategory + ', Priority=' + urgencyPriority + ', Property=' + propertySysId);
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 18:23:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2fab830ff4e203107f4449f11fe1ebb7</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Calculate SLA Due Date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_2fab830ff4e203107f4449f11fe1ebb7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 09:23:27</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=2fab830ff4e203107f4449f11fe1ebb7"/>
+</record_update>
