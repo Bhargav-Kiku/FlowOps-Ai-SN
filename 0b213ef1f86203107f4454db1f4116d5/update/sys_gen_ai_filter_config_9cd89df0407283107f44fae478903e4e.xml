@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_gen_ai_filter_config">
+    <sys_gen_ai_filter_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <document_id>b3c8d9f0407283107f44fae478903ed3</document_id>
+        <document_table>sys_cs_context_profile</document_table>
+        <filter display_value="Greetings">85b01cc89fa01210f29e21164b0a1c1e</filter>
+        <sys_class_name>sys_gen_ai_filter_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9cd89df0407283107f44fae478903e4e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_gen_ai_filter_config_9cd89df0407283107f44fae478903e4e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:27</sys_updated_on>
+    </sys_gen_ai_filter_config>
+</record_update>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="DELETE">
+        <canvas display_value="">482e8733516e83107f4405bb1590ec7d</canvas>
+        <component display_value="Donut">a2b0596cec6b9d49dd1ff9bf76b5084b</component>
+        <component_props>{"configVersion":"23.0.0-ci-SNAPSHOT","chartVariation":"stacked","yAxisPosition":"bottom","yAxisShowGrid":true,"xAxisWrapLabels":false,"xAxisMaxLabelSize":100,"showClosestSeriesOnHover":true,"xAxisTruncationType":"end","yAxisStyle":"clean","showLegend":true,"showLegendValue":false,"legendPosition":"bottom","legendHorizontalAlignment":"center","legendExpandToFit":false,"showDataLabels":false,"dataLabelPosition":"middle","showStackedValues":"none","showOverlappingLabels":false,"showPercentageOfTotalInTooltip":true,"yAxisHidden":false,"xAxisHidden":false,"colorConfig":{"type":"default"},"newReporting":false,"enableAddZerosAtApi":true,"dataSources":[{"isDatabaseView":false,"allowRealTime":true,"label":"Housekeeping Task","sourceType":"table","tableOrViewName":"x_snc_flowops_housekeeping_task","preferredVisualizations":["d24d53f60350de7a652caf3188a46ed2"],"id":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NjY3MjQ1OTQ3Ng==","dataCategories":["trend","group","simple"]}],"showHeader":true,"showTotalAggregate":false,"showSubAggregate":false,"showFirstGroupAggregate":false,"showSecondGroupAggregate":false,"hideMatrixAggregate":false,"lineClamp":1,"headerTitleAlignment":"start","wrapTitle":false,"showLoadingIndicator":false,"showHeaderSeparator":false,"headerTitle":"Tasks by  Priority ","headingLevel":2,"showBorder":true,"bareBorder":false,"showDataPassthrough":false,"showAdditionalGroupBySelector":false,"allowAdditionalGroupByPerMetric":false,"metrics":[{"dataSource":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NjY3MjQ1OTQ3Ng==","id":"ZEdGaWJHVjRYM051WTE5bWJHOTNiM0J6WDJodmRYTmxhMlZsY0dsdVoxOTBZWE5yTVRjNE5qWTNNalExT1RRM05nPT0xNzg2NjcyNDk3Mzcw","aggregateFunction":"COUNT","numberFormat":{"customFormat":false},"axisId":"primary"}],"groupBy":[{"groupBy":[{"dataSource":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NjY3MjQ1OTQ3Ng==","groupByField":"priority","isRange":false,"isChoice":true,"isPaBucket":false}],"maxNumberOfGroups":10,"numberOfGroupsBasedOn":"NO_OF_GROUP_BASED_ON_PER_METRIC","showOthers":false,"disableRanges":false}],"sortBy":"value","sortByOrder":"desc","showChange":false,"showChangePercentage":false,"showTarget":false,"showForecast":false,"showForecastRange":false,"showTrend":false,"showConfidenceBand":false,"showGapPercentage":false,"showSparkline":false,"showMetricLabel":false,"showThreshold":false,"showComment":false,"followFilters":true,"showFilterIcon":true,"enableRealTimeUpdate":false,"enableDrilldown":true,"enableClickAndStay":false,"showDataTable":false,"enableCustomEmptyState":false,"componentId":"7xcxvwtv","emptyStateIllustration":"no-data","emptyStateHeading":"No data available.","emptyStateHeadingLevel":3,"emptyStateContent":"There are no scores available for the selected criteria. Contact your admin for more info.","emptyStateAlignment":"vertical-centered","hideDevSettings":false,"filterConfigurations":"@state.parFilters","showMaximumRange":false,"allowChangeDateRange":false,"showDateRangeByDefault":false,"applyDateRange":false,"numberOfPeriods":3,"showAbsolutePeriod":false,"autoAggregatePeriods":false,"showChangeFrom":"previous","useCurrentDateForEnd":false,"period":"M","useDataCache":false,"cacheExpirationTime":0,"showCacheTime":true,"dateFormat":"default","showRefresh":true,"showExportOptions":true,"showFilterAsSeparateSeries":false,"userInfo":"@context.session.user","dataLabelsType":"both","truncationType":"end","showRegister":true,"registerPosition":"bottom","registerOrientation":"horizontal","showRegisterOnSameLine":false,"showRegisterValue":false,"showRegisterPercentage":false,"scoreType":"latest"}</component_props>
+        <h>19</h>
+        <name/>
+        <required_translations>[{"comment":"","message":"Housekeeping Task","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"},{"comment":"","message":"Tasks by  Priority ","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"},{"comment":"","message":"No data available.","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"},{"comment":"","message":"There are no scores available for the selected criteria. Contact your admin for more info.","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"}]</required_translations>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 02:27:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>402e8733516e83107f4405bb1590ecc4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>par_dashboard_widget_402e8733516e83107f4405bb1590ecc4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 02:27:03</sys_updated_on>
+        <visualization/>
+        <w>12</w>
+        <widget_props/>
+        <x>12</x>
+        <y>12</y>
+    </par_dashboard_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>par_dashboard_widget_402e8733516e83107f4405bb1590ecc4</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget"><par_dashboard_widget action="INSERT_OR_UPDATE"><canvas display_value="">482e8733516e83107f4405bb1590ec7d</canvas><component display_value="Donut">a2b0596cec6b9d49dd1ff9bf76b5084b</component><component_props>{"configVersion":"23.0.0-ci-SNAPSHOT","chartVariation":"stacked","yAxisPosition":"bottom","yAxisShowGrid":true,"xAxisWrapLabels":false,"xAxisMaxLabelSize":100,"showClosestSeriesOnHover":true,"xAxisTruncationType":"end","yAxisStyle":"clean","showLegend":true,"showLegendValue":false,"legendPosition":"bottom","legendHorizontalAlignment":"center","legendExpandToFit":false,"showDataLabels":false,"dataLabelPosition":"middle","showStackedValues":"none","showOverlappingLabels":false,"showPercentageOfTotalInTooltip":true,"yAxisHidden":false,"xAxisHidden":false,"colorConfig":{"type":"default"},"newReporting":false,"enableAddZerosAtApi":true,"dataSources":[{"isDatabaseView":false,"allowRealTime":true,"label":"Housekeeping Task","sourceType":"table","tableOrViewName":"x_snc_flowops_housekeeping_task","preferredVisualizations":["d24d53f60350de7a652caf3188a46ed2"],"id":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NjY3MjQ1OTQ3Ng==","dataCategories":["trend","group","simple"]}],"showHeader":true,"showTotalAggregate":false,"showSubAggregate":false,"showFirstGroupAggregate":false,"showSecondGroupAggregate":false,"hideMatrixAggregate":false,"lineClamp":1,"headerTitleAlignment":"start","wrapTitle":false,"showLoadingIndicator":false,"showHeaderSeparator":false,"headerTitle":"Tasks by  Priority ","headingLevel":2,"showBorder":true,"bareBorder":false,"showDataPassthrough":false,"showAdditionalGroupBySelector":false,"allowAdditionalGroupByPerMetric":false,"metrics":[{"dataSource":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NjY3MjQ1OTQ3Ng==","id":"ZEdGaWJHVjRYM051WTE5bWJHOTNiM0J6WDJodmRYTmxhMlZsY0dsdVoxOTBZWE5yTVRjNE5qWTNNalExT1RRM05nPT0xNzg2NjcyNDk3Mzcw","aggregateFunction":"COUNT","numberFormat":{"customFormat":false},"axisId":"primary"}],"groupBy":[{"groupBy":[{"dataSource":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NjY3MjQ1OTQ3Ng==","groupByField":"priority","isRange":false,"isChoice":true,"isPaBucket":false}],"maxNumberOfGroups":10,"numberOfGroupsBasedOn":"NO_OF_GROUP_BASED_ON_PER_METRIC","showOthers":false,"disableRanges":false}],"sortBy":"value","sortByOrder":"desc","showChange":false,"showChangePercentage":false,"showTarget":false,"showForecast":false,"showForecastRange":false,"showTrend":false,"showConfidenceBand":false,"showGapPercentage":false,"showSparkline":false,"showMetricLabel":false,"showThreshold":false,"showComment":false,"followFilters":true,"showFilterIcon":true,"enableRealTimeUpdate":false,"enableDrilldown":true,"enableClickAndStay":false,"showDataTable":false,"enableCustomEmptyState":false,"componentId":"7xcxvwtv","emptyStateIllustration":"no-data","emptyStateHeading":"No data available.","emptyStateHeadingLevel":3,"emptyStateContent":"There are no scores available for the selected criteria. Contact your admin for more info.","emptyStateAlignment":"vertical-centered","hideDevSettings":false,"filterConfigurations":"@state.parFilters","showMaximumRange":false,"allowChangeDateRange":false,"showDateRangeByDefault":false,"applyDateRange":false,"numberOfPeriods":3,"showAbsolutePeriod":false,"autoAggregatePeriods":false,"showChangeFrom":"previous","useCurrentDateForEnd":false,"period":"M","useDataCache":false,"cacheExpirationTime":0,"showCacheTime":true,"dateFormat":"default","showRefresh":true,"showExportOptions":true,"showFilterAsSeparateSeries":false,"userInfo":"@context.session.user","dataLabelsType":"both","truncationType":"end","showRegister":true,"registerPosition":"bottom","registerOrientation":"horizontal","showRegisterOnSameLine":false,"showRegisterValue":false,"showRegisterPercentage":false,"scoreType":"latest"}</component_props><h>19</h><name/><required_translations>[{"comment":"","message":"Housekeeping Task","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"},{"comment":"","message":"Tasks by  Priority ","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"},{"comment":"","message":"No data available.","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"},{"comment":"","message":"There are no scores available for the selected criteria. Contact your admin for more info.","code":"PAR_DASHBOARD.482e8733516e83107f4405bb1590ec7d.402e8733516e83107f4405bb1590ecc4"}]</required_translations><stored_component/><sys_class_name>par_dashboard_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-14 02:27:03</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>402e8733516e83107f4405bb1590ecc4</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_overrides/><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>par_dashboard_widget_402e8733516e83107f4405bb1590ecc4</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-14 02:27:03</sys_updated_on><visualization/><w>12</w><widget_props/><x>12</x><y>12</y></par_dashboard_widget></record_update>]]></payload>
+        <payload_hash>-1664379334</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 02:27:03</sys_created_on>
+        <sys_id>c42e8733516e83107f4405bb1590ecc6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19ffe1827e50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 02:27:03</sys_updated_on>
+        <type>PAR Dashboard Widget</type>
+        <update_guid>c82e87337a6e8310c939b34aa6ac38c5</update_guid>
+        <update_guid_history>c82e87337a6e8310c939b34aa6ac38c5:-1664379334</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">e02ec733516e83107f4405bb1590ec64</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 02:27:05</sys_created_on>
+        <sys_db_object display_value="" name="par_dashboard_widget">par_dashboard_widget</sys_db_object>
+        <sys_id>13699d366fe04a4fa5409bc71c498ea1</sys_id>
+        <sys_metadata>402e8733516e83107f4405bb1590ecc4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>par_dashboard_widget_402e8733516e83107f4405bb1590ecc4</sys_update_name>
+        <sys_update_version display_value="par_dashboard_widget_402e8733516e83107f4405bb1590ecc4">c42e8733516e83107f4405bb1590ecc6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 02:27:05</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

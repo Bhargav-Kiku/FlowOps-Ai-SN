@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_usecase">
+    <sn_aia_usecase action="INSERT_OR_UPDATE">
+        <advanced_mode>false</advanced_mode>
+        <applicability_script><![CDATA[/** 
+ * Function to process inputs related to ServiceNow change request operations 
+ * 
+ * @param {Object} inputs - The input parameters object 
+ * @param {string} inputs.objective - The purpose or goal of the operation 
+ * @param {string} inputs.execution_plan_id - Unique identifier for the execution plan 
+ * @param {Object} inputs.context - Context information about the ServiceNow change request 
+ * @param {string} inputs.context.url - The URL of the change request in Service Operations Workspace 
+ * @param {string} inputs.context.table - The ServiceNow table name (e.g., 'change_request') 
+ * @param {string} inputs.context.record_sys_id - The sys ID of the record 
+ * @param {string} inputs.context.route - The route type (e.g., 'record') 
+ * @param {string} inputs.context.additional_context - Additional contextual information in JSON format 
+ * @param {string} inputs.context.experience - The UI experience name (e.g., 'Service Operations Workspace') 
+ * @param {string} inputs.context.number - The request number 
+ * @param {string} inputs.context.portal - The portal ID 
+ * @param {string} inputs.context.device_type - The device type from which the experience is accessed, e.g.'mweb' 
+ * @param {string} inputs.context.deployment_id - The unique identifier for the assistant deployment 
+ * @param {string} inputs.context.assistant_type - The type of assistant, e.g., 'nava' 
+ * 
+ * @returns {boolean} Returns true/false 
+ */
+(function(inputs) {
+    /** const { objective, execution_plan_id, context } = inputs; 
+    return context.table == 'incident' ; */
+    return false;
+})(inputs);]]></applicability_script>
+        <base_plan>Expertly interpret guest requests to identify housekeeping-related intents and task types.
+Retrieve guest, room, property, guest case, staff shift, and staff skill information from FlowOps tables.
+Determine task priority based on guest urgency, loyalty tier, request nature, comfort impact, and time sensitivity.
+Select suitable housekeeping staff by evaluating shift status, property match, skill requirements, and workload distribution.
+Create or update housekeeping tasks, ensuring no duplicate active tasks exist for the same request, case, room, and task type.
+Assign tasks to qualified staff or escalate for manual assignment if no suitable staff is available.
+Provide a structured output with task details, confidence score, and a concise decision summary explaining assignment logic.
+Handle only housekeeping domain requests; escalate or ignore unrelated intents such as engineering or vendor services.
+Never invent data; always use current ServiceNow records for decision-making.
+Escalate uncertain or unavailable situations to human supervisors as needed.</base_plan>
+        <condition/>
+        <context_processing_script><![CDATA[/*
+ * Available Variables:
+ *
+ * - user_utterance: The user input or message that initiated the use case.
+ *          This represents the user's natural language query or command
+ *          received during the conversation.
+ *
+ * - usecase_id: The unique identifier of the use case being executed.
+ *          Can be used to reference use case configurations, metadata,
+ *          or to apply specific context-handling logic.
+ *
+ * - context: An object containing contextual information for the use case.
+ *          It always includes a "pageContext" and may include a "triggerContext",
+ *          depending on how and from where the use case was invoked.
+ *
+ *          Behavior by invocation type:
+ *          ---------------------------------
+ *          - When invoked via the startAiAgentConversation API:
+ *                If a "contextMemory" parameter is passed in the API request,
+ *                it will be available as the "triggerContext".
+ *                The "pageContext" is always present in this call,
+ *                regardless of the invocation type (standalone or workflow-based).
+ *                Example:
+ *                    {
+ *                        pageContext: { ... },
+ *                        triggerContext: { ... } // Derived from contextMemory (if passed)
+ *                    }
+ *
+ *          - When invoked as part of a workflow or chained use case:
+ *                The "pageContext" and "triggerContext" available here may represent
+ *                the state carried forward from a previous execution step.
+ *                This script can modify, enrich, or restructure these contexts
+ *                before passing them to the downstream agent(s).
+ *
+ *          - When executed directly (standalone use case execution):
+ *                The "pageContext" will always be available (even if empty),
+ *                and "triggerContext" will only be populated if explicitly
+ *                provided through the API call.
+ *
+ * Return Format:
+ * ----------------
+ * This script must return an updated context object to be passed to
+ * the next stage (typically the agent or workflow step):
+ *    { pageContext: {}, triggerContext: {} }
+ *
+ * Example:
+ * ----------------
+ * return {
+ *     pageContext: {
+ *         ...context.pageContext,
+ *         usecaseProcessed: true
+ *     },
+ *     triggerContext: {
+ *         ...context.triggerContext,
+ *         lastModifiedBy: "usecase_context_script"
+ *     }
+ * };
+ */
+(function(user_utterance, usecase_id, context) {
+    return {
+        pageContext: context?.pageContext,
+        triggerContext: context?.triggerContext
+    };
+})(user_utterance, usecase_id, context);
+]]></context_processing_script>
+        <description>This workflow automates the handling of hotel housekeeping guest requests within the FlowOps AI application. It analyzes guest requests, determines required housekeeping tasks, retrieves relevant room, guest, property, and staff information, assigns tasks to suitable housekeeping staff, and ensures tasks are created or updated without duplication. Designed for hotel operations teams seeking efficient, explainable, and domain-specific housekeeping task management.</description>
+        <execution_mode>copilot</execution_mode>
+        <internal_name>global.x_snc_flowops.Housekeeping Request Workflow</internal_name>
+        <name>Housekeeping Request Workflow</name>
+        <parent/>
+        <record_type>custom</record_type>
+        <root_usecase_id/>
+        <source_id/>
+        <strategy display_value="ReActive Planner">b264c470ff1022106c36ffffffffff67</strategy>
+        <sys_class_name>sn_aia_usecase</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:29:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>590e9abe9daa03107f444f7348fbe7e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Housekeeping Request Workflow</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_usecase_590e9abe9daa03107f444f7348fbe7e8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:29:50</sys_updated_on>
+        <team display_value="Housekeeping Request Workflow">7d9f16369dea03107f444f7348fbe7d7</team>
+    </sn_aia_usecase>
+</record_update>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_version">
+    <sn_aia_version action="INSERT_OR_UPDATE">
+        <condition/>
+        <instructions>Expertly interpret guest requests to identify housekeeping-related intents and task types.
+Retrieve guest, room, property, guest case, staff shift, and staff skill information from FlowOps tables.
+Determine task priority based on guest urgency, loyalty tier, request nature, comfort impact, and time sensitivity.
+Select suitable housekeeping staff by evaluating shift status, property match, skill requirements, and workload distribution.
+Create or update housekeeping tasks, ensuring no duplicate active tasks exist for the same request, case, room, and task type.
+Assign tasks to qualified staff or escalate for manual assignment if no suitable staff is available.
+Provide a structured output with task details, confidence score, and a concise decision summary explaining assignment logic.
+Handle only housekeeping domain requests; escalate or ignore unrelated intents such as engineering or vendor services.
+Never invent data; always use current ServiceNow records for decision-making.
+Escalate uncertain or unavailable situations to human supervisors as needed.</instructions>
+        <state>published</state>
+        <sys_class_name>sn_aia_version</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:29:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>0e9f96369dea03107f444f7348fbe7aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>V1</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_version_0e9f96369dea03107f444f7348fbe7aa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:29:50</sys_updated_on>
+        <target_id>590e9abe9daa03107f444f7348fbe7e8</target_id>
+        <target_table>sn_aia_usecase</target_table>
+        <version_name>V1</version_name>
+        <version_number>1</version_number>
+    </sn_aia_version>
+</record_update>

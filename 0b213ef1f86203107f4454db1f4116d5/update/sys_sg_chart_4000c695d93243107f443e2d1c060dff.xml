@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_chart">
+    <sys_sg_chart action="INSERT_OR_UPDATE">
+        <data_visualization display_value="Pending VS Resolves">27afb155d93243107f443e2d1c060d8f</data_visualization>
+        <jump_to_screen/>
+        <name>Chart</name>
+        <report/>
+        <sys_class_name>sys_sg_chart</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 12:36:37</sys_created_on>
+        <sys_id>4000c695d93243107f443e2d1c060dff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Chart</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_chart_4000c695d93243107f443e2d1c060dff</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 12:36:37</sys_updated_on>
+        <title/>
+        <type>data_visualization</type>
+        <widget/>
+    </sys_sg_chart>
+</record_update>

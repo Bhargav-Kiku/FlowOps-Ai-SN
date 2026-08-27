@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="task_type" table="x_snc_flowops_housekeeping_task" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>task_type</element>
+            <name>x_snc_flowops_housekeeping_task</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-08 10:13:56</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>task_type</sys_name>
+            <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+            <sys_update_name>sys_choice_x_snc_flowops_housekeeping_task_task_type</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-08 10:13:56</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>task_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Cleaning</label>
+            <language>en</language>
+            <name>x_snc_flowops_housekeeping_task</name>
+            <sequence>0</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-08 10:13:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-11 19:21:41</sys_updated_on>
+            <value>cleaning</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>task_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Inspection</label>
+            <language>en</language>
+            <name>x_snc_flowops_housekeeping_task</name>
+            <sequence>1</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-08 10:14:22</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-11 19:21:41</sys_updated_on>
+            <value>inspection</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>task_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Delivery</label>
+            <language>en</language>
+            <name>x_snc_flowops_housekeeping_task</name>
+            <sequence>2</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-11 19:21:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-11 19:21:41</sys_updated_on>
+            <value>delivery</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>task_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Turn Down</label>
+            <language>en</language>
+            <name>x_snc_flowops_housekeeping_task</name>
+            <sequence>3</sequence>
+            <synonyms/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-08 10:14:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-11 19:21:41</sys_updated_on>
+            <value>turn_down</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

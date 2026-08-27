@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="dbd563ca11ee03107f44b6b828e59790" label="Work Order" max_length="40" name="x_snc_flowops_work_order" type="collection">
+        <element label="Completed On" max_length="40" name="completed_on" type="glide_date_time"/>
+        <element label="Root Cause" max_length="255" name="root_cause" type="string_full_utf8"/>
+        <element label="Due Date" max_length="40" name="due_date" type="glide_date_time"/>
+        <element label="Guest Case" max_length="32" name="guest_case" reference="x_snc_flowops_guest_case" type="reference"/>
+        <element label="Require Vendor" max_length="40" name="require_vendor" type="boolean"/>
+        <element label="Room" max_length="32" name="room" reference="x_snc_flowops_room" type="reference"/>
+        <element choice="3" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="1 - Critical" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="3 - Medium" sequence="2" value="3"/>
+                <element inactive_on_update="false" label="4 - Low" sequence="3" value="4"/>
+                <element inactive_on_update="false" label="2 - High" sequence="1" value="2"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Short Description" max_length="100" name="short_description" type="string"/>
+        <element label="Assigned Engineer" max_length="32" name="assigned_engineer" reference="sys_user" type="reference"/>
+        <element label="Resolution Notes" max_length="300" name="resolution_notes" type="string"/>
+        <element label="Recommendation" max_length="100" name="recommendation" type="string"/>
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Assigned" sequence="0" value="assigned"/>
+                <element inactive_on_update="false" label="Verified" sequence="4" value="verified"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in_progress"/>
+                <element inactive_on_update="false" label="Resolved" sequence="2" value="resolved"/>
+                <element inactive_on_update="false" label="Escalate" sequence="3" value="escalate"/>
+            </choice>
+        </element>
+        <element label="Issue Category" max_length="32" name="issue_category" reference="x_snc_flowops_list_of_skills" type="reference"/>
+        <element label="Description" max_length="300" name="description" type="string_full_utf8"/>
+        <element label="Asset" max_length="32" name="asset" reference="x_snc_flowops_asset" type="reference"/>
+        <index name="index">
+            <element name="guest_case"/>
+        </index>
+        <index name="index2">
+            <element name="room"/>
+        </index>
+        <index name="index3">
+            <element name="assigned_engineer"/>
+        </index>
+        <index name="index4">
+            <element name="property"/>
+        </index>
+        <index name="index5">
+            <element name="asset"/>
+        </index>
+    </element>
+</database>

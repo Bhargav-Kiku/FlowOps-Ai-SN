@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_flowops.FO_AIOrchestrator</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>FO_AIOrchestrator</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var FO_AIOrchestrator = Class.create();
+FO_AIOrchestrator.prototype = {
+    initialize: function() {},
+
+    classifyIntent: function(requestSysId) {
+        var gr = new GlideRecord('x_snc_flowops_guest_request');
+        if (!gr.get(requestSysId)) {
+            return null;
+        }
+
+        try {
+            var depts = [];
+            var deptGr = new GlideRecord('x_snc_flowops_department');
+            deptGr.query();
+            while (deptGr.next()) {
+                var deptName = deptGr.getValue('name');
+                var deptSysId = deptGr.getUniqueValue();
+                var skills = [];
+
+                var skillGr = new GlideRecord('x_snc_flowops_list_of_skills');
+                skillGr.addQuery('department', deptSysId);
+                skillGr.query();
+                while (skillGr.next()) {
+                    skills.push({
+                        name: skillGr.getValue('name'),
+                        description: skillGr.getValue('description')
+                    });
+                }
+
+                if (skills.length > 0) {
+                    depts.push({
+                        department: deptName,
+                        skills: skills
+                    });
+                }
+            }
+
+            var request = new sn_ws.RESTMessageV2('FO_AI_Backend', 'IntentClassification');
+            request.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+            request.setRequestHeader('Content-Type', 'application/json');
+
+            var body = {
+                request: gr.getValue('raw_text'),
+                property: gr.getDisplayValue('property'),
+                room: gr.getDisplayValue('room'),
+                departments: depts
+            };
+
+            request.setRequestBody(JSON.stringify(body));
+
+            var response = request.execute();
+            var httpStatus = response.getStatusCode();
+            var responseBody = response.getBody();
+
+            if (httpStatus != 200) {
+                return null;
+            }
+
+            var result = JSON.parse(responseBody);
+
+            gr.setValue('urgency', result.urgency);
+            gr.setValue('sentiment', result.sentiment);
+            gr.setValue('ai_summary', result.summary);
+            gr.setValue('detected_intents', JSON.stringify(result.intents));
+            gr.setValue('priority', result.priority);
+
+            gr.update();
+
+            return result;
+
+        } catch (ex) {
+            return null;
+        }
+    },
+
+    routeIntents: function(requestSysId, classificationResult) {
+        if (!classificationResult || !classificationResult.intents) {
+            return [];
+        }
+
+        var requestGr = new GlideRecord('x_snc_flowops_guest_request');
+        if (!requestGr.get(requestSysId)) {
+            return [];
+        }
+
+        var sentimentVal = parseInt(requestGr.getValue('sentiment'), 10);
+        var parentPriority = parseInt(requestGr.getValue('priority'), 10);
+        var derivedPriority = this.derivePriority(parentPriority, sentimentVal);
+
+        var CONFIDENCE_THRESHOLD = 0.6;
+        var createdCases = [];
+        var agentsInvoked = [];
+        var summaryArr = [];
+
+        for (var i = 0; i < classificationResult.intents.length; i++) {
+            var intentObj = classificationResult.intents[i];
+
+            if (intentObj.confidence < CONFIDENCE_THRESHOLD) {
+                continue;
+            }
+
+            var deptGr = new GlideRecord('x_snc_flowops_department');
+            deptGr.addQuery('name', intentObj.intent);
+            deptGr.query();
+            if (!deptGr.next()) {
+                continue;
+            }
+            var deptSysId = deptGr.getUniqueValue();
+
+            var skillSysId = '';
+            var skillGr = new GlideRecord('x_snc_flowops_list_of_skills');
+            skillGr.addQuery('name', intentObj.service_subtype);
+            skillGr.query();
+            if (skillGr.next()) {
+                skillSysId = skillGr.getUniqueValue();
+            }
+
+            var targetCaseId = '';
+            var dup = new GlideRecord('x_snc_flowops_guest_case');
+            dup.addQuery('parent_request', requestSysId);
+            dup.addQuery('department', deptSysId);
+            dup.addQuery('service_subtype', skillSysId);
+            dup.addQuery('status', 'NOT IN', 'closed,resolved');
+            dup.query();
+
+            if (dup.next()) {
+                targetCaseId = dup.getUniqueValue();
+            } else {
+                var gc = new GlideRecord('x_snc_flowops_guest_case');
+                gc.initialize();
+                gc.setValue('parent_request', requestSysId);
+                gc.setValue('department', deptSysId);
+                gc.setValue('property', requestGr.getValue('property'));
+                gc.setValue('status', 'open');
+                gc.setValue('priority', derivedPriority);
+                gc.setValue('service_subtype', skillSysId);
+                gc.setValue('case_detail', intentObj.case_detail);
+                targetCaseId = gc.insert();
+            }
+
+            if (targetCaseId) {
+                if (createdCases.indexOf(targetCaseId) === -1) {
+                    createdCases.push(targetCaseId);
+                }
+
+                var intentName = String(intentObj.intent).trim().toLowerCase();
+
+                if (intentName === 'housekeeping') {
+                    agentsInvoked.push('housekeeping');
+                    var taskId = this.assignHousekeeping(targetCaseId);
+                    if (taskId) {
+                        summaryArr.push('Housekeeping assigned');
+                    } else {
+                        summaryArr.push('Housekeeping assign failed');
+                    }
+                }
+
+                if (intentName === 'engineering') {
+                    agentsInvoked.push('engineering');
+                    this.triageEngineering(targetCaseId);
+                    summaryArr.push('Engineering triaged');
+                }
+                if (intentName === 'vendor') {
+                    agentsInvoked.push('vendor');
+
+                    var vendorWoId = this.assignVendor(targetCaseId, skillSysId, derivedPriority, intentObj.case_detail);
+
+                    if (vendorWoId) {
+                        summaryArr.push('Vendor assigned');
+                    } else {
+                        summaryArr.push('Vendor assign failed');
+                    }
+                }
+            }
+        }
+
+        var summaryText = "Processed " + createdCases.length + " valid intents. " + summaryArr.join(' | ');
+        this._createAuditLog(requestSysId, classificationResult, agentsInvoked, summaryText);
+
+        requestGr.setValue('status', 'routed');
+        requestGr.update();
+        return createdCases;
+    },
+
+    _createAuditLog: function(requestSysId, classificationResult, agentsInvoked, summaryText) {
+        var logGr = new GlideRecord('x_snc_flowops_ai_orchestrator_log');
+        logGr.initialize();
+        logGr.setValue('guest_request', requestSysId);
+
+        var intents = [];
+        if (classificationResult && classificationResult.intents) {
+            for (var i = 0; i < classificationResult.intents.length; i++) {
+                intents.push(classificationResult.intents[i].intent);
+            }
+        }
+
+        logGr.setValue('detected_intents', intents.join(','));
+        logGr.setValue('agents_invoked', agentsInvoked.join(','));
+        logGr.setValue('decision_summary', summaryText.substring(0, 300));
+
+        var reqGr = new GlideRecord('x_snc_flowops_guest_request');
+        if (reqGr.get(requestSysId)) {
+            var createdDt = new GlideDateTime(reqGr.getValue('sys_created_on'));
+            var nowDt = new GlideDateTime();
+            var processingTime = nowDt.getNumericValue() - createdDt.getNumericValue();
+            logGr.setValue('processing_time_ms', processingTime);
+        }
+
+        logGr.insert();
+    },
+
+    derivePriority: function(parentPriority, sentimentVal) {
+        var priority = parentPriority || 4;
+
+        if (sentimentVal === 1 || sentimentVal === 3) {
+            priority = Math.min(priority, 1);
+        } else if (sentimentVal === 4) {
+            priority = Math.min(priority, 2);
+        }
+
+        return priority;
+    },
+
+    assignHousekeeping: function(guestCaseSysId) {
+        var caseGr = new GlideRecord('x_snc_flowops_guest_case');
+        if (!caseGr.get(guestCaseSysId)) {
+            return null;
+        }
+
+        var service_subtype = caseGr.getValue('service_subtype');
+
+        if (!service_subtype) {
+            return null;
+        }
+
+        var requestGr = new GlideRecord('x_snc_flowops_guest_request');
+        if (!requestGr.get(caseGr.getValue('parent_request'))) {
+            return null;
+        }
+
+        var propertySysId = requestGr.getValue('property');
+        var roomSysId = requestGr.getValue('room');
+
+        var nowGdt = new GlideDateTime();
+        var nowTimeStr = nowGdt.getLocalTime().getByFormat('HH:mm:ss');
+
+        var skillStaffIds = [];
+        var skillGr = new GlideRecord('x_snc_flowops_staff_skill');
+        skillGr.addQuery('skill_category', service_subtype);
+        skillGr.addQuery('property', propertySysId);
+        skillGr.query();
+
+        while (skillGr.next()) {
+            var sId = skillGr.getValue('staff');
+            skillStaffIds.push(sId);
+        }
+
+        var candidates = [];
+
+        if (skillStaffIds.length > 0) {
+            var shiftGr = new GlideRecord('x_snc_flowops_staff_shift');
+            shiftGr.addQuery('property', propertySysId);
+            shiftGr.addQuery('staff', 'IN', skillStaffIds.join(','));
+            shiftGr.query();
+
+            while (shiftGr.next()) {
+                var staffId = shiftGr.getValue('staff');
+
+                var shiftStart = null;
+                var shiftEnd = null;
+
+                if (!shiftGr.shift_start.nil()) {
+                    shiftStart = shiftGr.getValue('shift_start').split(' ')[1];
+                }
+
+                if (!shiftGr.shift_end.nil()) {
+                    shiftEnd = shiftGr.getValue('shift_end').split(' ')[1];
+                }
+
+                if (shiftStart && shiftEnd) {
+                    var onShift = this.isTimeWithinShift(nowTimeStr, shiftStart, shiftEnd);
+
+                    if (onShift) {
+                        candidates.push({
+                            index: candidates.length,
+                            staff_id: staffId,
+                            name: shiftGr.staff.getDisplayValue(),
+                            on_shift: true,
+                            same_property: true,
+                            has_required_skill: true,
+                            current_room_count: parseInt(shiftGr.getValue('assigned_room_count'), 10) || 0
+                        });
+                    }
+                }
+            }
+        }
+
+        if (candidates.length === 0) {
+            return null;
+        }
+
+        try {
+            var request = new sn_ws.RESTMessageV2('FO_AI_Backend', 'HousekeepingAssign');
+            request.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+            request.setRequestHeader('Content-Type', 'application/json');
+
+            var body = {
+                domain: "housekeeping",
+                guest_case_id: guestCaseSysId,
+                room: requestGr.getDisplayValue('room'),
+                property: requestGr.getDisplayValue('property'),
+                task_type: service_subtype,
+                severity: parseInt(caseGr.getValue('priority'), 10) || 4,
+                candidates: candidates
+            };
+
+            request.setRequestBody(JSON.stringify(body));
+
+            var response = request.execute();
+            var httpStatus = response.getStatusCode();
+            var responseBody = response.getBody();
+
+            if (httpStatus != 200) {
+                return null;
+            }
+
+            var aiResult = JSON.parse(responseBody);
+
+            if (aiResult.recommended_index === undefined || aiResult.recommended_index === null) {
+                return null;
+            }
+
+            var recIndex = parseInt(aiResult.recommended_index, 10);
+            var recStaffId = '';
+            var validated = false;
+
+            for (var j = 0; j < candidates.length; j++) {
+                if (candidates[j].index === recIndex && candidates[j].on_shift) {
+                    validated = true;
+                    recStaffId = candidates[j].staff_id;
+                    break;
+                }
+            }
+
+            if (!validated) {
+                return null;
+            }
+
+            caseGr.setValue('assigned_to', recStaffId);
+            caseGr.setValue('assignment_type', 'internal');
+            caseGr.update();
+
+            var dupTask = new GlideRecord('x_snc_flowops_housekeeping_task');
+            dupTask.addQuery('guest_case', guestCaseSysId);
+            dupTask.addQuery('status', 'NOT IN', 'completed,verified');
+            dupTask.query();
+            if (dupTask.next()) {
+                return dupTask.getUniqueValue();
+            }
+
+            var taskGr = new GlideRecord('x_snc_flowops_housekeeping_task');
+            taskGr.initialize();
+            taskGr.setValue('guest_case', guestCaseSysId);
+            taskGr.setValue('assigned_staff', recStaffId);
+            taskGr.setValue('room', roomSysId);
+            taskGr.setValue('service_subtype', service_subtype);
+            taskGr.setValue('priority', caseGr.getValue('priority'));
+            taskGr.setValue('status', 'assigned');
+            taskGr.setValue('due_time', caseGr.getValue('sla_due_time'));
+            taskGr.setValue('description', caseGr.getValue('case_detail'));
+            var newTaskId = taskGr.insert();
+
+            return newTaskId;
+
+        } catch (ex) {
+            return null;
+        }
+    },
+
+    isTimeWithinShift: function(nowStr, startStr, endStr) {
+        if (startStr === endStr) {
+            return true;
+        } else if (startStr < endStr) {
+            return nowStr >= startStr && nowStr <= endStr;
+        } else {
+            return nowStr >= startStr || nowStr <= endStr;
+        }
+    },
+
+    triageEngineering: function(guestCaseSysId) {
+
+gs.info('[ENG DEBUG] Started for ' + guestCaseSysId);
+
+        var caseGr = new GlideRecord('x_snc_flowops_guest_case');
+        if (!caseGr.get(guestCaseSysId)) {
+gs.info('[ENG DEBUG] Case not found');
+
+            return;
+        }
+gs.info('[ENG DEBUG] Case Found: ' + caseGr.getDisplayValue());
+
+        var requestGr = new GlideRecord('x_snc_flowops_guest_request');
+        if (!requestGr.get(caseGr.getValue('parent_request'))) {
+
+			gs.info('[ENG DEBUG] Parent Request not found');
+
+            return;
+        }
+gs.info('[ENG DEBUG] Parent Request Found');
+        var assetGr = new GlideRecord('x_snc_flowops_asset');
+        assetGr.addQuery('room', requestGr.getValue('room'));
+        assetGr.query();
+
+        var roomAssets = [];
+        var assetMap = {};
+
+        while (assetGr.next()) {
+            var aType = assetGr.getValue('asset_type');
+            assetMap[aType] = assetGr.getUniqueValue();
+
+            roomAssets.push({
+                asset_name: assetGr.getValue('asset_name'),
+                asset_type: aType,
+                status: assetGr.getValue('status'),
+                criticality: assetGr.getValue('criticality')
+            });
+        }
+
+        try {
+            var triagePayload = {
+                guest_case_id: guestCaseSysId,
+                service_subtype: caseGr.getValue('service_subtype'),
+                priority: parseInt(caseGr.getValue('priority'), 10) || 4,
+                description: requestGr.getValue('raw_text'),
+                room: requestGr.room.getDisplayValue(),
+                property: requestGr.property.getDisplayValue(),
+                assets: roomAssets
+            };
+gs.info('[ENG DEBUG] Calling Engineering Triage API');
+            var triageSm = new sn_ws.RESTMessageV2('FO_AI_Backend', 'EngineeringTriage');
+            triageSm.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+            triageSm.setRequestHeader('Content-Type', 'application/json');
+            triageSm.setRequestBody(JSON.stringify(triagePayload));
+
+            var triageResponse = triageSm.execute();
+            var triageStatus = triageResponse.getStatusCode();
+gs.info('[ENG DEBUG] Triage Status = ' + triageStatus);
+gs.info('[ENG DEBUG] Triage Body = ' + triageResponse.getBody());
+            if (triageStatus != 200) {
+                return;
+            }
+
+            var triageData = JSON.parse(triageResponse.getBody());
+
+            var issueCategory = caseGr.getValue('service_subtype');
+            if (!issueCategory) {
+                issueCategory = triageData.problem_category;
+            }
+            if (!issueCategory || issueCategory.toString().toLowerCase() === 'unknown') {
+                issueCategory = 'other_engineering';
+            }
+
+            var routingDecision = triageData.routing_decision;
+
+            if (routingDecision === 'vendor_direct') {
+                this.assignVendor(guestCaseSysId, issueCategorySysId, caseGr.getValue('priority'), triageData.recommended_action);
+                return;
+            }
+
+            var nowGdt = new GlideDateTime();
+            var nowTimeStr = nowGdt.getLocalTime().getByFormat('HH:mm:ss');
+
+
+            var skillStaffIds = [];
+            var skillGr = new GlideRecord('x_snc_flowops_staff_skill');
+            skillGr.addQuery('skill_category', issueCategory);
+            skillGr.addQuery('property', requestGr.getValue('property'));
+            skillGr.query();
+
+            while (skillGr.next()) {
+                skillStaffIds.push(skillGr.getValue('staff'));
+            }
+
+            var candidates = [];
+
+            if (skillStaffIds.length > 0) {
+                var shiftGr = new GlideRecord('x_snc_flowops_staff_shift');
+                shiftGr.addQuery('property', requestGr.getValue('property'));
+                shiftGr.addQuery('staff', 'IN', skillStaffIds.join(','));
+                shiftGr.query();
+
+                while (shiftGr.next()) {
+                    var staffId = shiftGr.getValue('staff');
+
+                    var shiftStart = null;
+                    var shiftEnd = null;
+
+                    if (!shiftGr.shift_start.nil()) {
+                        shiftStart = shiftGr.getValue('shift_start').split(' ')[1];
+                    }
+
+                    if (!shiftGr.shift_end.nil()) {
+                        shiftEnd = shiftGr.getValue('shift_end').split(' ')[1];
+                    }
+
+                    if (shiftStart && shiftEnd) {
+                        var onShift = this.isTimeWithinShift(nowTimeStr, shiftStart, shiftEnd);
+
+                        if (onShift) {
+                            candidates.push({
+                                index: candidates.length,
+                                staff_id: staffId,
+                                name: shiftGr.staff.getDisplayValue(),
+                                on_shift: true,
+                                same_property: true,
+                                has_required_skill: true,
+                                current_room_count: parseInt(shiftGr.getValue('assigned_room_count'), 10) || 0
+                            });
+                        }
+                    }
+                }
+            }
+
+            var internalAssigned = false;
+gs.info('[ENG DEBUG] Candidates Found = ' + candidates.length);
+            if (candidates.length > 0) {
+                var assignPayload = {
+                    domain: "engineering",
+                    guest_case_id: guestCaseSysId,
+                    room: requestGr.getDisplayValue('room'),
+                    property: requestGr.getDisplayValue('property'),
+                    task_type: issueCategory,
+                    severity: parseInt(triageData.severity, 10) || parseInt(caseGr.getValue('priority'), 10) || 4,
+                    candidates: candidates
+                };
+
+                var assignSm = new sn_ws.RESTMessageV2('FO_AI_Backend', 'HousekeepingAssign');
+                assignSm.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+                assignSm.setRequestHeader('Content-Type', 'application/json');
+                assignSm.setRequestBody(JSON.stringify(assignPayload));
+
+                var assignResponse = assignSm.execute();
+                var assignStatus = assignResponse.getStatusCode();
+
+                if (assignStatus == 200) {
+                    var assignData = JSON.parse(assignResponse.getBody());
+
+                    if (assignData.recommended_index !== undefined && assignData.recommended_index !== null) {
+                        var engRecIndex = parseInt(assignData.recommended_index, 10);
+                        var engRecStaffId = '';
+                        var engValidated = false;
+
+                        for (var k = 0; k < candidates.length; k++) {
+                            if (candidates[k].index === engRecIndex && candidates[k].on_shift) {
+                                engValidated = true;
+                                engRecStaffId = candidates[k].staff_id;
+                                break;
+                            }
+                        }
+
+                        if (engValidated) {
+                            caseGr.setValue('assigned_to', engRecStaffId);
+gs.info('[ENG DEBUG] Assigning Engineer = ' + engRecStaffId);
+                            caseGr.setValue('assignment_type', 'internal');
+
+                            var validSuggestedPriority = (triageData.suggested_priority && triageData.suggested_priority.toString().toLowerCase() !== 'unknown') ?
+                                triageData.suggested_priority :
+                                null;
+
+                            if (validSuggestedPriority) {
+                                caseGr.setValue('priority', validSuggestedPriority);
+                            }
+                            if (triageData.recommended_action && triageData.recommended_action.toLowerCase() !== 'unknown') {
+                                caseGr.work_notes = "AI Triage Recommendation: " + triageData.recommended_action;
+                            }
+                            caseGr.update();
+
+                            var matchedAssetId = assetMap[issueCategory] || '';
+
+                            var dupWO = new GlideRecord('x_snc_flowops_work_order');
+                            dupWO.addQuery('guest_case', guestCaseSysId);
+                            dupWO.addQuery('status', 'NOT IN', 'completed,closed');
+                            dupWO.query();
+                            if (dupWO.next()) {
+                                internalAssigned = true;
+                            } else {
+                                var workOrder = new GlideRecord('x_snc_flowops_work_order');
+                                workOrder.initialize();
+
+                                workOrder.setValue('issue_category', issueCategory);
+                                workOrder.setValue('priority', validSuggestedPriority || caseGr.getValue('priority'));
+                                workOrder.setValue('assigned_engineer', engRecStaffId);
+                                workOrder.setValue('guest_case', guestCaseSysId);
+                                workOrder.setValue('room', requestGr.getValue('room'));
+                                workOrder.setValue('property', requestGr.getValue('property'));
+                                workOrder.setValue('status', 'assigned');
+                                workOrder.setValue('due_time', caseGr.getValue('sla_due_time'));
+
+                                if (triageData.recommended_action && triageData.recommended_action.toLowerCase() !== 'unknown') {
+                                    workOrder.setValue('recommendation', triageData.recommended_action);
+                                }
+
+                                if (matchedAssetId) {
+                                    workOrder.setValue('asset', matchedAssetId);
+                                }
+
+                                if (caseGr.getValue('short_description')) {
+                                    workOrder.setValue('short_description', caseGr.getValue('short_description'));
+                                } else {
+                                    workOrder.setValue('short_description', requestGr.getValue('raw_text'));
+                                }
+
+                                if (caseGr.getValue('case_detail')) {
+                                    workOrder.setValue('description', caseGr.getValue('case_detail'));
+                                } else {
+                                    workOrder.setValue('description', requestGr.getValue('raw_text'));
+                                }
+
+                                if (caseGr.getValue('opened_for')) {
+                                    workOrder.setValue('opened_for', caseGr.getValue('opened_for'));
+                                } else if (requestGr.getValue('opened_for')) {
+                                    workOrder.setValue('opened_for', requestGr.getValue('opened_for'));
+                                }
+
+                                if (caseGr.getValue('guest')) {
+                                    workOrder.setValue('guest', caseGr.getValue('guest'));
+                                } else if (requestGr.getValue('guest')) {
+                                    workOrder.setValue('guest', requestGr.getValue('guest'));
+                                }
+gs.info('[ENG DEBUG] Creating Work Order');
+                                var woId = workOrder.insert();
+gs.info('[ENG DEBUG] Work Order Created = ' + woId);
+                                internalAssigned = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!internalAssigned && routingDecision === 'hybrid') {
+                this.assignVendor(guestCaseSysId, issueCategorySysId, caseGr.getValue('priority'), triageData.recommended_action);
+            }
+
+        } catch (ex) {
+gs.error('[ENG DEBUG] ERROR = ' + ex);
+
+        }
+    },
+
+    assignVendor: function(guestCaseSysId, taskType, severity, triageRecommendation) {
+        var caseGr = new GlideRecord('x_snc_flowops_guest_case');
+        if (!caseGr.get(guestCaseSysId)) {
+            return null;
+        }
+
+        var requestGr = new GlideRecord('x_snc_flowops_guest_request');
+        if (!requestGr.get(caseGr.getValue('parent_request'))) {
+            return null;
+        }
+
+        var propertySysId = requestGr.getValue('property');
+        var candidates = [];
+
+        var vendorGr = new GlideRecord('x_snc_flowops_vendor');
+        vendorGr.addQuery('service_category', 'CONTAINS', taskType);
+        vendorGr.addQuery('properties_serviced', 'CONTAINS', propertySysId);
+        vendorGr.query();
+
+        while (vendorGr.next()) {
+            candidates.push({
+                index: candidates.length,
+                vendor_id: vendorGr.getUniqueValue(),
+                name: vendorGr.getValue('vendor_name'),
+                rating: parseFloat(vendorGr.getValue('rating')) || 0,
+                sla_response_time_hrs: parseInt(vendorGr.getValue('sla_response_time_hrs'), 10) || 24,
+                contract_status: vendorGr.getValue('contract_status')
+            });
+        }
+
+        if (candidates.length === 0) {
+            return null;
+        }
+
+        try {
+            var payload = {
+                guest_case_id: guestCaseSysId,
+                task_type: taskType,
+                severity: parseInt(severity, 10) || parseInt(caseGr.getValue('priority'), 10) || 4,
+                property: requestGr.property.getDisplayValue(),
+                candidates: candidates
+            };
+
+            var request = new sn_ws.RESTMessageV2('FO_AI_Backend', 'VendorRecommendation');
+            request.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.setRequestBody(JSON.stringify(payload));
+
+            var response = request.execute();
+            var httpStatus = response.getStatusCode();
+            var responseBody = response.getBody();
+
+            if (httpStatus != 200) {
+                return null;
+            }
+
+            var aiResult = JSON.parse(responseBody);
+
+            if (aiResult.recommended_index === undefined || aiResult.recommended_index === null) {
+                return null;
+            }
+
+            var recIndex = parseInt(aiResult.recommended_index, 10);
+            var recVendorId = '';
+            var validated = false;
+
+            for (var i = 0; i < candidates.length; i++) {
+                if (candidates[i].index === recIndex) {
+                    validated = true;
+                    recVendorId = candidates[i].vendor_id;
+                    break;
+                }
+            }
+
+            if (!validated) {
+                return null;
+            }
+
+            caseGr.setValue('assigned_vendor', recVendorId);
+            caseGr.setValue('assignment_type', 'vendor');
+            caseGr.setValue('status', 'in_progress');
+            if (triageRecommendation && triageRecommendation.toLowerCase() !== 'unknown') {
+                caseGr.work_notes = "AI Triage Recommendation: " + triageRecommendation + "\nVendor Selected: " + aiResult.reason;
+            }
+
+            caseGr.setWorkflow(false);
+            caseGr.update();
+
+            var vwo = new GlideRecord('x_snc_flowops_vendor_work_order');
+            vwo.initialize();
+            vwo.setValue('issue_category', taskType);
+            vwo.setValue('priority', caseGr.getValue('priority'));
+            vwo.setValue('assigned_vendor', recVendorId);
+            vwo.setValue('guest_case', guestCaseSysId);
+            vwo.setValue('room', requestGr.getValue('room'));
+            vwo.setValue('property', propertySysId);
+            vwo.setValue('status', 'requested');
+
+            if (triageRecommendation && triageRecommendation.toLowerCase() !== 'unknown') {
+                vwo.setValue('recommendation', triageRecommendation);
+            }
+
+            vwo.setValue('short_description', caseGr.getValue('short_description') || requestGr.getValue('raw_text'));
+            vwo.setValue('description', caseGr.getValue('case_detail') || requestGr.getValue('raw_text'));
+
+            vwo.setWorkflow(false);
+            var woId = vwo.insert();
+
+            return woId;
+
+        } catch (ex) {
+            return null;
+        }
+    },
+
+    generateSentimentEmailBody: function(recordSysId, tableName, stage) {
+        var text = '';
+        var sentiment = 0;
+        var assignmentType = '';
+        var assignedName = '';
+
+        var gr = new GlideRecord(tableName);
+        if (!gr.get(recordSysId)) {
+            return null;
+        }
+
+        if (tableName === 'x_snc_flowops_guest_request') {
+            text = gr.getValue('raw_text');
+            sentiment = parseInt(gr.getValue('sentiment'), 10);
+        } else if (tableName === 'x_snc_flowops_guest_case') {
+            text = gr.getValue('case_detail');
+            sentiment = parseInt(gr.parent_request.sentiment, 10);
+            assignmentType = gr.getValue('assignment_type');
+            if (assignmentType === 'vendor' && !gr.assigned_vendor.nil()) {
+                assignedName = gr.assigned_vendor.getDisplayValue();
+            } else if (assignmentType === 'internal' && !gr.assigned_to.nil()) {
+                assignedName = gr.assigned_to.getDisplayValue();
+            }
+        } else {
+            return null;
+        }
+
+        try {
+            var request = new sn_ws.RESTMessageV2('FO_AI_Backend', 'GenerateEmailBody');
+            request.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+            request.setRequestHeader('Content-Type', 'application/json');
+
+            var body = {
+                request_text: text,
+                sentiment: sentiment,
+                stage: stage,
+                assignment_type: assignmentType,
+                assigned_name: assignedName
+            };
+
+            request.setRequestBody(JSON.stringify(body));
+
+            var response = request.execute();
+            var httpStatus = response.getStatusCode();
+            var responseBody = response.getBody();
+
+            if (httpStatus != 200) {
+                return null;
+            }
+
+            var result = JSON.parse(responseBody);
+            return result.body;
+
+        } catch (ex) {
+            return null;
+        }
+    },
+
+    assignMaintenance: function(workOrderSysId) {
+        var woGr = new GlideRecord('x_snc_flowops_work_order');
+        if (!woGr.get(workOrderSysId)) return;
+
+        var assetType = '';
+        var assetGr = new GlideRecord('x_snc_flowops_asset');
+        if (assetGr.get(woGr.getValue('asset'))) {
+            assetType = assetGr.getValue('asset_type');
+        }
+
+        var propertySysId = woGr.getValue('property');
+
+        var nowGdt = new GlideDateTime();
+        var nowTimeStr = nowGdt.getLocalTime().getByFormat('HH:mm:ss');
+
+        var skillGr = new GlideRecord('x_snc_flowops_staff_skill');
+        skillGr.addQuery('skill_category', assetType);
+        skillGr.addQuery('property', propertySysId);
+        skillGr.query();
+
+        var candidates = [];
+        while (skillGr.next()) {
+            var shiftStart = skillGr.getElement('shift_start').getGlideObject().getByFormat('HH:mm:ss');
+            var shiftEnd = skillGr.getElement('shift_end').getGlideObject().getByFormat('HH:mm:ss');
+            var onShift = this.isTimeWithinShift(nowTimeStr, shiftStart, shiftEnd);
+
+            candidates.push({
+                staff_id: skillGr.getValue('staff'),
+                name: skillGr.staff.getDisplayValue(),
+                on_shift: onShift,
+                same_property: true,
+                has_required_skill: true,
+                current_room_count: parseInt(skillGr.getValue('current_open_work_order'), 10) || 0
+            });
+        }
+
+        if (candidates.length === 0) {
+            this.assignVendorWO(workOrderSysId, assetType, woGr.getValue('priority'), woGr.getValue('description'));
+            return;
+        }
+
+        var assignPayload = {
+            domain: "engineering",
+            guest_case_id: workOrderSysId,
+            room: woGr.room.getDisplayValue(),
+            property: woGr.property.getDisplayValue(),
+            task_type: assetType,
+            severity: parseInt(woGr.getValue('priority'), 10) || 4,
+            candidates: candidates
+        };
+
+        var assignSm = new sn_ws.RESTMessageV2('FO_AI_Backend', 'HousekeepingAssign');
+        assignSm.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+        assignSm.setRequestHeader('Content-Type', 'application/json');
+        assignSm.setRequestBody(JSON.stringify(assignPayload));
+
+        var assignResponse = assignSm.execute();
+        if (assignResponse.getStatusCode() != 200) return;
+
+        var assignData = JSON.parse(assignResponse.getBody());
+
+        woGr.setValue('assigned_engineer', assignData.recommended_staff_id);
+        woGr.setValue('status', 'assigned');
+        woGr.setWorkflow(false);
+        woGr.update();
+    },
+
+    assignVendorWO: function(workOrderSysId, taskType, severity, recommendation) {
+        var woGr = new GlideRecord('x_snc_flowops_work_order');
+        if (!woGr.get(workOrderSysId)) return;
+
+        var propertySysId = woGr.getValue('property');
+        var candidates = [];
+
+        var vendorGr = new GlideRecord('x_snc_flowops_vendor');
+        vendorGr.addQuery('service_category', 'CONTAINS', taskType);
+        vendorGr.addQuery('properties_serviced', 'CONTAINS', propertySysId);
+        vendorGr.query();
+
+        while (vendorGr.next()) {
+            candidates.push({
+                index: candidates.length,
+                vendor_id: vendorGr.getUniqueValue(),
+                name: vendorGr.getValue('vendor_name'),
+                rating: parseFloat(vendorGr.getValue('rating')) || 0,
+                sla_response_time_hrs: parseInt(vendorGr.getValue('sla_response_time_hrs'), 10) || 24,
+                contract_status: vendorGr.getValue('contract_status')
+            });
+        }
+
+        if (candidates.length === 0) return;
+
+        var payload = {
+            guest_case_id: workOrderSysId,
+            task_type: taskType,
+            severity: parseInt(severity, 10) || 4,
+            property: woGr.property.getDisplayValue(),
+            candidates: candidates
+        };
+
+        var request = new sn_ws.RESTMessageV2('FO_AI_Backend', 'VendorRecommendation');
+        request.setRequestHeader('x-flowops-api-key', gs.getProperty('x_snc_flowops.ai_api_key'));
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestBody(JSON.stringify(payload));
+
+        var response = request.execute();
+        if (response.getStatusCode() != 200) return;
+
+        var aiResult = JSON.parse(response.getBody());
+        if (aiResult.recommended_index === undefined || aiResult.recommended_index === null) return;
+
+        var recIndex = parseInt(aiResult.recommended_index, 10);
+        var recVendorId = '';
+        var validated = false;
+
+        for (var i = 0; i < candidates.length; i++) {
+            if (candidates[i].index === recIndex) {
+                validated = true;
+                recVendorId = candidates[i].vendor_id;
+                break;
+            }
+        }
+
+        if (!validated) return;
+
+        var vwo = new GlideRecord('x_snc_flowops_vendor_work_order');
+        vwo.initialize();
+        vwo.setValue('issue_category', taskType);
+        vwo.setValue('priority', severity);
+        vwo.setValue('assigned_vendor', recVendorId);
+        vwo.setValue('asset', woGr.getValue('asset'));
+        vwo.setValue('room', woGr.getValue('room'));
+        vwo.setValue('property', propertySysId);
+        vwo.setValue('status', 'requested');
+        vwo.setValue('recommendation', recommendation);
+        vwo.setValue('short_description', woGr.getValue('short_description'));
+        vwo.setValue('description', woGr.getValue('description'));
+        vwo.setWorkflow(false);
+        vwo.insert();
+
+        woGr.setValue('status', 'closed');
+        woGr.setWorkflow(false);
+        woGr.update();
+    },
+
+    type: 'FO_AIOrchestrator'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 07:47:35</sys_created_on>
+        <sys_id>40e9784bd4aa03107f44236e95744b26</sys_id>
+        <sys_mod_count>81</sys_mod_count>
+        <sys_name>FO_AIOrchestrator</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_include_40e9784bd4aa03107f44236e95744b26</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-24 14:31:28</sys_updated_on>
+    </sys_script_include>
+</record_update>

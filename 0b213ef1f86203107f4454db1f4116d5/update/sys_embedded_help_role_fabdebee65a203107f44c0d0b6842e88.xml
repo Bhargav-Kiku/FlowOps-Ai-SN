@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_snc_flowops.notification_log_user" name="x_snc_flowops.notification_log_user">3ebdebee65a203107f44c0d0b6842e85</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 07:32:45</sys_created_on>
+        <sys_id>fabdebee65a203107f44c0d0b6842e88</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>3ebdebee65a203107f44c0d0b6842e85</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_embedded_help_role_fabdebee65a203107f44c0d0b6842e88</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 07:32:45</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

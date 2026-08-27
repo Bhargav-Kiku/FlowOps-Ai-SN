@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="a12135369de203107f444f7348fbe7ea" label="AI Agent Escalation" max_length="40" name="x_snc_flowops_ai_agent_escalation" type="collection">
+        <element label="Resolved On" max_length="40" name="resolved_on" type="glide_date_time"/>
+        <element label="Resolution Action" max_length="40" name="resolution_action" type="string"/>
+        <element label="Assigned Reviewer" max_length="32" name="assigned_reviewer" reference="sys_user" type="reference"/>
+        <element label="Original Text" max_length="300" name="original_text" type="string_full_utf8"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Resolved" sequence="2" value="resolved"/>
+                <element inactive_on_update="false" label="Reassigned" sequence="3" value="reassigned"/>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="In Review" sequence="1" value="in_review"/>
+            </choice>
+        </element>
+        <element choice="1" label="Reason Category" max_length="40" name="reason_category" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Missing Data" sequence="2" value="missing_data"/>
+                <element inactive_on_update="false" label="Ambiguous Request" sequence="0" value="ambiguous_request"/>
+                <element inactive_on_update="false" label="No Qualified Staff" sequence="4" value="no_qualified_staff"/>
+                <element inactive_on_update="false" label="Out of Scope" sequence="1" value="out_of_scope"/>
+                <element inactive_on_update="false" label="Low Confidence" sequence="3" value="low_confidence"/>
+            </choice>
+        </element>
+        <element label="Confidence Score" max_length="20" name="confidence_score" type="decimal"/>
+        <element label="Guest Request" max_length="32" name="guest_request" reference="x_snc_flowops_guest_request" type="reference"/>
+        <element label="Escalation Note" max_length="250" name="escalation_note" type="string_full_utf8"/>
+        <element choice="1" label="Escalated By" max_length="255" name="escalated_by" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Ai Agent" sequence="0" value="ai_agent"/>
+                <element inactive_on_update="false" label="Staff" sequence="1" value="staff"/>
+            </choice>
+        </element>
+        <element label="Agent Notes" max_length="300" name="agent_notes" type="string_full_utf8"/>
+        <element choice="1" label="Source Agent" max_length="40" name="source_agent" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Guest Concierge" sequence="0" value="guest_concierge"/>
+                <element inactive_on_update="false" label="Engineering" sequence="2" value="engineering"/>
+                <element inactive_on_update="false" label="Operations Intelligence" sequence="4" value="operations_intelligence"/>
+                <element inactive_on_update="false" label="Vendor Coordination" sequence="3" value="vendor_coordination"/>
+                <element inactive_on_update="false" label="Housekeeping" sequence="1" value="housekeeping"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="assigned_reviewer"/>
+        </index>
+        <index name="index2">
+            <element name="guest_request"/>
+        </index>
+    </element>
+</database>

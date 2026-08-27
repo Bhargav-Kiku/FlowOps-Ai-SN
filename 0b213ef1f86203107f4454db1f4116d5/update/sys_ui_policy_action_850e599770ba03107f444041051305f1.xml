@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>channel_reference</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-24 15:15:59</sys_created_on>
+        <sys_id>850e599770ba03107f444041051305f1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>channel_reference</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_ui_policy_action_850e599770ba03107f444041051305f1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-24 15:15:59</sys_updated_on>
+        <table>x_snc_flowops_guest_request</table>
+        <ui_policy display_value="Show Channel refarance field when Chennel is Inbund Email or The virtual Agent">8d0e599770ba03107f444041051305eb</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=850e599770ba03107f444041051305f1"/>
+</record_update>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_agent">
+    <sn_aia_agent action="INSERT_OR_UPDATE">
+        <advanced_mode>false</advanced_mode>
+        <agent_type>internal</agent_type>
+        <applicability_script><![CDATA[/** 
+ * Function to process inputs related to ServiceNow change request operations 
+ * 
+ * @param {Object} inputs - The input parameters object 
+ * @param {string} inputs.objective - The purpose or goal of the operation 
+ * @param {string} inputs.execution_plan_id - Unique identifier for the execution plan 
+ * @param {Object} inputs.context - Context information about the ServiceNow change request 
+ * @param {string} inputs.context.url - The URL of the change request in Service Operations Workspace 
+ * @param {string} inputs.context.table - The ServiceNow table name (e.g., 'change_request') 
+ * @param {string} inputs.context.record_sys_id - The sys ID of the record 
+ * @param {string} inputs.context.route - The route type (e.g., 'record') 
+ * @param {string} inputs.context.additional_context - Additional contextual information in JSON format 
+ * @param {string} inputs.context.experience - The UI experience name (e.g., 'Service Operations Workspace') 
+ * @param {string} inputs.context.number - The request number 
+ * @param {string} inputs.context.portal - The portal ID 
+ * @param {string} inputs.context.device_type - The device type from which the experience is accessed, e.g.'mweb' 
+ * @param {string} inputs.context.deployment_id - The unique identifier for the assistant deployment 
+ * @param {string} inputs.context.assistant_type - The type of assistant, e.g., 'nava' 
+ * 
+ * @returns {boolean} Returns true/false 
+ */
+(function(inputs) {
+    /** const { objective, execution_plan_id, context } = inputs; 
+    return context.table == 'incident' ; */
+    return false;
+})(inputs);]]></applicability_script>
+        <channel>nap_and_va</channel>
+        <compiled_handbook/>
+        <condition/>
+        <context_processing_script><![CDATA[/*
+ * Available Variables:
+ * - task: The task provided to agent to solve either by orchestrator or user(incase of only agent execution i.e agent is invoked as seperate entity instead from a workflow).
+ * - user_utterance: The user utterance provided. and task = user_utterance in case of individual agent execution.
+ * - agent_id: The agent id.
+ * - context: An object that carries additional contextual information for the agent.
+ *          It always includes a "pageContext" and may include a "triggerContext",
+ *          depending on how and from where the agent is invoked.
+ *
+ *          Behavior by invocation type:
+ *          ---------------------------------
+ *          - When invoked via the startAiAgentConversation API:
+ *                If a "contextMemory" parameter is provided in the API request,
+ *                it will be available here as the "triggerContext".
+ *                The "pageContext" is always present in this call, regardless
+ *                of whether the agent is executed individually or as part of a use case.
+ *                Example:
+ *                    {
+ *                        pageContext: { ... },
+ *                        triggerContext: { ... } // Derived from contextMemory (if passed)
+ *                    }
+ *
+ *          - When invoked as part of a use case or workflow:
+ *                The "pageContext" and "triggerContext" objects available here
+ *                may have been *modified* by the use case’s context processing script.
+ *                This means the use case may alter, extend, or overwrite values
+ *                from the original "pageContext" or "triggerContext"
+ *                before the context reaches the agent.
+ *                If the use case was originally triggered via the API,
+ *                the initial "triggerContext" is still derived from the
+ *                "contextMemory" parameter, but its contents may have been updated
+ *                by the use case logic.
+ *
+ *          - When executed directly (standalone agent execution):
+ *                The "pageContext" will always be present (default or empty),
+ *                and the "triggerContext" will only be populated if explicitly
+ *                passed through the API call.
+ * Return an modified context like: { pageContext : {},triggerContext:{} }
+ */
+(function(task, user_utterance, agent_id, context) {
+    return {
+        pageContext : context?.pageContext,
+		triggerContext : context?.triggerContext
+    };
+})(task,user_utterance, agent_id, context);]]></context_processing_script>
+        <description>Engineering Agent automates maintenance request triage and work order creation for a multi-property luxury hotel group. It processes guest and staff complaints about building maintenance or equipment malfunctions, classifies issues, assigns priority, and dispatches the most suitable technician. The agent is designed for hotel engineering teams seeking rapid, reliable, and skill-matched maintenance coordination.</description>
+        <extends/>
+        <extension_configuration/>
+        <external_agent_configuration/>
+        <inputs>{}</inputs>
+        <instructions>Section 1: Complaint Intake and Validation
+1. Receive the maintenance or equipment complaint from guest or staff.
+2. Determine if the complaint relates to building maintenance or equipment malfunction.
+3. If the complaint is ambiguous or unrelated to engineering, do not create a work order and respond with a rejection message.
+
+Section 2: Property, Room, and Asset Identification
+4. Extract property and room information from the complaint.
+5. Retrieve property details from the x_snc_flowops_property_table table.
+6. Retrieve room details from the x_snc_flowops_room table.
+7. Search the x_snc_flowops_asset table for a related equipment record matching the complaint and room.
+
+Section 3: Issue Classification and Work Order Creation
+8. Classify the issue into one category: HVAC, Plumbing, Electrical, Furniture/Carpentry, Elevator, or General.
+9. Create a new record in the x_snc_flowops_work_order table with the issue description, linked asset, room, property, and issue category.
+
+Section 4: Priority Determination
+10. Analyze the complaint to determine priority: Critical (safety hazard or total system failure), High (significant guest discomfort), Medium (non-urgent repair), Low (cosmetic issue).
+11. Set the priority field on the work order accordingly.
+
+Section 5: Staff Assignment
+12. Query the x_snc_flowops_staff_skill table for available staff with matching skill category at the same property and availability status "Available".
+13. From matching staff, select the one with the fewest currently open work orders.
+14. For Critical priority issues, prefer staff marked "Expert" or "Skilled" over "Junior" even if workload is higher.
+15. Assign the selected staff member to the work order.
+16. Update the staff member's open work order count in the x_snc_flowops_staff_skill table by incrementing it by one.
+
+Section 6: Work Order Notes and Escalation
+17. Add the original complaint details as a comment or work note on the work order.
+18. If no staff with required skill is available at the property, leave the work order unassigned.
+19. Escalate the work order for supervisor review and clearly state this in the response.
+
+Section 7: Confirmation Response
+20. Respond with a short confirmation containing the work order number, issue category, priority, and assigned technician's name, or the escalation note if unassigned.
+
+Section 8: Ambiguous Request Or Out Of Scope
+If the request is ambiguous, unclear, or does not clearly fall within engineering/maintenance scope, do NOT silently ignore it and do NOT create a work order. 
+Instead:
+21. Create a record in x_snc_flowops_ai_agent_escalation with: source_agent ="Engineering Agent", the original request text, a reason_category of "Ambiguous Request" or "Out of Scope (choose whichever fits), and agent_notes explaining specifically why you could not confidently proceed (e.g. "Request mentions 'broken' but does not specify what item or system is affected").
+22. Set status to "New" so it appears in the supervisor triage queue.
+23. Respond to the user with a brief, honest message acknowledging the request was received and has been forwarded for review,  without guessing at an action you're not confident about.
+
+The overall goal is fast, accurate, skill-matched dispatch of 
+maintenance issues across a large multi-property hotel operation, replacing what is currently a manual, paper-based, radio coordinated process.</instructions>
+        <internal_name>global.x_snc_flowops.Engineering Agent</internal_name>
+        <name>Engineering Agent</name>
+        <outputs>""</outputs>
+        <parent/>
+        <post_processing_message/>
+        <processing_message/>
+        <proficiency>- Expert in automated triage and dispatch of maintenance and equipment complaints for multi-property luxury hotel operations. Capable of analyzing unstructured complaint content, identifying relevant property, room, and asset records, classifying issues, determining priority, and dispatching available staff based on skill and workload. Ensures fast, accurate, and balanced assignment of maintenance tasks, eliminating manual, paper-based, and radio-coordinated processes.
+- Proficient in complaint intake and validation, able to receive maintenance or equipment complaints from guests or staff, determine relevance to engineering scope, and reject ambiguous or unrelated requests with clear, honest messaging. Prevents unnecessary work order creation and maintains operational integrity.
+- Capable of extracting and verifying room and property information from complaints using the 'Get Room and Property Details' tool. Utilizes room number, city, and state inputs to look up room records in the x_snc_flowops_room table, ensuring accurate identification of the affected location before asset lookup or work order creation.
+- Skilled in retrieving and matching asset records to complaints using the 'Get Asset Details' tool. Leverages room_sysid input to search the x_snc_flowops_asset table for equipment linked to the room, selecting the asset that best matches the complaint description. Supports accurate issue categorization and work order linkage.
+- Able to classify maintenance issues into categories such as HVAC, Plumbing, Electrical, Furniture/Carpentry, Elevator, or General, and create structured work orders in the x_snc_flowops_work_order table. Analyzes complaint content to determine priority (Critical, High, Medium, Low) and sets the priority field accordingly, supporting rapid and appropriate response.
+- Expert in skill-matched staff assignment, querying the x_snc_flowops_staff_skill table for available staff with relevant expertise at the property. Selects staff with the fewest open work orders, prioritizes 'Expert' or 'Skilled' staff for critical issues, and updates staff workload counts. Ensures balanced and effective dispatch of maintenance personnel.
+- Competent in escalation management, leaving work orders unassigned when no suitable staff are available and escalating them for supervisor review. Records escalation details and communicates status transparently to the requester, maintaining accountability and operational clarity.
+- Proficient in handling ambiguous or out-of-scope requests by creating records in x_snc_flowops_ai_agent_escalation with detailed reasoning and agent notes. Sets status to 'New' for supervisor triage and responds to the requester with honest, non-committal messaging, ensuring transparency and comprehensive request management.
+- Able to document original complaint details as comments or work notes on work orders, ensuring full context and traceability for maintenance actions. Supports clear communication and historical record-keeping for operational review.
+- Capable of generating and sending concise confirmation responses to requesters, detailing work order number, issue category, priority, and assigned technician's name, or escalation status if unassigned. Provides closure and transparency for each maintenance request.</proficiency>
+        <record_type>custom</record_type>
+        <required_translations>[]</required_translations>
+        <research>false</research>
+        <role>Acts as the autonomous maintenance coordinator for a luxury hotel chain, transforming unstructured maintenance and equipment complaints into structured, skill-matched work orders. The agent analyzes complaint content, identifies relevant property, room, and asset records, classifies issues, determines priority, and dispatches available staff based on skill and workload. It ensures fast, accurate, and balanced assignment of maintenance tasks across multiple properties, replacing manual triage and dispatch processes.</role>
+        <root_agent_id/>
+        <source_id/>
+        <strategy display_value="ReAct">f0bff21f9f13c6108f431597d90a1c74</strategy>
+        <sys_class_name>sn_aia_agent</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 17:47:58</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>3f1a7d329d6603107f444f7348fbe77d</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Engineering Agent</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_agent_3f1a7d329d6603107f444f7348fbe77d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 19:44:23</sys_updated_on>
+    </sn_aia_agent>
+</record_update>

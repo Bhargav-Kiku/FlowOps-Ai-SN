@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream_m2m_master_item">
+    <sys_sg_item_stream_m2m_master_item action="INSERT_OR_UPDATE">
+        <item_stream display_value="Housekeeping Task List Screen - List stream">4fe040eb002e43107f444d153ccd8419</item_stream>
+        <master_item display_value="Housekeeping Task List Screen - List item config">4be040eb002e43107f444d153ccd8415</master_item>
+        <sys_class_name>sys_sg_item_stream_m2m_master_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 16:52:01</sys_created_on>
+        <sys_id>03e040eb002e43107f444d153ccd841e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_item_stream_m2m_master_item_03e040eb002e43107f444d153ccd841e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 16:52:01</sys_updated_on>
+    </sys_sg_item_stream_m2m_master_item>
+</record_update>

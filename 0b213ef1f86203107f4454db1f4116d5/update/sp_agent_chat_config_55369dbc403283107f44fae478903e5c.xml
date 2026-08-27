@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_agent_chat_config">
+    <sp_agent_chat_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <name>FlowOps Hotel Agent Chat</name>
+        <order>5</order>
+        <portal>81b75d3147032100ba13a5554ee4902b</portal>
+        <public>true</public>
+        <roles/>
+        <server_script><![CDATA[(function($sp) {
+    return {};
+})($sp);]]></server_script>
+        <sys_class_name>sp_agent_chat_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:21:10</sys_created_on>
+        <sys_id>55369dbc403283107f44fae478903e5c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowOps Hotel Agent Chat</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sp_agent_chat_config_55369dbc403283107f44fae478903e5c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:21:10</sys_updated_on>
+    </sp_agent_chat_config>
+    <sys_translated_text action="delete_multiple" query="documentkey=55369dbc403283107f44fae478903e5c"/>
+</record_update>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic_library_usage">
+    <sys_cs_topic_library_usage action="INSERT_OR_UPDATE">
+        <calling_cs_topic_id display_value="hotel_guest_concierge">9728a04051bac3107f4405bb1590ecdc</calling_cs_topic_id>
+        <library_cs_topic_id display_value="AI Output">fc4c14b2431cc21006650464dbb8f2a9</library_cs_topic_id>
+        <library_usage>{"type":"LibraryCall","library_topic_name":"AI Output","library_topic_id":"fc4c14b2431cc21006650464dbb8f2a9","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"description\":\"{{0}}\"}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":"Currently we are not able to find the result for your question. Kindly contact our support team.\n\nSupport Contact Details:\nHotel Name : {{vaInputs.get_property}} \nContact Number : \nContanct Email :"}],"use_items":true}}],"return-value-mappings":[],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"30729c96c3624d8e9dcef5924c959531","name":"Hotel Contact Details","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}</library_usage>
+        <node_id>30729c96c3624d8e9dcef5924c959531</node_id>
+        <sys_class_name>sys_cs_topic_library_usage</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 09:00:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>9728a04051bac3107f4405bb1590ecfc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cs_topic_library_usage_9728a04051bac3107f4405bb1590ecfc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 09:00:30</sys_updated_on>
+    </sys_cs_topic_library_usage>
+</record_update>

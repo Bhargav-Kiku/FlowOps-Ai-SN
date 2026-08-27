@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css/>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <human_readable_url_structure/>
+        <id>qr_generator</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>true</public>
+        <roles/>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 03:23:07</sys_created_on>
+        <sys_id>c2b7c1d700a203107f444d153ccd849c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>qr_generator</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sp_page_c2b7c1d700a203107f444d153ccd849c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 03:24:52</sys_updated_on>
+        <title>QR Generator</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=c2b7c1d700a203107f444d153ccd849c"/>
+</record_update>

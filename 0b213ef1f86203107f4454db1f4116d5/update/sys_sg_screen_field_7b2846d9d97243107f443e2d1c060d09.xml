@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_field">
+    <sys_sg_screen_field action="INSERT_OR_UPDATE">
+        <data_item_field_name>guest_case</data_item_field_name>
+        <execution_script/>
+        <field_name/>
+        <hidden>false</hidden>
+        <order>4</order>
+        <record_id_field/>
+        <screen display_value="Details">f32806d9d97243107f443e2d1c060dfc</screen>
+        <screen_data_item_table>x_snc_flowops_work_order</screen_data_item_table>
+        <sys_class_name>sys_sg_screen_field</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 13:12:22</sys_created_on>
+        <sys_id>7b2846d9d97243107f443e2d1c060d09</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>guest_case</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_screen_field_7b2846d9d97243107f443e2d1c060d09</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 13:12:22</sys_updated_on>
+        <type>auto</type>
+        <value_only>false</value_only>
+    </sys_sg_screen_field>
+</record_update>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_ui_parameter">
+    <sys_sg_ui_parameter action="INSERT_OR_UPDATE">
+        <button display_value="Escalate Housekeeping Task Action">b1742437516643107f4405bb1590ece7</button>
+        <button_parent_table/>
+        <carried>false</carried>
+        <constant/>
+        <default_value/>
+        <default_value_type>none</default_value_type>
+        <field_name/>
+        <input_source>user</input_source>
+        <input_style>inline</input_style>
+        <input_type>text</input_type>
+        <mandatory>true</mandatory>
+        <max_entries>1</max_entries>
+        <multi_entry>false</multi_entry>
+        <multi_select>false</multi_select>
+        <name>Reason for Escalation</name>
+        <order/>
+        <parameter_type>button</parameter_type>
+        <placeholder/>
+        <screen/>
+        <search_type>starts_with</search_type>
+        <source_field/>
+        <sys_class_name>sys_sg_ui_parameter</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 18:30:32</sys_created_on>
+        <sys_id>9734bbd4353e43107f445739ba9e6524</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Reason for Escalation</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_ui_parameter_9734bbd4353e43107f445739ba9e6524</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 18:30:32</sys_updated_on>
+        <table_name/>
+        <virtual_field_value>false</virtual_field_value>
+    </sys_sg_ui_parameter>
+    <sys_translated_text action="delete_multiple" query="documentkey=9734bbd4353e43107f445739ba9e6524"/>
+</record_update>

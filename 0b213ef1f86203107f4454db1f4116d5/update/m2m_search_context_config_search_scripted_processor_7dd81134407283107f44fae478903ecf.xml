@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_search_context_config_search_scripted_processor">
+    <m2m_search_context_config_search_scripted_processor action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <search_context_config display_value="FlowOps Hotel Concierge ">d8d89df0407283107f44fae478903e85</search_context_config>
+        <search_scripted_processor display_value="Transform Date to User Friendly Format">ee8d73425b331010d9a5ce1a8581c7f2</search_scripted_processor>
+        <sys_class_name>m2m_search_context_config_search_scripted_processor</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:34</sys_created_on>
+        <sys_id>7dd81134407283107f44fae478903ecf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>m2m_search_context_config_search_scripted_processor_7dd81134407283107f44fae478903ecf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:34</sys_updated_on>
+    </m2m_search_context_config_search_scripted_processor>
+</record_update>

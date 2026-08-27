@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_visualization">
+    <par_visualization action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <certified>false</certified>
+        <description/>
+        <macroponent display_value="Single score">d24d53f60350de7a652caf3188a46ed2</macroponent>
+        <name>Pending Verification</name>
+        <properties>{"scoreSize":"auto","scoreAlignment":"start","headingPosition":"top","sparklineStyle":"area","scoreIcon":"","iconStyle":"background","showScoreDate":false,"useRelativeScoreTime":false,"showScoreUpdateTime":false,"showZero":true,"wrapElements":false,"newReporting":false,"enableAddZerosAtApi":true,"additionalGroupByConfig":[],"showHeader":true,"showTotalAggregate":false,"showSubAggregate":false,"showFirstGroupAggregate":false,"showSecondGroupAggregate":false,"hideMatrixAggregate":false,"lineClamp":1,"headerTitleAlignment":"start","wrapTitle":false,"showLoadingIndicator":false,"showHeaderSeparator":false,"contextMenuActions":[],"headingLevel":2,"showBorder":true,"bareBorder":false,"telemetry":null,"showDataPassthrough":false,"refreshRequest":"","showAdditionalGroupBySelector":false,"allowAdditionalGroupByPerMetric":false,"dataPassthrough":null,"sortByOrder":"desc","showChange":false,"showChangePercentage":false,"showTarget":false,"showForecast":false,"showForecastRange":false,"showTrend":false,"showConfidenceBand":false,"showGapPercentage":false,"showSparkline":false,"showMetricLabel":false,"showThreshold":false,"showComment":false,"followFilters":true,"showFilterIcon":true,"enableRealTimeUpdate":false,"enableDrilldown":true,"enableClickAndStay":false,"showDataTable":false,"enableCustomEmptyState":false,"emptyStateIllustration":"no-data","emptyStateHeading":"No data available.","emptyStateHeadingLevel":3,"emptyStateContent":"There are no scores available for the selected criteria. Contact your admin for more info.","emptyStateAlignment":"vertical-centered","hideDevSettings":false,"configPropModifiers":{},"showMaximumRange":false,"allowChangeDateRange":false,"showDateRangeByDefault":false,"applyDateRange":false,"numberOfPeriods":3,"showAbsolutePeriod":false,"autoAggregatePeriods":false,"scoreType":null,"showChangeFrom":false,"useCurrentDateForEnd":false,"period":"M","useDataCache":false,"cacheExpirationTime":0,"showCacheTime":true,"dateFormat":"default","showRefresh":true,"showExportOptions":true,"showFilterAsSeparateSeries":false,"userInfo":"@context.session.user","sharedContext":null,"colors":{},"filterConfigurations":[],"componentId":"ki0r21xt","filterPerMetric":[],"sortBy":"value","configVersion":"23.0.0-ci-SNAPSHOT","colorConfig":{"type":"default"},"dataSources":[{"isDatabaseView":false,"allowRealTime":true,"label":"Housekeeping Task","sourceType":"table","tableOrViewName":"x_snc_flowops_housekeeping_task","preferredVisualizations":["d24d53f60350de7a652caf3188a46ed2"],"id":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NzA1NjM4MDM3NA==","dataCategories":["trend","group","simple"]}],"metrics":[{"dataSource":"dGFibGV4X3NuY19mbG93b3BzX2hvdXNla2VlcGluZ190YXNrMTc4NzA1NjM4MDM3NA==","id":"ZEdGaWJHVjRYM051WTE5bWJHOTNiM0J6WDJodmRYTmxhMlZsY0dsdVoxOTBZWE5yTVRjNE56QTFOak00TURNM05BPT0xNzg3MDU2MzgxMDk5","aggregateFunction":"COUNT","numberFormat":{"customFormat":false},"axisId":"primary"}],"headerTitle":"Total Request"}</properties>
+        <requested_by/>
+        <required_translations>[{"comment":"","message":"Housekeeping Task","code":"PAR_COMPONENT.64adf151d93243107f443e2d1c060d92"},{"comment":"","message":"Total Request","code":"PAR_COMPONENT.64adf151d93243107f443e2d1c060d92"},{"comment":"","message":"No data available.","code":"PAR_COMPONENT.64adf151d93243107f443e2d1c060d92"},{"comment":"","message":"There are no scores available for the selected criteria. Contact your admin for more info.","code":"PAR_COMPONENT.64adf151d93243107f443e2d1c060d92"}]</required_translations>
+        <scheduled_count>0</scheduled_count>
+        <sys_class_name>par_visualization</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-18 12:26:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>global</sys_domain_path>
+        <sys_id>64adf151d93243107f443e2d1c060d92</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Pending Verification</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>par_visualization_64adf151d93243107f443e2d1c060d92</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-18 12:33:42</sys_updated_on>
+        <type>single_score</type>
+    </par_visualization>
+</record_update>

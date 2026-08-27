@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="ais_dictionary">
+    <ais_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <auto_refresh>24</auto_refresh>
+        <blocked_field/>
+        <case_sensitive>false</case_sensitive>
+        <data_source>sys_gen_ai_skill,kb_knowledge,sys_gen_ai_skill,sys_gen_ai_skill,sc_cat_item,sys_gen_ai_skill</data_source>
+        <derived>true</derived>
+        <field/>
+        <label>Now Assist in Virtual Agent - 1a3c8d9f0407283107f44fae478903ecf Default Spell Check Dictionary</label>
+        <last_derived>2026-08-27 09:38:42</last_derived>
+        <locale>en</locale>
+        <name>x_snc_flowops_now_assist_in_virtual_agent_1a3c8d9f0407283107f44fae478903ecf_default_spell_check_dictionary</name>
+        <publish_id>26cd666b-6a47-48c7-aadf-f95080951c14</publish_id>
+        <punctuation_sensitive>false</punctuation_sensitive>
+        <state>PUBLISHED</state>
+        <sys_class_name>ais_dictionary</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:29</sys_created_on>
+        <sys_id>a0d89df0407283107f44fae478903ef8</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>x_snc_flowops_now_assist_in_virtual_agent_1a3c8d9f0407283107f44fae478903ecf_default_spell_check_dictionary</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>ais_dictionary_a0d89df0407283107f44fae478903ef8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:29</sys_updated_on>
+        <type>SPELLCHECK</type>
+    </ais_dictionary>
+</record_update>

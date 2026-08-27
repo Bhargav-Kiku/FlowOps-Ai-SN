@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream">
+    <sys_sg_item_stream action="INSERT_OR_UPDATE">
+        <data_item display_value="Assigned Housekeeping Tasks DI">9fe0f25035f243107f445739ba9e652a</data_item>
+        <interleaved_field/>
+        <name>Assigned Tasks List - List stream</name>
+        <sys_class_name>sys_sg_item_stream</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 13:56:18</sys_created_on>
+        <sys_id>4275329c35f243107f445739ba9e65ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Assigned Tasks List - List stream</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_item_stream_4275329c35f243107f445739ba9e65ed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 13:56:18</sys_updated_on>
+        <table>x_snc_flowops_housekeeping_task</table>
+    </sys_sg_item_stream>
+</record_update>

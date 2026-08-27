@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_context_profile_message">
+    <sys_cs_context_profile_message action="INSERT_OR_UPDATE">
+        <context_profile display_value="FlowOps Hotel Concierge ">b3c8d9f0407283107f44fae478903ed3</context_profile>
+        <message>Custom fallback button</message>
+        <sys_class_name>sys_cs_context_profile_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:26</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>7fc85df0407283107f44fae478903eb5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Custom fallback button</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cs_context_profile_message_7fc85df0407283107f44fae478903eb5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:26</sys_updated_on>
+        <type>ai_custom_fallback_button</type>
+    </sys_cs_context_profile_message>
+    <sys_translated_text action="delete_multiple" query="documentkey=7fc85df0407283107f44fae478903eb5"/>
+</record_update>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="agents_invoked" label="Agents Invoked" language="en" table="x_snc_flowops_ai_orchestrator_log">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>agents_invoked</element>
+            <help/>
+            <hint/>
+            <label>Agents Invoked</label>
+            <language>en</language>
+            <name>x_snc_flowops_ai_orchestrator_log</name>
+            <plural>Agents Invoked</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-08 18:11:33</sys_created_on>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>Agents Invoked</sys_name>
+            <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_flowops_ai_orchestrator_log_agents_invoked_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-10 10:02:36</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

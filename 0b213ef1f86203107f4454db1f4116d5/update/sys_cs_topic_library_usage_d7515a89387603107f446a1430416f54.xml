@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic_library_usage">
+    <sys_cs_topic_library_usage action="INSERT_OR_UPDATE">
+        <calling_cs_topic_id display_value="hotel_concierge_greeting">36511a89387603107f446a1430416f52</calling_cs_topic_id>
+        <library_cs_topic_id display_value="Data Collector">4c19933e4322211006650464dbb8f22d</library_cs_topic_id>
+        <library_usage>{"type":"LibraryCall","library_topic_name":"Data Collector","library_topic_id":"4c19933e4322211006650464dbb8f22d","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"definition","value":{"type":"String","mode":"script","value":"(function execute() {\n        var config = {\n            configuration: {\"purpose\":\"{{0}}\",\"inputs\":[{\"name\":\"welcome_guest\",\"type\":\"string\",\"discoverable\":true,\"description\":\"👋 Welcome to FlowOps Hotel Concierge!\\nI'm your AI hotel assistant. I can help you with hotel information, hotel services, and complaints.\\nHow can I help you today?\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"applicability\":\"\",\"validation\":\"\"},{\"name\":\"guest_assistance_choice\",\"type\":\"choice\",\"discoverable\":true,\"description\":\"What would you like help with?\",\"skipMode\":\"'simple'\",\"skipCondition\":\"\\\"\\\"\",\"helpText\":\"false\",\"choices\":[{\"value\":\"1\",\"label\":\"🏨 Hotel Information\"},{\"value\":\"2\",\"label\":\"🛎️ Request a Hotel Service\"},{\"value\":\"3\",\"label\":\"👨‍💼 Contact Hotel Staff\"}],\"applicability\":\"\",\"validation\":\"\"}],\"instructions\":\"{{1}}\",\"advanced_parameters\":\"{{2}}\",\"callingTask\":\"{{3}}\",\"confirm_summary\":false,\"slots\":[],\"applicability\":\"\",\"classificationOverrides\":[]}\n        };\n        return JSON.stringify(config);\n    })()"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"inputs","metadata":{"type":"String","list":true,"items":[{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"string","value":""},{"type":"String","mode":"script","value":"(function() { return vaSystem.getConversationTaskId()})()"}],"use_items":true}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"outputs","main_topic_mapped_variable_name":"ai_data_collector_a2ade896bbf346f8903c1f9376788265_output"}],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","id":"a2ade896bbf346f8903c1f9376788265","name":"Welcome Guest","goal_id":"primary","expert_mode":false,"variableIds":["427aed92711e4c87befd152c362fe3a4","59e5f084e8ab4af1a5fa5c40105b1471"]}</library_usage>
+        <node_id>a2ade896bbf346f8903c1f9376788265</node_id>
+        <sys_class_name>sys_cs_topic_library_usage</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-17 19:13:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>d7515a89387603107f446a1430416f54</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cs_topic_library_usage_d7515a89387603107f446a1430416f54</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 19:13:59</sys_updated_on>
+    </sys_cs_topic_library_usage>
+</record_update>

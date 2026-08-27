@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_trigger_configuration">
+    <sn_aia_trigger_configuration action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <business_rule/>
+        <channel display_value="Now Assist Panel">b023fcb3537321106167ddeeff7b12a8</channel>
+        <condition table="x_snc_flowops_housekeeping_task">assigned_staffISEMPTY<item endquery="false" field="assigned_staff" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+        </condition>
+        <description/>
+        <enable_discovery>false</enable_discovery>
+        <internal_name>global.x_snc_flowops.Resolving House Keeping</internal_name>
+        <name>Resolving House Keeping</name>
+        <notification_script display_value="AIA notif - x_snc_flowops_housekeeping_t">b1602af69dea03107f444f7348fbe7ed</notification_script>
+        <objective_template><![CDATA[Help me resolve ${number}]]></objective_template>
+        <portal display_value="">undefined</portal>
+        <profile/>
+        <run_as>assigned_staff</run_as>
+        <run_as_script/>
+        <run_as_user/>
+        <run_dayofmonth/>
+        <run_dayofweek/>
+        <run_period/>
+        <run_start/>
+        <run_time/>
+        <show_notifications>true</show_notifications>
+        <sys_class_name>sn_aia_trigger_configuration</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:33:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>dc6026f69dea03107f444f7348fbe7b4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>x_snc_flowops_housekeeping_task</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_trigger_configuration_dc6026f69dea03107f444f7348fbe7b4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:33:22</sys_updated_on>
+        <target_table>x_snc_flowops_housekeeping_task</target_table>
+        <trigger_flow display_value="Housekeeping Task - Use case: Housekeeping Request Workflow - 6860a6f69dea03107f444f7348fbe799">6860a6f69dea03107f444f7348fbe79a</trigger_flow>
+        <trigger_flow_definition_type>record_create</trigger_flow_definition_type>
+        <trigger_strategy/>
+        <usecase display_value="Housekeeping Request Workflow">590e9abe9daa03107f444f7348fbe7e8</usecase>
+    </sn_aia_trigger_configuration>
+</record_update>

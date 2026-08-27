@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="8d24f0c0513ec3107f4405bb1590ec8c" label="List Of Skills" max_length="40" name="x_snc_flowops_list_of_skills" type="collection">
+        <element choice="1" label="Routing Type" max_length="40" name="routing_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Vendor" value="3"/>
+                <element inactive_on_update="false" label="Hybrid" value="2"/>
+                <element inactive_on_update="false" label="Internal Only" value="1"/>
+            </choice>
+        </element>
+        <element label="Name" max_length="256" name="name" type="string"/>
+        <element label="Department" max_length="32" name="department" reference="x_snc_flowops_department" type="reference"/>
+        <element label="Value" max_length="256" name="value" type="string"/>
+        <element label="Description" max_length="256" name="description" type="string"/>
+        <index name="index">
+            <element name="department"/>
+        </index>
+    </element>
+</database>

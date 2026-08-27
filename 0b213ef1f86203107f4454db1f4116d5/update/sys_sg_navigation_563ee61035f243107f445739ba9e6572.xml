@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_navigation">
+    <sys_sg_navigation action="INSERT_OR_UPDATE">
+        <color/>
+        <legacy_application>false</legacy_application>
+        <name>Housekeeping Navigation</name>
+        <quick_actions_menu_color/>
+        <sys_class_name>sys_sg_navigation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 13:24:37</sys_created_on>
+        <sys_id>563ee61035f243107f445739ba9e6572</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Housekeeping Navigation</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_navigation_563ee61035f243107f445739ba9e6572</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 13:24:37</sys_updated_on>
+    </sys_sg_navigation>
+</record_update>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic_library_usage">
+    <sys_cs_topic_library_usage action="INSERT_OR_UPDATE">
+        <calling_cs_topic_id display_value="hotel_guest_concierge">9728a04051bac3107f4405bb1590ecdc</calling_cs_topic_id>
+        <library_cs_topic_id display_value="AI Search">b19775fa536310103296ddeeff7b12ff</library_cs_topic_id>
+        <library_usage>{"type":"LibraryCall","library_topic_name":"AI Search","library_topic_id":"b19775fa536310103296ddeeff7b12ff","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"search_term","value":{"type":"String","mode":"string","value":"{{vaVars.hotel_search_query}}"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"search_application_configuration","value":{"type":"String","mode":"string","value":""},"metadata":{"type":"Reference","list":false,"items":[],"use_items":false,"table":"sys_search_context_config"}},{"parameter-name":"ask_another_search","value":{"type":"String","mode":"string","value":"false"},"metadata":{"type":"True/False","list":false,"items":[],"use_items":false}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"geniussearchresults","main_topic_mapped_variable_name":"geniussearchresults"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"searchresults","main_topic_mapped_variable_name":"searchresults"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"shouldaskinfohelpful","main_topic_mapped_variable_name":"shouldaskinfohelpful"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"newsearchterm","main_topic_mapped_variable_name":"newsearchterm"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"shouldrunfallbacktopic","main_topic_mapped_variable_name":"shouldrunfallbacktopic"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"searchmetadata","main_topic_mapped_variable_name":"searchmetadata"}],"header_card_fields":[],"input_parameters_mode":"dynamic","output_parameters_mode":"dynamic","output_parameter_variable":"","id":"521b8cca640547e4a2742cdfda6d55e7","name":"AI Search","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"input_parameters_script":""}</library_usage>
+        <node_id>521b8cca640547e4a2742cdfda6d55e7</node_id>
+        <sys_class_name>sys_cs_topic_library_usage</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 09:00:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>9728a04051bac3107f4405bb1590ecff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cs_topic_library_usage_9728a04051bac3107f4405bb1590ecff</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 09:00:30</sys_updated_on>
+    </sys_cs_topic_library_usage>
+</record_update>

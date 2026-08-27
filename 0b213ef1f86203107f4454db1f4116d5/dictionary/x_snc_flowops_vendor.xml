@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="db09a782112243107f44b6b828e597fb" label="Vendor" max_length="40" name="x_snc_flowops_vendor" type="collection">
+        <element label="Properties Serviced" max_length="32" name="properties_serviced" reference="x_snc_flowops_property_table" type="glide_list"/>
+        <element choice="3" label="Contract Status" max_length="40" name="contract_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Active" sequence="0" value="active"/>
+                <element inactive_on_update="false" label="Emergency Only" sequence="2" value="emergency_only"/>
+                <element inactive_on_update="false" label="Preferred" sequence="1" value="preferred"/>
+            </choice>
+        </element>
+        <element display="true" label="Vendor Name" max_length="40" name="vendor_name" type="string"/>
+        <element label="Rating" max_length="20" name="rating" type="decimal"/>
+        <element label="Contact Info" max_length="40" name="contact_info" type="email"/>
+        <element label="Service Category" max_length="40" name="service_category" reference="x_snc_flowops_list_of_skills" type="glide_list"/>
+        <element label="SLA Response TIme hrs" max_length="40" name="sla_response_time_hrs" type="integer"/>
+        <index name="index">
+            <element name="properties_serviced"/>
+        </index>
+    </element>
+</database>

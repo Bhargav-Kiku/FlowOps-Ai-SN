@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <button display_value="Start Housekeeping Task">e49f5863006283107f444d153ccd844b</button>
+        <color_theme>primary</color_theme>
+        <description/>
+        <disable_offline>false</disable_offline>
+        <field_name/>
+        <icon/>
+        <label>Start Task</label>
+        <location>footer</location>
+        <name>Start Task</name>
+        <order>10</order>
+        <parent>5da5dfab516a03107f4405bb1590ec6f</parent>
+        <parent_table>sys_sg_details_screen</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-13 08:21:27</sys_created_on>
+        <sys_id>a1a5dfab516a03107f4405bb1590ec7a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Start Task</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_button_instance_a1a5dfab516a03107f4405bb1590ec7a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-13 08:21:27</sys_updated_on>
+        <table/>
+    </sys_sg_button_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=a1a5dfab516a03107f4405bb1590ec7a"/>
+</record_update>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_config_element">
+    <sys_sg_view_config_element action="INSERT_OR_UPDATE">
+        <creation_method/>
+        <name>number_element</name>
+        <sys_class_name>sys_sg_view_config_element</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 13:55:32</sys_created_on>
+        <sys_id>0b45fa5c35f243107f445739ba9e65f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>number_element</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_view_config_element_0b45fa5c35f243107f445739ba9e65f5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 13:55:32</sys_updated_on>
+        <view_config display_value="Assigned Tasks List card">07f13ad435f243107f445739ba9e65b1</view_config>
+        <view_template_slot display_value="number">e4a7fb5b776301103ec08f1a5b5a996c</view_template_slot>
+    </sys_sg_view_config_element>
+</record_update>

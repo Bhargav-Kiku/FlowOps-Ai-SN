@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_ui_rule_action">
+    <sys_sg_ui_rule_action action="INSERT_OR_UPDATE">
+        <client_script/>
+        <operation display_value="Set UI Style">1fc6ba105b431010da168d8fa881c7bb</operation>
+        <order>10</order>
+        <sys_class_name>sys_sg_ui_rule_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 14:24:23</sys_created_on>
+        <sys_id>25eb7e5c353643107f445739ba9e650a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_ui_rule_action_25eb7e5c353643107f445739ba9e650a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 14:24:23</sys_updated_on>
+        <target>universal_request_state</target>
+        <target_mapping/>
+        <ui_rule display_value="Priority-Critical">69eb3e5c353643107f445739ba9e65ee</ui_rule>
+        <value>{"FontColor":"#DC2626","FontColorVariable":"","BackgroundColor":"#FEE2E2","BackgroundColorVariable":""}</value>
+    </sys_sg_ui_rule_action>
+</record_update>

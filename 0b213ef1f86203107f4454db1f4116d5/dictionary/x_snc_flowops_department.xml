@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="c6ebabea65a203107f44c0d0b6842e46" label="Department" max_length="40" name="x_snc_flowops_department" type="collection">
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element label="Head Users" max_length="32" name="head_users" reference="sys_user" type="reference"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
+        <index name="index">
+            <element name="head_users"/>
+        </index>
+        <index name="index2">
+            <element name="property"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_parameter">
+    <sys_sg_item_parameter action="INSERT_OR_UPDATE">
+        <default_value/>
+        <name>Escalation Note Parameter</name>
+        <parent>b5742437516643107f4405bb1590ece1</parent>
+        <parent_table>sys_sg_write_back_action_item</parent_table>
+        <sys_class_name>sys_sg_item_parameter</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-13 14:05:49</sys_created_on>
+        <sys_id>86742437516643107f4405bb1590ecf1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Escalation Note Parameter</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_item_parameter_86742437516643107f4405bb1590ecf1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-13 14:05:49</sys_updated_on>
+        <type>string</type>
+    </sys_sg_item_parameter>
+</record_update>

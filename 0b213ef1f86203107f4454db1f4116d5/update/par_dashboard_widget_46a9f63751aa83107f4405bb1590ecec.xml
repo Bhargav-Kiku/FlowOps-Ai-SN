@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="INSERT_OR_UPDATE">
+        <canvas display_value="">4f52ee3351e683107f4405bb1590ec2e</canvas>
+        <component display_value="Filter Group">ba8b5fa922351c2027c524c91a134bf2</component>
+        <component_props>{"groupConfiguration":{"filterId":"group-mss8eraa","showLabel":true,"label":"Filters","layout":"horizontal","spacing":"l","showSelectedValuesInPill":true,"showBorder":true,"showRoundCorners":false,"bare":false,"showApply":true,"showClear":true,"showReset":true,"combineActions":true,"showSeparator":true,"filterMaxWidth":500,"cascadeScope":"group-mss8eraa","filters":[{"filterName":"Property","filterId":"mss8pj5i","dateFilterView":"calendar-reldates","defaultSelectedDateRange":{"range":""},"defaultSelectedItems":[],"filterConfigurations":[],"filterComponentType":"singleselect","updated":"1786669257113","datasource":{"type":"table","payload":{"table":"x_snc_flowops_property_table","primaryKey":"sys_id"}},"targets":[{"type":"table","payload":{"field":"property","table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}}]},{"filterName":"Department ","filterId":"mss8evci","dateFilterView":"calendar-reldates","defaultSelectedDateRange":{"range":""},"defaultSelectedItems":[],"filterConfigurations":[],"filterComponentType":"singleselect","updated":"1786668833348","datasource":{"type":"table","payload":{"table":"x_snc_flowops_department","primaryKey":"sys_id"}},"targets":[{"type":"table","payload":{"field":"department","table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}}]},{"filterName":"Status","filterId":"mss8igbr","dateFilterView":"calendar-reldates","defaultSelectedDateRange":{"range":""},"defaultSelectedItems":[],"filterConfigurations":[],"filterComponentType":"singleselect","updated":"1786669243922","datasource":{"type":"table","payload":{"field":"status","fieldType":"choice","table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}},"targets":[{"type":"table","payload":{"field":"status","table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}}]},{"filterName":"Assign To","filterId":"mss99xb1","dateFilterView":"calendar-reldates","defaultSelectedDateRange":{"range":""},"defaultSelectedItems":[],"filterConfigurations":[],"filterComponentType":"singleselect","updated":"1786670183629","datasource":{"type":"table","payload":{"table":"sys_user","primaryKey":"sys_id"}},"targets":[{"type":"table","payload":{"field":"assigned_to","table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}}]}],"isDashboard":false,"key":1786670315194},"filterConfigurations":"@state.parFilters","isDashboard":true,"filterComponentType":"singleselect","filterName":"Assign To","datasource":{"type":"table","payload":{"table":"sys_user","primaryKey":"sys_id"}},"targets":[{"type":"table","payload":{"field":"assigned_to","table":"x_snc_flowops_guest_case","primaryKey":"sys_id"}}],"showReset":true,"combineActions":true,"showSeparator":true,"filterMaxWidth":500,"layout":"horizontal","spacing":"l"}</component_props>
+        <h>5</h>
+        <name/>
+        <required_translations>[{"comment":"","message":"Filters","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"Property","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"Department ","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"Status","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"Assign To","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"calendar-reldates","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"calendar-reldates","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"calendar-reldates","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"},{"comment":"","message":"calendar-reldates","code":"PAR_DASHBOARD.4f52ee3351e683107f4405bb1590ec2e.46a9f63751aa83107f4405bb1590ecec"}]</required_translations>
+        <stored_component/>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 00:57:38</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>46a9f63751aa83107f4405bb1590ecec</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>par_dashboard_widget_46a9f63751aa83107f4405bb1590ecec</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 01:21:07</sys_updated_on>
+        <visualization/>
+        <w>46</w>
+        <widget_props/>
+        <x>0</x>
+        <y>0</y>
+    </par_dashboard_widget>
+</record_update>

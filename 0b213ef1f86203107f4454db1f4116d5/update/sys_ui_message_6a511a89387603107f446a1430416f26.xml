@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>va:topic:57b0d209387603107f446a1430416f8f:node:59e5f084e8ab4af1a5fa5c40105b1471:field:👨‍💼 contact hotel staff</key>
+        <language>en</language>
+        <message>👨‍💼 Contact Hotel Staff</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-17 19:13:55</sys_created_on>
+        <sys_id>6a511a89387603107f446a1430416f26</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>va:topic:57b0d209387603107f446a1430416f8f:node:59e5f084e8ab4af1a5fa5c40105b1471:field:👨‍💼 contact hotel staff</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_ui_message_6a511a89387603107f446a1430416f26</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 19:13:55</sys_updated_on>
+    </sys_ui_message>
+</record_update>

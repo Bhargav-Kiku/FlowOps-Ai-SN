@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="c20cb23df8a203107f4454db1f4116c1" label="Guest" max_length="40" name="x_snc_flowops_guest" type="collection">
+        <element label="Check Out" max_length="40" name="check_out" type="glide_date_time"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Guest Id" max_length="40" name="number" type="string"/>
+        <element label="Last Name" max_length="50" name="last_name" type="string"/>
+        <element label="VIP" max_length="40" name="vip" type="boolean"/>
+        <element label="Email" max_length="50" name="email" type="email"/>
+        <element label="Phone Number" max_length="40" name="phone_number" type="phone_number_e164"/>
+        <element choice="1" label="Loyalty Tier" max_length="40" name="loyalty_tier" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Without Ops AI" sequence="1" value="without_ops_ai"/>
+                <element inactive_on_update="false" label="With Ops AI" sequence="0" value="with_ops_ai"/>
+            </choice>
+        </element>
+        <element label="Current Room" max_length="32" name="current_room" reference="x_snc_flowops_room" type="reference"/>
+        <element label="First Name" max_length="50" name="first_name" type="string"/>
+        <element label="Check In" max_length="40" name="check_in" type="glide_date_time"/>
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element display="true" label="Full Name" max_length="40" name="full_name" type="string"/>
+        <index name="index">
+            <element name="property"/>
+        </index>
+        <index name="index2">
+            <element name="current_room"/>
+        </index>
+    </element>
+</database>

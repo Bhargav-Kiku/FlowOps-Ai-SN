@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_one_extend_eval_strategy_metric">
+    <sys_one_extend_eval_strategy_metric action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <definition display_value="Overall task completeness evaluation (Now LLM)">0d48d119ebaa9210b356f4a8cad0cdfb</definition>
+        <eval_strategy display_value="AutoEval-admin-2026-08-10-20:19:38">1b7dd67e9daa03107f444f7348fbe719</eval_strategy>
+        <gen_ai_config display_value="OneExtend Capability Definition: Overall task completeness evaluation (Now LLM)">d209a212fff03210d9c1ffffffffff0b</gen_ai_config>
+        <metric_name>Overall task completeness evaluation</metric_name>
+        <sys_class_name>sys_one_extend_eval_strategy_metric</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:20:47</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>558d5a7e9daa03107f444f7348fbe709</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Overall task completeness evaluation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_one_extend_eval_strategy_metric_558d5a7e9daa03107f444f7348fbe709</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:20:47</sys_updated_on>
+    </sys_one_extend_eval_strategy_metric>
+</record_update>

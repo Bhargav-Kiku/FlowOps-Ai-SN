@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>interaction</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="interaction">type=walkup^EQ<item display_value="Walk-up" endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="walkup"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Sync Interaction to Guest Request</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+    try {
+        var grRequest = new GlideRecord('x_snc_flowops_guest_request');
+        grRequest.initialize();
+
+        // Standard Schema Fields (from database spec)
+        grRequest.raw_text = current.short_description;
+        grRequest.channel = current.channel || 'walkup_portal';
+        grRequest.channel_reference = current.getUniqueValue(); // Interaction sys_id
+        grRequest.status = 'New';
+
+        // Custom string fields - set safely if they exist on your request table
+        if (grRequest.isValidField('u_guest_name')) {
+            grRequest.u_guest_name = current.x_snc_flowops_guest_name;
+        } else if (grRequest.isValidField('guest_name')) {
+            grRequest.guest_name = current.x_snc_flowops_guest_name;
+        }
+
+        if (grRequest.isValidField('u_room_number')) {
+            grRequest.u_room_number = current.x_snc_flowops_room_number;
+        } else if (grRequest.isValidField('room_number')) {
+            grRequest.room_number = current.x_snc_flowops_room_number;
+        }
+
+        if (grRequest.isValidField('u_hotel_name')) {
+            grRequest.u_hotel_name = current.x_snc_flowops_hotel_name;
+        } else if (grRequest.isValidField('hotel_name')) {
+            grRequest.hotel_name = current.x_snc_flowops_hotel_name;
+        }
+
+        var requestSysId = grRequest.insert();
+        
+        if (requestSysId) {
+            gs.info('FlowOps Success: Created Guest Request ' + requestSysId + ' from Interaction ' + current.number);
+        } else {
+            gs.error('FlowOps Failed: GlideRecord insert returned null for x_snc_flowops_guest_request');
+        }
+
+    } catch (ex) {
+        gs.error('FlowOps Exception in Business Rule: ' + ex.message);
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 12:35:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>05854313006643107f444d153ccd8482</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Sync Interaction to Guest Request</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_05854313006643107f444d153ccd8482</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 12:45:35</sys_updated_on>
+        <template/>
+        <when>async_always</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=05854313006643107f444d153ccd8482"/>
+</record_update>

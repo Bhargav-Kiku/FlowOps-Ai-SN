@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="2c0a2746112243107f44b6b828e59731" label="Vendor Work Order" max_length="40" name="x_snc_flowops_vendor_work_order" type="collection">
+        <element label="Property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="In Progress" sequence="2" value="in_progress"/>
+                <element inactive_on_update="false" label="Resolved" sequence="3" value="resolved"/>
+                <element inactive_on_update="false" label="Confirmed" sequence="1" value="confirmed"/>
+                <element inactive_on_update="false" label="Disputed" sequence="4" value="disputed"/>
+                <element inactive_on_update="false" label="Requested" sequence="0" value="requested"/>
+            </choice>
+        </element>
+        <element label="Description" max_length="300" name="description" type="string_full_utf8"/>
+        <element label="Completion Date" max_length="40" name="completion_date" type="glide_date_time"/>
+        <element label="Vendor" max_length="32" name="vendor" reference="x_snc_flowops_vendor" type="reference"/>
+        <element label="Room" max_length="32" name="room" reference="x_snc_flowops_room" type="reference"/>
+        <element choice="3" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="3 - Medium" sequence="2" value="3"/>
+                <element inactive_on_update="false" label="1 - Critical" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="4 - Low" sequence="3" value="4"/>
+                <element inactive_on_update="false" label="2 - High" sequence="1" value="2"/>
+            </choice>
+        </element>
+        <element label="Scheduled Date" max_length="40" name="scheduled_date" type="glide_date_time"/>
+        <element label="Performance Rating" max_length="40" name="performance_rating" type="integer"/>
+        <element label="Short Description" max_length="100" name="short_description" type="string"/>
+        <element label="Recommendation" max_length="100" name="recommendation" type="string"/>
+        <element label="Guest Case" max_length="32" name="guest_case" reference="x_snc_flowops_guest_case" type="reference"/>
+        <element label="Cost" max_length="20" name="cost" type="currency"/>
+        <index name="index">
+            <element name="property"/>
+        </index>
+        <index name="index2">
+            <element name="room"/>
+        </index>
+        <index name="index3">
+            <element name="guest_case"/>
+        </index>
+        <index name="index4">
+            <element name="vendor"/>
+        </index>
+    </element>
+</database>

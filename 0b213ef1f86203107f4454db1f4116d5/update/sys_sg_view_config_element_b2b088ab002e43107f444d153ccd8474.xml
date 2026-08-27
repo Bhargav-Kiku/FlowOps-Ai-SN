@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_config_element">
+    <sys_sg_view_config_element action="INSERT_OR_UPDATE">
+        <creation_method/>
+        <name>secondary_text_slot_element</name>
+        <sys_class_name>sys_sg_view_config_element</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 16:51:11</sys_created_on>
+        <sys_id>b2b088ab002e43107f444d153ccd8474</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>secondary_text_slot_element</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_view_config_element_b2b088ab002e43107f444d153ccd8474</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 16:51:11</sys_updated_on>
+        <view_config display_value="Housekeeping Task List Screen card">4c10846b002e43107f444d153ccd84fc</view_config>
+        <view_template_slot display_value="secondary_text_slot">9b478bee53925110a0a2ddeeff7b1205</view_template_slot>
+    </sys_sg_view_config_element>
+</record_update>

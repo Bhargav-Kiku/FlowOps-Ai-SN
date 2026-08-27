@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="one_api_feature_provider">
+    <one_api_feature_provider action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <feature display_value="40eb7f483b4fd210344cc337f4e45a1f">269d1e7e9daa03107f444f7348fbe793</feature>
+        <feature_service display_value="OneExtendGenericProvider">5233278353111110c271ddeeff7b129b</feature_service>
+        <feature_service_factory><![CDATA[(function() { return new global.OneExtendGenericProvider(); })()]]></feature_service_factory>
+        <name>Generic Reranker provider</name>
+        <short_description>Auto Generated </short_description>
+        <sys_class_name>one_api_feature_provider</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:21:07</sys_created_on>
+        <sys_id>a69d1e7e9daa03107f444f7348fbe794</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Generic Reranker provider</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>one_api_feature_provider_a69d1e7e9daa03107f444f7348fbe794</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:21:07</sys_updated_on>
+        <type>script</type>
+        <type_document display_value="GenericReranker">6d38bf443b4fd210344cc337f4e45a62</type_document>
+    </one_api_feature_provider>
+</record_update>

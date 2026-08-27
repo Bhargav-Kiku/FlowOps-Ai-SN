@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_config_element">
+    <sys_sg_view_config_element action="INSERT_OR_UPDATE">
+        <creation_method/>
+        <name>req_approval_price_label_element</name>
+        <sys_class_name>sys_sg_view_config_element</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 17:04:02</sys_created_on>
+        <sys_id>03a38423006e43107f444d153ccd8467</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>req_approval_price_label_element</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_view_config_element_03a38423006e43107f444d153ccd8467</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 17:04:02</sys_updated_on>
+        <view_config display_value="Housekeeping Task Detail Card">5ab244af002e43107f444d153ccd8463</view_config>
+        <view_template_slot display_value="req_approval_price_label">b609b6d07742511059018f1a5b5a993f</view_template_slot>
+    </sys_sg_view_config_element>
+</record_update>

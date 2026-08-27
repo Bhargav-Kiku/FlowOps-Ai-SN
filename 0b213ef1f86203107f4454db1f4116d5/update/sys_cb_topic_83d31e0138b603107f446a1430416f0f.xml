@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>Presents a greeting to the user at the beginning of a conversation.</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{"graph_api_version":"1.0.82","variables":{"77c3fbd6bff14cb7b529fc5858969784":{"id":"77c3fbd6bff14cb7b529fc5858969784","value":{"mode":"simple","value":""},"name":"greeting_message","label":"greeting_message","varType":"script","category":"vaVars"},"a4974cc58cc845d3bc714c5f13bd9d93":{"category":"vaInputs","id":"a4974cc58cc845d3bc714c5f13bd9d93","label":"User","name":"user","table":"sys_user","varType":"reference"}},"goals":{"primary":{"id":"primary","trigger":{"type":"primary"},"name":"primary","applicability":"","description":"","nodes":{"9150dd721d6743ac9928530404e86a20":{"id":"9150dd721d6743ac9928530404e86a20","stepType":"Start","name":"Start","greetingResponse":{"value":"","mode":"simple"},"cardMetadata":{"mode":"card","metadataScript":"","cardTemplate":"","cardFields":{},"cardDefinition":{}}},"bff604809bbe46fa99c6f672f9bb0d88":{"id":"bff604809bbe46fa99c6f672f9bb0d88","stepType":"TerminateGoal","name":"End","confirmationMessage":{"mode":"simple","value":""},"cardMetadata":{"mode":"card","metadataScript":"","cardTemplate":"","cardFields":{},"cardDefinition":{}}},"7ff7ef26949743f4a1a621bae9b4447e":{"id":"7ff7ef26949743f4a1a621bae9b4447e","name":"Send skill picker","script":"(function execute() {\n    if (!vaVars.isNASS) {\n        vaSystem.sendSkillPickerControl(\"\", {\"hideShowMeEverything\": false, \"appendPromotedSkillsToMsg\": false});\n    } else {\n        // experience is NASS\n        var shouldShowAllOptions = gs.getProperty(\"sn_nowassist_va.enable_nass_show_all_options\", \"false\") == \"true\";\n\n        if (vaSystem.hasPromotedSkills()) {\n            // and has promoted skills then send skill picker\n            vaSystem.sendSkillPickerControl(\"\", {\"hideShowMeEverything\": !shouldShowAllOptions, \"appendPromotedSkillsToMsg\": false });\n        } else if (gs.getProperty(\"sn_nowassist_va.enable_suggested_queries\", \"true\") == \"true\") {\n            // and does not have promoted skills, then send suggested query picker (if active)\n            vaSystem.sendQueryPickerControl();\n        }else{\n            vaSystem.sendSkillPickerControl(\"\", {\"hideShowMeEverything\": !shouldShowAllOptions});\n        }\n    }\n})()","stepType":"ScriptAction","applicability":{"mode":"query","value":""},"cardMetadata":{"mode":"card","metadataScript":"","cardTemplate":"","cardFields":{},"cardDefinition":{}}},"5f685458099a422c9d494f6335dc2a48":{"id":"5f685458099a422c9d494f6335dc2a48","stepType":"Decision","name":"Search term already exists?","cardMetadata":{"mode":"card","metadataScript":"","cardTemplate":"","cardFields":{},"cardDefinition":{}}},"41cacf79cbe6474a92de594d504ca78f":{"id":"41cacf79cbe6474a92de594d504ca78f","name":"Skill discovery","script":"(function execute() {\n    vaSystem.executeSkillDiscovery(vaVars.global_search_text);\n})()\n","stepType":"ScriptAction","applicability":{"value":"","mode":"query"},"cardMetadata":{"mode":"card","metadataScript":"","cardTemplate":"","cardFields":{},"cardDefinition":{}}},"8eaeb53ed8594e63b8f255a51feb5865":{"id":"8eaeb53ed8594e63b8f255a51feb5865","name":"publish search text to user","script":"(function execute() {\n    \n    vaSystem.publishUserMessage(vaVars.global_search_text);\n})()\n","stepType":"ScriptAction","applicability":{"value":"","mode":"query"},"cardMetadata":{"mode":"card","metadataScript":"","cardTemplate":"","cardFields":{},"cardDefinition":{}}},"66928c5c283d42f7ab0e22d4c1735951":{"id":"66928c5c283d42f7ab0e22d4c1735951","stepType":"ScriptOutput","name":"Send Greeting Message","output_type":"single_part","script":"(function execute() {\n     var aisHelper = new sn_nowassist_va.NowAssistAISearchHelper();\n     var logger = aisHelper.getLogger(aisHelper.getLoggerContext(vaSystem));\n     vaVars.isNASS = vaSystem.isNASSConversation();\n     var greeting = new sn_cs.SinglePartOutMsg();\n     var userName = '';\n\t try {\n         if (gs.isLoggedIn()) {\n             userName = vaInputs.user.first_name.getDisplayValue() ? vaInputs.user.first_name.getDisplayValue() : gs.getUser().getFirstName();\n         }\n\t } catch (error) {\n\t\t logger.error('[NowAssistGreetingHelper] Error trying to derive name of user for conversation: {conversation}');\n\t }\n     if (gs.isLoggedIn() &amp;&amp; !(userName)){\n         userName = 'user';\n     }\n     var configuredGreeting = global.NowAssistGreetingHelper.constructGreetingMessage({\n         userName: userName,\n         requesterLang: vaContext.getRequesterLang(),\n         greetingMessage: vaSystem.getContextProfileMessage('greeting'),\n         greetingGuestMessage: vaSystem.getContextProfileMessage('greeting_guest'),\n         channel: getCurrentChannel()\n     });\n     if (configuredGreeting.type === 'html') {\n         greeting.setHtmlPart(configuredGreeting.message);\n     } else if (configuredGreeting.type === 'json') {\n         greeting.setAnimationPayloadPart(configuredGreeting.message);\n     } else {\n         greeting.setTextPart(configuredGreeting.message);\n     }\n     return greeting;\n})()\n\nfunction getCurrentChannel () {\n    var channel = vaContext.deviceType;\n    if (channel == \"mweb\") {\n        // Sends either self_service or chat_client. Need this to differentiate b/w web client experiences\n        return vaContext.experience;\n    }\n    return channel;\n}","applicability":{"value":"","mode":"query"},"cardMetadata":{"mode":"card","metadataScript":"","cardTemplate":"","cardFields":{},"cardDefinition":{}}},"efb3f11975e7485f8fcf827581879858":{"id":"efb3f11975e7485f8fcf827581879858","name":"set agent context","script":"(function execute() {\n    vaVars.global_agentContext = JSON.stringify({\n        \"conversationId\": vaSystem.getConversationId()\n    });\n})()\n","stepType":"ScriptAction","applicability":{"value":"","mode":"query"}}},"edges":[{"id":"b383e48fe7eb4798bc7d69dc03f94e8c","edgeType":"Edge","source":"efb3f11975e7485f8fcf827581879858","target":"5f685458099a422c9d494f6335dc2a48","sourcePort":"","targetPort":""},{"id":"5d227f3457624be5911ef8c18a2ae6c1","edgeType":"Edge","source":"8eaeb53ed8594e63b8f255a51feb5865","target":"41cacf79cbe6474a92de594d504ca78f","sourcePort":"","targetPort":""},{"id":"137731f92a3343adad78bb05076432bc","edgeType":"Branch","source":"5f685458099a422c9d494f6335dc2a48","target":"8eaeb53ed8594e63b8f255a51feb5865","sourcePort":"","targetPort":"","expression":{"mode":"script","value":"(function execute() {\n    return !gs.nil(vaVars.global_search_text);\n})()\n"},"label":"Search term set"},{"id":"054d243d9a9f494d8f162b8d781c6928","edgeType":"Edge","source":"66928c5c283d42f7ab0e22d4c1735951","target":"7ff7ef26949743f4a1a621bae9b4447e","sourcePort":"","targetPort":""},{"id":"e6bc8d842dd9434e9eec195812e3ac7b","edgeType":"Edge","source":"7ff7ef26949743f4a1a621bae9b4447e","target":"bff604809bbe46fa99c6f672f9bb0d88","sourcePort":"","targetPort":""},{"id":"3128d26f8bd04f5f96a3f5ddef004779","edgeType":"Edge","source":"41cacf79cbe6474a92de594d504ca78f","target":"bff604809bbe46fa99c6f672f9bb0d88","sourcePort":"","targetPort":""},{"id":"cbb1086718d2452884f6b0457ee2e170","edgeType":"Branch","source":"5f685458099a422c9d494f6335dc2a48","target":"66928c5c283d42f7ab0e22d4c1735951","sourcePort":"","targetPort":"","expression":{"mode":"script","value":"(function execute() {\n    return gs.nil(vaVars.global_search_text);\n})()\n"},"label":"Search term not set"},{"id":"44d2a765f0ee4dd6a3e860d6719a5fd4","edgeType":"Edge","source":"9150dd721d6743ac9928530404e86a20","target":"efb3f11975e7485f8fcf827581879858","sourcePort":"","targetPort":""}]}}}</graph>
+        <key_phrases/>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>llm</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>FlowOps Hotel Concierge Greeting</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles>public</roles>
+        <root_topic_id>120e685053130010cf8cddeeff7b12ab</root_topic_id>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id>b5d58f05c7203110b65579a988c26012</source_topic_id>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-17 19:24:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>83d31e0138b603107f446a1430416f0f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowOps Hotel Concierge Greeting</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cb_topic_83d31e0138b603107f446a1430416f0f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 19:24:53</sys_updated_on>
+        <title>FlowOps Hotel Concierge Greeting</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>SETUP_TOPIC</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=83d31e0138b603107f446a1430416f0f"/>
+</record_update>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_snc_flowops_guest_case</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_snc_flowops_guest_case">statusVALCHANGES^EQ<item display_value="-- None --" endquery="false" field="status" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>guest_case to guest_request</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+
+    gs.info('DEBUG Status Change: Business Rule started for Guest Case ' + current.getUniqueValue());
+
+    var parentReq = new GlideRecord('x_snc_flowops_guest_request');
+
+    gs.info('DEBUG Status Change: Parent Request sys_id = ' + current.getValue('parent_request'));
+
+    if (!parentReq.get(current.getValue('parent_request'))) {
+        gs.info('DEBUG Status Change: Parent Request not found. Exiting.');
+        return;
+    }
+
+    gs.info('DEBUG Status Change: Parent Request found. Current parent status = ' + parentReq.getValue('status'));
+    gs.info('DEBUG Status Change: Current Guest Case status = ' + current.getValue('status'));
+
+    if (current.getValue('status') === 'in_progress' && parentReq.getValue('status') === 'routed') {
+
+        gs.info('DEBUG Status Change: Guest Case is in_progress and Parent Request is routed.');
+        gs.info('DEBUG Status Change: Updating Parent Request status to in_progress.');
+
+        parentReq.setValue('status', 'in_progress');
+        parentReq.update();
+
+        gs.info('DEBUG Status Change: Parent Request successfully updated to in_progress.');
+        return;
+    }
+
+    gs.info('DEBUG Status Change: Checking all sibling Guest Cases for resolution.');
+
+    var allResolved = true;
+    var siblingCases = new GlideRecord('x_snc_flowops_guest_case');
+
+    siblingCases.addQuery('parent_request', current.getValue('parent_request'));
+    siblingCases.query();
+
+    var siblingCount = 0;
+
+    while (siblingCases.next()) {
+
+        siblingCount++;
+
+        var status = siblingCases.getValue('status');
+
+        gs.info(
+            'DEBUG Status Change: Sibling Case ' +
+            siblingCases.getUniqueValue() +
+            ' has status = ' +
+            status
+        );
+
+        if (status !== 'resolved' && status !== 'closed') {
+
+            gs.info(
+                'DEBUG Status Change: Sibling Case ' +
+                siblingCases.getUniqueValue() +
+                ' is not resolved/closed. Parent Request will remain unchanged.'
+            );
+
+            allResolved = false;
+            break;
+        }
+    }
+
+    gs.info('DEBUG Status Change: Total sibling cases checked = ' + siblingCount);
+    gs.info('DEBUG Status Change: allResolved = ' + allResolved);
+
+    if (allResolved && parentReq.getValue('status') !== 'resolved') {
+
+        gs.info('DEBUG Status Change: All sibling cases are resolved/closed.');
+        gs.info('DEBUG Status Change: Updating Parent Request status to resolved.');
+
+        parentReq.setValue('status', 'resolved');
+        parentReq.update();
+
+        gs.info('DEBUG Status Change: Parent Request successfully updated to resolved.');
+
+    } else {
+
+        gs.info(
+            'DEBUG Status Change: Parent Request not updated. ' +
+            'allResolved = ' + allResolved +
+            ', parent status = ' + parentReq.getValue('status')
+        );
+    }
+
+    gs.info('DEBUG Status Change: Business Rule execution completed.');
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 07:20:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>981c00c85176c3107f4405bb1590ec20</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>guest_case to guest_request</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_script_981c00c85176c3107f4405bb1590ec20</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 07:37:14</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=981c00c85176c3107f4405bb1590ec20"/>
+</record_update>

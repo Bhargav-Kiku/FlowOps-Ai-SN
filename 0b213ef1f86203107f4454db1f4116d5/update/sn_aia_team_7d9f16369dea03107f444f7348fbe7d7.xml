@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_team">
+    <sn_aia_team action="INSERT_OR_UPDATE">
+        <description>This workflow automates the handling of hotel housekeeping guest requests within the FlowOps AI application. It analyzes guest requests, determines required housekeeping tasks, retrieves relevant room, guest, property, and staff information, assigns tasks to suitable housekeeping staff, and ensures tasks are created or updated without duplication. Designed for hotel operations teams seeking efficient, explainable, and domain-specific housekeeping task management.</description>
+        <name>Housekeeping Request Workflow</name>
+        <sys_class_name>sn_aia_team</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 20:29:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>7d9f16369dea03107f444f7348fbe7d7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Housekeeping Request Workflow</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_team_7d9f16369dea03107f444f7348fbe7d7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 20:29:49</sys_updated_on>
+    </sn_aia_team>
+</record_update>

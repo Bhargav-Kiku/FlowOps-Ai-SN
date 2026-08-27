@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="DELETE">
+        <active>true</active>
+        <button display_value="Escalate Housekeeping Task Action">b1742437516643107f4405bb1590ece7</button>
+        <color_theme/>
+        <description/>
+        <disable_offline>false</disable_offline>
+        <field_name/>
+        <icon/>
+        <label>Escalate Task</label>
+        <location>footer</location>
+        <name>Escalate Task Button</name>
+        <order>20</order>
+        <parent>86dacf1035f643107f445739ba9e65c0</parent>
+        <parent_table>sys_sg_details_screen</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 18:14:43</sys_created_on>
+        <sys_id>bb90ff10353e43107f445739ba9e65ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Escalate Task Button</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_button_instance_bb90ff10353e43107f445739ba9e65ad</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 18:14:43</sys_updated_on>
+        <table/>
+    </sys_sg_button_instance>
+    <sys_translated_text action="DELETE" query="documentkey=bb90ff10353e43107f445739ba9e65ad"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sys_sg_button_instance_bb90ff10353e43107f445739ba9e65ad</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance"><sys_sg_button_instance action="INSERT_OR_UPDATE"><active>true</active><button display_value="Escalate Housekeeping Task Action">b1742437516643107f4405bb1590ece7</button><color_theme/><description/><disable_offline>false</disable_offline><field_name/><icon/><label>Escalate Task</label><location>footer</location><name>Escalate Task Button</name><order>20</order><parent>86dacf1035f643107f445739ba9e65c0</parent><parent_table>sys_sg_details_screen</parent_table><sys_class_name>sys_sg_button_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-15 18:14:43</sys_created_on><sys_id>bb90ff10353e43107f445739ba9e65ad</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Escalate Task Button</sys_name><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>sys_sg_button_instance_bb90ff10353e43107f445739ba9e65ad</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-15 18:14:43</sys_updated_on><table/></sys_sg_button_instance><sys_translated_text action="delete_multiple" query="documentkey=bb90ff10353e43107f445739ba9e65ad"/></record_update>]]></payload>
+        <payload_hash>-1016255425</payload_hash>
+        <record_name>Escalate Task Button</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 18:14:44</sys_created_on>
+        <sys_id>7390ff10353e43107f445739ba9e65b1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a006a222110000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 18:14:44</sys_updated_on>
+        <type>Function instance</type>
+        <update_guid>f390ff10313e43107f08c7652f9f9cb0</update_guid>
+        <update_guid_history>f390ff10313e43107f08c7652f9f9cb0:-1016255425</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-15 18:20:09</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_button_instance">sys_sg_button_instance</sys_db_object>
+        <sys_id>328d40d474de42f0916693805fe3cc40</sys_id>
+        <sys_metadata>bb90ff10353e43107f445739ba9e65ad</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Escalate Task Button</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sys_sg_button_instance_bb90ff10353e43107f445739ba9e65ad</sys_update_name>
+        <sys_update_version display_value="sys_sg_button_instance_bb90ff10353e43107f445739ba9e65ad">7390ff10353e43107f445739ba9e65b1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-15 18:20:09</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

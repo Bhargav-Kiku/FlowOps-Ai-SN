@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_aia_agent_tool_m2m">
+    <sn_aia_agent_tool_m2m action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <agent display_value="Engineering Agent">3f1a7d329d6603107f444f7348fbe77d</agent>
+        <description>Looks up a room by room number to confirm it exists and retrieve its linked property. Call this first, before looking up assets, whenever a complaint mentions a room.</description>
+        <display_mode>inline</display_mode>
+        <display_output>true</display_output>
+        <document_status/>
+        <entity>sn_aia_agent</entity>
+        <entity_id>3f1a7d329d6603107f444f7348fbe77d</entity_id>
+        <execution_mode>autopilot</execution_mode>
+        <inputs>[{"name":"room_number","value":"","description":"Room number mentioned in the guest/staff complaint","mandatory":false},{"name":"city","value":"","description":"City that mentioned in the guest/staff complaint","mandatory":false},{"name":"state","value":"","description":"State the mentioned in the guest/staff complant","mandatory":false},{"name":"crudInputs","value":{"operation":"lookup","table":{"value":"x_snc_flowops_room","displayValue":"Room"},"query":"room_number={{room_number}}^property.city={{city}}","returnFields":[{"name":"room_number","label":"Room Number","type":"string","referenceTable":null,"referenceTableDefaultField":null,"referenceKey":null,"id":"room_number","sublabel":"room_number"}],"limit":"1","orderBy":"","sortType":""},"description":"CRUD Input Variables. These are already pre-defined. Under no circumstances should you prompt the user for this information or attempt to change these values."}]</inputs>
+        <max_auto_executions>10</max_auto_executions>
+        <name>Get Room and Property Details</name>
+        <output_transformation_strategy>none</output_transformation_strategy>
+        <post_message/>
+        <post_processing_script/>
+        <pre_message/>
+        <pre_run>false</pre_run>
+        <requires_text_refined_message>false</requires_text_refined_message>
+        <requires_widget_transformation>true</requires_widget_transformation>
+        <should_display_refined_message>false</should_display_refined_message>
+        <sys_class_name>sn_aia_agent_tool_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-10 19:43:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>161516f29d6a03107f444f7348fbe79a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get Room and Property Details</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sn_aia_agent_tool_m2m_161516f29d6a03107f444f7348fbe79a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-10 19:43:59</sys_updated_on>
+        <timeout/>
+        <tool display_value="Get Room and Property Details">5a1516f29d6a03107f444f7348fbe793</tool>
+        <tool_attributes>{}</tool_attributes>
+        <transformation_instructions/>
+        <widgets>db0e858eff62b210f465ffffffffff2c</widgets>
+    </sn_aia_agent_tool_m2m>
+</record_update>

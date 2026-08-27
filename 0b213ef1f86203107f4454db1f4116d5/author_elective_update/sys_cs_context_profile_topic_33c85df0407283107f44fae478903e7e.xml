@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_context_profile_topic">
+    <sys_cs_context_profile_topic action="DELETE">
+        <context_profile display_value="Now Assist in Virtual Agent - 1">b3c8d9f0407283107f44fae478903ed3</context_profile>
+        <sys_class_name>sys_cs_context_profile_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>33c85df0407283107f44fae478903e7e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>error</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_cs_context_profile_topic_33c85df0407283107f44fae478903e7e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:25</sys_updated_on>
+        <topic display_value="Now Assist - Error">e7240fc1c7203110b65579a988c260e8</topic>
+        <topic_type>error</topic_type>
+    </sys_cs_context_profile_topic>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sys_cs_context_profile_topic_33c85df0407283107f44fae478903e7e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_context_profile_topic"><sys_cs_context_profile_topic action="INSERT_OR_UPDATE"><context_profile display_value="Now Assist in Virtual Agent - 1">b3c8d9f0407283107f44fae478903ed3</context_profile><sys_class_name>sys_cs_context_profile_topic</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-16 20:28:25</sys_created_on><sys_domain>global</sys_domain><sys_id>33c85df0407283107f44fae478903e7e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>error</sys_name><sys_overrides/><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>sys_cs_context_profile_topic_33c85df0407283107f44fae478903e7e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-16 20:28:25</sys_updated_on><topic display_value="Now Assist - Error">e7240fc1c7203110b65579a988c260e8</topic><topic_type>error</topic_type></sys_cs_context_profile_topic></record_update>]]></payload>
+        <payload_hash>1422440479</payload_hash>
+        <record_name>error</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-16 20:28:25</sys_created_on>
+        <sys_id>bbc85df0407283107f44fae478903e80</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a00c42e4370000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-16 20:28:25</sys_updated_on>
+        <type>Setup Topics</type>
+        <update_guid>bbc85df0ab7283109dda8a30f938ed7f</update_guid>
+        <update_guid_history>bbc85df0ab7283109dda8a30f938ed7f:1422440479</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-17 18:39:00</sys_created_on>
+        <sys_db_object display_value="" name="sys_cs_context_profile_topic">sys_cs_context_profile_topic</sys_db_object>
+        <sys_id>3137c611105a4cc48d3b55df463d0f21</sys_id>
+        <sys_metadata>33c85df0407283107f44fae478903e7e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>error</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sys_cs_context_profile_topic_33c85df0407283107f44fae478903e7e</sys_update_name>
+        <sys_update_version display_value="sys_cs_context_profile_topic_33c85df0407283107f44fae478903e7e">bbc85df0407283107f44fae478903e80</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-17 18:39:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

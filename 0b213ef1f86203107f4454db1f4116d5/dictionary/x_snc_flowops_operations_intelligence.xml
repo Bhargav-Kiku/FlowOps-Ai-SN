@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="b99b0cc15cf203107f44b3b8cf41775e" label="Operations Intelligence" max_length="40" name="x_snc_flowops_operations_intelligence" type="collection">
+        <element label="Recommendations" max_length="400" name="recommendations" type="string"/>
+        <element label="Health Score" max_length="40" name="health_score" type="string"/>
+        <element label="Issues" max_length="200" name="issues" type="string"/>
+        <element label="property" max_length="32" name="property" reference="x_snc_flowops_property_table" type="reference"/>
+        <index name="index">
+            <element name="property"/>
+        </index>
+    </element>
+</database>

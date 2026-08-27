@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, $window, $sce) {
+  var c = this;
+
+  // Trust resource URL for angular iframe execution
+  if (c.data.rawChatUrl) {
+    c.data.chatIframeUrl = $sce.trustAsResourceUrl(c.data.rawChatUrl);
+  }
+
+  c.goBack = function() {
+    var returnUrl = "?id=guest_concierge" +
+      "&hotel_name=" + encodeURIComponent(c.data.hotelName || "") +
+      "&city=" + encodeURIComponent(c.data.city || "") +
+      "&country=" + encodeURIComponent(c.data.country || "") +
+      "&room_id=" + encodeURIComponent(c.data.roomNumber || "") +
+      "&guest_name=" + encodeURIComponent(c.data.guestName || "");
+
+    $window.location.href = returnUrl;
+  };
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Container Box */&#13;
+.chat-container {&#13;
+  max-width: 650px;&#13;
+  margin: 20px auto;&#13;
+  border-radius: 10px;&#13;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);&#13;
+  overflow: hidden;&#13;
+  border: 1px solid #e3e8ee;&#13;
+}&#13;
+&#13;
+/* Header */&#13;
+.panel-heading {&#13;
+  background-color: #2c3e50 !important;&#13;
+  color: #ffffff !important;&#13;
+  padding: 15px 20px;&#13;
+  border-bottom: none;&#13;
+}&#13;
+&#13;
+.panel-heading h3 {&#13;
+  margin: 0 0 5px 0;&#13;
+  color: #ffffff;&#13;
+  font-weight: 600;&#13;
+  font-size: 18px;&#13;
+}&#13;
+&#13;
+.panel-heading p {&#13;
+  margin: 0;&#13;
+  opacity: 0.9;&#13;
+  font-size: 13px;&#13;
+  color: #cbd5e0;&#13;
+}&#13;
+&#13;
+/* Force Body to render height properly */&#13;
+.chat-body {&#13;
+  padding: 0 !important;&#13;
+  height: 550px !important;&#13;
+  min-height: 550px !important;&#13;
+  background-color: #ffffff;&#13;
+  position: relative;&#13;
+}&#13;
+&#13;
+/* Responsive Iframe */&#13;
+.chat-iframe {&#13;
+  width: 100% !important;&#13;
+  height: 100% !important;&#13;
+  min-height: 550px !important;&#13;
+  border: none !important;&#13;
+  display: block;&#13;
+}&#13;
+&#13;
+/* Mobile Screen Adjustment */&#13;
+@media (max-width: 768px) {&#13;
+  .chat-container {&#13;
+    margin: 10px auto;&#13;
+    width: 95%;&#13;
+  }&#13;
+  .chat-body, .chat-iframe {&#13;
+    height: 480px !important;&#13;
+    min-height: 480px !important;&#13;
+  }&#13;
+}&#13;
+&#13;
+/* Footer */&#13;
+.panel-footer {&#13;
+  background-color: #f8f9fa;&#13;
+  border-top: 1px solid #edf2f7;&#13;
+  padding: 12px 20px;&#13;
+}&#13;
+&#13;
+.panel-footer .btn-default {&#13;
+  background-color: #ffffff;&#13;
+  border-color: #cbd5e0;&#13;
+  color: #4a5568;&#13;
+  font-weight: 500;&#13;
+  border-radius: 6px;&#13;
+  padding: 6px 16px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>guest_ai_chat_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Guest AI Chat Widget</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  options.public = true;
+
+  data.hotelName = $sp.getParameter('hotel_name') || "Grand Hyatt";
+  data.city = $sp.getParameter('city') || "San Diego";
+  data.country = $sp.getParameter('country') || "USA";
+  data.roomNumber = $sp.getParameter('room_id') || "Room 402";
+  data.guestName = $sp.getParameter('guest_name') || "Valued Guest";
+
+  var topicSysId = "9728a04051bac3107f4405bb1590ecdc";
+
+  // Public Virtual Agent Web Client URL with Portal context and topic binding
+  data.rawChatUrl = "/$sn-va-web-client-app.do" +
+    "?sysparm_topic=" + topicSysId +
+    "&sysparm_portal=sp" +
+    "&sysparm_anonymous=true" +
+    "&sysparm_skip_load_history=true";
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 09:19:18</sys_created_on>
+        <sys_id>8b1c688851bac3107f4405bb1590ec14</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Guest AI Chat Widget</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sp_widget_8b1c688851bac3107f4405bb1590ec14</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 10:02:13</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default chat-container">
+  <!-- Header with Hotel Context -->
+  <div class="panel-heading text-center">
+    <h3>{{c.data.hotelName}} AI Concierge</h3>
+    <p>
+      Room: <strong>{{c.data.roomNumber}}</strong> 
+      <span ng-if="c.data.guestName != 'Valued Guest'">| Guest: <strong>{{c.data.guestName}}</strong></span>
+    </p>
+  </div>
+
+  <!-- Chat Body Container -->
+  <div class="panel-body chat-body">
+    <iframe 
+      id="vaFrame" 
+      ng-src="{{c.data.chatIframeUrl}}" 
+      class="chat-iframe"
+      allow="microphone; clipboard-write; autoplay">
+    </iframe>
+  </div>
+
+  <!-- Footer Navigation -->
+  <div class="panel-footer text-center">
+    <button type="button" class="btn btn-default btn-sm" ng-click="c.goBack()">
+      <i class="fa fa-arrow-left"></i> Back to Express Intake
+    </button>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sp_widget_8b1c688851bac3107f4405bb1590ec14</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function($scope, $window, $sce) {
+  var c = this;
+
+  // Trust resource URL for angular iframe execution
+  if (c.data.rawChatUrl) {
+    c.data.chatIframeUrl = $sce.trustAsResourceUrl(c.data.rawChatUrl);
+  }
+
+  c.goBack = function() {
+    var returnUrl = "?id=guest_concierge" +
+      "&amp;hotel_name=" + encodeURIComponent(c.data.hotelName || "") +
+      "&amp;city=" + encodeURIComponent(c.data.city || "") +
+      "&amp;country=" + encodeURIComponent(c.data.country || "") +
+      "&amp;room_id=" + encodeURIComponent(c.data.roomNumber || "") +
+      "&amp;guest_name=" + encodeURIComponent(c.data.guestName || "");
+
+    $window.location.href = returnUrl;
+  };
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;/* Container Box */&amp;#13;
+.chat-container {&amp;#13;
+  max-width: 650px;&amp;#13;
+  margin: 20px auto;&amp;#13;
+  border-radius: 10px;&amp;#13;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);&amp;#13;
+  overflow: hidden;&amp;#13;
+  border: 1px solid #e3e8ee;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* Header */&amp;#13;
+.panel-heading {&amp;#13;
+  background-color: #2c3e50 !important;&amp;#13;
+  color: #ffffff !important;&amp;#13;
+  padding: 15px 20px;&amp;#13;
+  border-bottom: none;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.panel-heading h3 {&amp;#13;
+  margin: 0 0 5px 0;&amp;#13;
+  color: #ffffff;&amp;#13;
+  font-weight: 600;&amp;#13;
+  font-size: 18px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.panel-heading p {&amp;#13;
+  margin: 0;&amp;#13;
+  opacity: 0.9;&amp;#13;
+  font-size: 13px;&amp;#13;
+  color: #cbd5e0;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* Force Body to render height properly */&amp;#13;
+.chat-body {&amp;#13;
+  padding: 0 !important;&amp;#13;
+  height: 550px !important;&amp;#13;
+  min-height: 550px !important;&amp;#13;
+  background-color: #ffffff;&amp;#13;
+  position: relative;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* Responsive Iframe */&amp;#13;
+.chat-iframe {&amp;#13;
+  width: 100% !important;&amp;#13;
+  height: 100% !important;&amp;#13;
+  min-height: 550px !important;&amp;#13;
+  border: none !important;&amp;#13;
+  display: block;&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* Mobile Screen Adjustment */&amp;#13;
+@media (max-width: 768px) {&amp;#13;
+  .chat-container {&amp;#13;
+    margin: 10px auto;&amp;#13;
+    width: 95%;&amp;#13;
+  }&amp;#13;
+  .chat-body, .chat-iframe {&amp;#13;
+    height: 480px !important;&amp;#13;
+    min-height: 480px !important;&amp;#13;
+  }&amp;#13;
+}&amp;#13;
+&amp;#13;
+/* Footer */&amp;#13;
+.panel-footer {&amp;#13;
+  background-color: #f8f9fa;&amp;#13;
+  border-top: 1px solid #edf2f7;&amp;#13;
+  padding: 12px 20px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.panel-footer .btn-default {&amp;#13;
+  background-color: #ffffff;&amp;#13;
+  border-color: #cbd5e0;&amp;#13;
+  color: #4a5568;&amp;#13;
+  font-weight: 500;&amp;#13;
+  border-radius: 6px;&amp;#13;
+  padding: 6px 16px;&amp;#13;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;guest_ai_chat_widget&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Guest AI Chat Widget&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  options.public = true;
+
+  data.hotelName = $sp.getParameter('hotel_name') || "Grand Hyatt";
+  data.city = $sp.getParameter('city') || "San Diego";
+  data.country = $sp.getParameter('country') || "USA";
+  data.roomNumber = $sp.getParameter('room_id') || "Room 402";
+  data.guestName = $sp.getParameter('guest_name') || "Valued Guest";
+
+  var topicSysId = "9728a04051bac3107f4405bb1590ecdc";
+
+  // Public Virtual Agent Web Client URL with Portal context and topic binding
+  data.rawChatUrl = "/$sn-va-web-client-app.do" +
+    "?sysparm_topic=" + topicSysId +
+    "&amp;sysparm_portal=sp" +
+    "&amp;sysparm_anonymous=true" +
+    "&amp;sysparm_skip_load_history=true";
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-08-14 09:19:18&lt;/sys_created_on&gt;&lt;sys_id&gt;8b1c688851bac3107f4405bb1590ec14&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;Guest AI Chat Widget&lt;/sys_name&gt;&lt;sys_package display_value="FlowOps" source="x_snc_flowops"&gt;0b213ef1f86203107f4454db1f4116d5&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="FlowOps"&gt;0b213ef1f86203107f4454db1f4116d5&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_8b1c688851bac3107f4405bb1590ec14&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-08-14 10:02:13&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="panel panel-default chat-container"&gt;
+  &lt;!-- Header with Hotel Context --&gt;
+  &lt;div class="panel-heading text-center"&gt;
+    &lt;h3&gt;{{c.data.hotelName}} AI Concierge&lt;/h3&gt;
+    &lt;p&gt;
+      Room: &lt;strong&gt;{{c.data.roomNumber}}&lt;/strong&gt; 
+      &lt;span ng-if="c.data.guestName != 'Valued Guest'"&gt;| Guest: &lt;strong&gt;{{c.data.guestName}}&lt;/strong&gt;&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Chat Body Container --&gt;
+  &lt;div class="panel-body chat-body"&gt;
+    &lt;iframe 
+      id="vaFrame" 
+      ng-src="{{c.data.chatIframeUrl}}" 
+      class="chat-iframe"
+      allow="microphone; clipboard-write; autoplay"&gt;
+    &lt;/iframe&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Footer Navigation --&gt;
+  &lt;div class="panel-footer text-center"&gt;
+    &lt;button type="button" class="btn btn-default btn-sm" ng-click="c.goBack()"&gt;
+      &lt;i class="fa fa-arrow-left"&gt;&lt;/i&gt; Back to Express Intake
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1729936726</payload_hash>
+        <record_name>Guest AI Chat Widget</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 10:02:13</sys_created_on>
+        <sys_id>eb46300c513ec3107f4405bb1590ec17</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fffb8e00b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 10:02:13</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>2346300c7c3ec310f0b5aac877e48a17</update_guid>
+        <update_guid_history>2346300c7c3ec310f0b5aac877e48a17:-1729936726,a7f3bc40fb3ec3104cd7220054e44bad:-702654209,dae2708c2cfac310716d23e20315e6c5:-1096324398,e6d1b448a1fac310ac1e467b29520f82:-548436142,ce1d2c0c85bac31072a47d94acec07d2:185919192,767c24c86abac31047b2f5ebd91289e4:-1254083277</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Guest AI Chat Widget">986a7c4051bec3107f4405bb1590ecc9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-14 10:20:03</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>4b8ec8999eee466ab8fbcb5fbb0bd231</sys_id>
+        <sys_metadata>8b1c688851bac3107f4405bb1590ec14</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Guest AI Chat Widget</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sp_widget_8b1c688851bac3107f4405bb1590ec14</sys_update_name>
+        <sys_update_version display_value="sp_widget_8b1c688851bac3107f4405bb1590ec14">eb46300c513ec3107f4405bb1590ec17</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-14 10:20:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

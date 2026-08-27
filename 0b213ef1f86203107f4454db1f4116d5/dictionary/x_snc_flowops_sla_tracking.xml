@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="0dde76cff46203107f4449f11fe1eb91" label="SLA Tracking" max_length="40" name="x_snc_flowops_sla_tracking" type="collection">
+        <element label="Actual Completion Time" max_length="40" name="actual_completion_time" type="glide_date_time"/>
+        <element label="Related Record" max_length="50" name="related_record" type="string"/>
+        <element label="Related Table" max_length="50" name="related_table" type="string"/>
+        <element label="Breached" max_length="40" name="breached" type="boolean"/>
+        <element label="SLA Definition" max_length="32" name="sla_definition" reference="x_snc_flowops_sla_defination" type="reference"/>
+        <element label="Start Time" max_length="40" name="start_time" type="glide_date_time"/>
+        <element label="Due Time" max_length="40" name="due_time" type="glide_date_time"/>
+        <index name="index">
+            <element name="sla_definition"/>
+        </index>
+    </element>
+</database>

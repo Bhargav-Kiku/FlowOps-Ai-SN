@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="299e419dd93a03107f443e2d1c060d3d" sys_domain="global" table="x_snc_flowops_guest_request" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-18 09:00:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fd9e419dd93a03107f443e2d1c060d80</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_snc_flowops_guest_request" name="x_snc_flowops_guest_request" sys_domain="global" view="dd6e895dd93a03107f443e2d1c060d0c">299e419dd93a03107f443e2d1c060d3d</sys_ui_form>
+            <sys_ui_section caption="x_snc_flowops_guest_request" display_value="x_snc_flowops_guest_request" name="x_snc_flowops_guest_request" sys_domain="global" view="dd6e895dd93a03107f443e2d1c060d0c">dd6e895dd93a03107f443e2d1c060dc1</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-18 09:00:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_snc_flowops_guest_request</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-08-18 09:00:43</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>299e419dd93a03107f443e2d1c060d3d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_flowops_guest_request</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+            <sys_update_name>sys_ui_form_sections_299e419dd93a03107f443e2d1c060d3d</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-08-18 09:00:43</sys_updated_on>
+            <sys_user/>
+            <view display_value="Front Desk" name="Front_Desk">dd6e895dd93a03107f443e2d1c060d0c</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

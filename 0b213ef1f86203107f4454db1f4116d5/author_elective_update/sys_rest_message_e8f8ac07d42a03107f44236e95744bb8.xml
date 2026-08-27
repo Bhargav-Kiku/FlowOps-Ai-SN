@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message">
+    <sys_rest_message action="DELETE">
+        <access>package_private</access>
+        <authentication_type>no_authentication</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <description>Engineering Agent is an autonomous maintenance coordination agent for FlowOps AI, a ServiceNow application supporting a 35-property luxury hotel chain. It receives unstructured maintenance and equipment complaints from guests and staff, identifies the relevant property, room, and asset, classifies the issue and priority, creates a structured work order, and automatically assigns it to the most suitable available technician based on skill, property, expertise, and workload. If no qualified technician is available, it escalates the work order for supervisor review. The agent handles only building maintenance and equipment-related issues and does not process housekeeping, vendor coordination, or general guest-service requests.</description>
+        <name>External Engineering Agent</name>
+        <oauth2_profile/>
+        <protocol_name/>
+        <rest_endpoint>https://accounts.google.com/b/0/AddMailService</rest_endpoint>
+        <sys_class_name>sys_rest_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 06:54:07</sys_created_on>
+        <sys_id>e8f8ac07d42a03107f44236e95744bb8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>External Engineering Agent</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_rest_message_e8f8ac07d42a03107f44236e95744bb8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 06:54:07</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sys_rest_message_e8f8ac07d42a03107f44236e95744bb8</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message"><sys_rest_message action="INSERT_OR_UPDATE"><access>package_private</access><authentication_type>no_authentication</authentication_type><basic_auth_password/><basic_auth_profile/><basic_auth_user/><description>Engineering Agent is an autonomous maintenance coordination agent for FlowOps AI, a ServiceNow application supporting a 35-property luxury hotel chain. It receives unstructured maintenance and equipment complaints from guests and staff, identifies the relevant property, room, and asset, classifies the issue and priority, creates a structured work order, and automatically assigns it to the most suitable available technician based on skill, property, expertise, and workload. If no qualified technician is available, it escalates the work order for supervisor review. The agent handles only building maintenance and equipment-related issues and does not process housekeeping, vendor coordination, or general guest-service requests.</description><name>External Engineering Agent</name><oauth2_profile/><protocol_name/><rest_endpoint>https://accounts.google.com/b/0/AddMailService</rest_endpoint><sys_class_name>sys_rest_message</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-11 06:54:07</sys_created_on><sys_id>e8f8ac07d42a03107f44236e95744bb8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>External Engineering Agent</sys_name><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>sys_rest_message_e8f8ac07d42a03107f44236e95744bb8</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-11 06:54:07</sys_updated_on><use_basic_auth>false</use_basic_auth><use_mutual_auth>false</use_mutual_auth></sys_rest_message></record_update>]]></payload>
+        <payload_hash>1857559797</payload_hash>
+        <record_name>External Engineering Agent</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-11 06:54:08</sys_created_on>
+        <sys_id>0b7e6c8fd42a03107f44236e95744b2f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fef9996a30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-11 06:54:08</sys_updated_on>
+        <type>REST Message</type>
+        <update_guid>0b7e6c8f562a031039ec307c200ffc2e</update_guid>
+        <update_guid_history>0b7e6c8f562a031039ec307c200ffc2e:1857559797</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-13 17:59:03</sys_created_on>
+        <sys_db_object display_value="" name="sys_rest_message">sys_rest_message</sys_db_object>
+        <sys_id>3d8f8b91c0a942b88edc609347544e04</sys_id>
+        <sys_metadata>e8f8ac07d42a03107f44236e95744bb8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>External Engineering Agent</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sys_rest_message_e8f8ac07d42a03107f44236e95744bb8</sys_update_name>
+        <sys_update_version display_value="sys_rest_message_e8f8ac07d42a03107f44236e95744bb8">0b7e6c8fd42a03107f44236e95744b2f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-13 17:59:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

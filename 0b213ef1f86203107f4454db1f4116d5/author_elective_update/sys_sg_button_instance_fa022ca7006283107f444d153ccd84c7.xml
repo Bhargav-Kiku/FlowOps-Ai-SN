@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="DELETE">
+        <active>true</active>
+        <button display_value="Housekeeping Complete Task">c63028a3006283107f444d153ccd8458</button>
+        <color_theme/>
+        <description/>
+        <disable_offline>false</disable_offline>
+        <field_name/>
+        <icon/>
+        <label>Done</label>
+        <location>top</location>
+        <name>Complete Task</name>
+        <order/>
+        <parent>ccc34c6f002e43107f444d153ccd842b</parent>
+        <parent_table>sys_sg_form_screen</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 19:16:44</sys_created_on>
+        <sys_id>fa022ca7006283107f444d153ccd84c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Complete Task</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_update_name>sys_sg_button_instance_fa022ca7006283107f444d153ccd84c7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 19:16:44</sys_updated_on>
+        <table/>
+    </sys_sg_button_instance>
+    <sys_translated_text action="DELETE" query="documentkey=fa022ca7006283107f444d153ccd84c7"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</application>
+        <file_path/>
+        <instance_id>93b1043093560750fb38f8284dba10ad</instance_id>
+        <instance_name>dlt-hck-8017-0036</instance_name>
+        <name>sys_sg_button_instance_fa022ca7006283107f444d153ccd84c7</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance"><sys_sg_button_instance action="INSERT_OR_UPDATE"><active>true</active><button display_value="Housekeeping Complete Task">c63028a3006283107f444d153ccd8458</button><color_theme/><description/><disable_offline>false</disable_offline><field_name/><icon/><label>Done</label><location>top</location><name>Complete Task</name><order/><parent>ccc34c6f002e43107f444d153ccd842b</parent><parent_table>sys_sg_form_screen</parent_table><sys_class_name>sys_sg_button_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-12 19:16:44</sys_created_on><sys_id>fa022ca7006283107f444d153ccd84c7</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Complete Task</sys_name><sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package><sys_policy/><sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope><sys_update_name>sys_sg_button_instance_fa022ca7006283107f444d153ccd84c7</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-12 19:16:44</sys_updated_on><table/></sys_sg_button_instance><sys_translated_text action="delete_multiple" query="documentkey=fa022ca7006283107f444d153ccd84c7"/></record_update>]]></payload>
+        <payload_hash>1576585332</payload_hash>
+        <record_name>Complete Task</record_name>
+        <reverted_from/>
+        <source>4b213ef1f86203107f4454db1f4116db</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-12 19:16:44</sys_created_on>
+        <sys_id>fe022ca7006283107f444d153ccd84ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19ff767d1ac0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-12 19:16:44</sys_updated_on>
+        <type>Function instance</type>
+        <update_guid>fe022ca7796283104eb7eefbb6eefbc9</update_guid>
+        <update_guid_history>fe022ca7796283104eb7eefbb6eefbc9:1576585332</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-13 07:56:56</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_button_instance">sys_sg_button_instance</sys_db_object>
+        <sys_id>0a7537ab0c5d4d9480d5bab4ae10c590</sys_id>
+        <sys_metadata>fa022ca7006283107f444d153ccd84c7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Complete Task</sys_name>
+        <sys_package display_value="FlowOps" source="x_snc_flowops">0b213ef1f86203107f4454db1f4116d5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="FlowOps">0b213ef1f86203107f4454db1f4116d5</sys_scope>
+        <sys_scope_delete display_value="">03d02ef390524238a81d8ea69f61b240</sys_scope_delete>
+        <sys_update_name>sys_sg_button_instance_fa022ca7006283107f444d153ccd84c7</sys_update_name>
+        <sys_update_version display_value="sys_sg_button_instance_fa022ca7006283107f444d153ccd84c7">fe022ca7006283107f444d153ccd84ca</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-13 07:56:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
