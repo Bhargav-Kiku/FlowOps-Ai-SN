@@ -5,7 +5,7 @@
         <element label="Resolved On" max_length="40" name="resolved_on" read_only="true" read_only_option="display_read_only" type="glide_date_time"/>
         <element label="Raw Text" mandatory="true" max_length="350" name="raw_text" type="string"/>
         <element label="Work Notes" max_length="40" name="work_notes" type="journal"/>
-        <element choice="1" label="Channel" mandatory="true" max_length="40" name="channel" type="choice">
+        <element choice="1" label="Channel" max_length="40" name="channel" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Workspace" sequence="2" value="workspace"/>
                 <element inactive_on_update="false" label="Virtual Agent" sequence="0" value="virtual_agent"/>
